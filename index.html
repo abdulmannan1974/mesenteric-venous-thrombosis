@@ -40,7 +40,7 @@ html[data-theme="dark"]{
   --lvl-a:#6aaef0; --lvl-b:#8cc4f7; --lvl-c:#a8c2da;
 }
 *,*::before,*::after{box-sizing:border-box}
-html{scroll-behavior:smooth;scroll-padding-top:92px;-webkit-text-size-adjust:100%}
+html{scroll-behavior:smooth;scroll-padding-top:0;-webkit-text-size-adjust:100%}
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{animation-duration:.01ms!important;transition-duration:.01ms!important}}
 body{margin:0;background:var(--bg);color:var(--ink-1);font-family:var(--sans);font-size:16px;line-height:1.65;
   -webkit-font-smoothing:antialiased;overflow-x:hidden}
@@ -103,8 +103,8 @@ em{font-style:italic}
 /* ── MAIN ── */
 main{margin-left:var(--sidebar);padding:60px 0 0}
 .wrap{max-width:var(--maxw);margin:0 auto;padding:0 40px}
-section.kb{padding:64px 0 10px;scroll-margin-top:84px}
-section.kb:first-of-type{padding-top:44px}
+section.kb{padding:64px 0 10px;scroll-margin-top:14px}
+section.kb:first-of-type{padding-top:44px;scroll-margin-top:34px}
 .sec-head{display:flex;align-items:baseline;gap:13px;margin-bottom:10px}
 .sec-num{font:800 11px var(--mono);color:var(--blue);letter-spacing:.14em;background:color-mix(in srgb,var(--blue) 9%,transparent);
   padding:4px 9px;border-radius:5px;flex:none}
@@ -415,7 +415,8 @@ footer.kbfoot a{color:var(--cyan)}
   .algo-row{grid-template-columns:1fr}
   footer.kbfoot .wrap{grid-template-columns:1fr}
   .brand small{display:none}
-  section.kb{padding:46px 0 6px}
+  section.kb{padding:46px 0 6px;scroll-margin-top:32px}
+  section.kb:first-of-type{scroll-margin-top:34px}
 }
 @media (max-width:520px){
   .wrap{padding:0 18px}
@@ -1875,7 +1876,8 @@ function onScroll(){
   readbar.style.width=(h>0?Math.min(100,(y/h)*100):0)+'%';
   toTop.classList.toggle('show',y>700);
   let cur=sections[0];
-  for(const s of sections){ if(s.getBoundingClientRect().top<=140) cur=s; }
+  for(const s of sections){ if(s.getBoundingClientRect().top<=150) cur=s; }
+  if(y+window.innerHeight>=document.documentElement.scrollHeight-4) cur=sections[sections.length-1];
   navLinks.forEach(a=>a.classList.toggle('active',a.getAttribute('href')==='#'+cur.id));
   ticking=false;
 }
@@ -1928,7 +1930,7 @@ function go(id){
   closeSearch();
   const el=document.getElementById(id);
   if(!el) return;
-  const top=el.getBoundingClientRect().top+window.scrollY-110;
+  const top=el.getBoundingClientRect().top+window.scrollY-96;
   window.scrollTo({top:top,behavior:'smooth'});
   el.classList.remove('flash'); void el.offsetWidth; el.classList.add('flash');
   const d=el.closest('details.viva'); if(d) d.open=true;
