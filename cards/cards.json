@@ -1,0 +1,1110 @@
+{
+ "decks": [
+  {
+   "id": "def",
+   "name": "Definitions",
+   "tag": "Words that mean different things",
+   "g1": "#3730a3",
+   "g2": "#4f46e5",
+   "ink": "#ffffff"
+  },
+  {
+   "id": "epi",
+   "name": "Epidemiology",
+   "tag": "The numbers worth memorising",
+   "g1": "#115e59",
+   "g2": "#0f766e",
+   "ink": "#ffffff"
+  },
+  {
+   "id": "aet",
+   "name": "Risk factors",
+   "tag": "Why it happened",
+   "g1": "#fb923c",
+   "g2": "#f97316",
+   "ink": "#1c1917"
+  },
+  {
+   "id": "haem",
+   "name": "Haematology workup",
+   "tag": "JAK2, thrombophilia, APS",
+   "g1": "#5b21b6",
+   "g2": "#7c3aed",
+   "ink": "#ffffff"
+  },
+  {
+   "id": "pres",
+   "name": "Presentation",
+   "tag": "Pain first, peritonism late",
+   "g1": "#9d174d",
+   "g2": "#be185d",
+   "ink": "#ffffff"
+  },
+  {
+   "id": "dx",
+   "name": "Diagnosis & imaging",
+   "tag": "One test decides it",
+   "g1": "#075985",
+   "g2": "#0369a1",
+   "ink": "#ffffff"
+  },
+  {
+   "id": "acute",
+   "name": "Acute management",
+   "tag": "Heparin first, then watch",
+   "g1": "#4ade80",
+   "g2": "#22c55e",
+   "ink": "#052e16"
+  },
+  {
+   "id": "esc",
+   "name": "Endovascular & surgery",
+   "tag": "When heparin is not enough",
+   "g1": "#991b1b",
+   "g2": "#dc2626",
+   "ink": "#ffffff"
+  },
+  {
+   "id": "dur",
+   "name": "Anticoagulation duration",
+   "tag": "Months, extended, or for life",
+   "g1": "#fbbf24",
+   "g2": "#f59e0b",
+   "ink": "#1c1917"
+  },
+  {
+   "id": "ev",
+   "name": "Evidence numbers",
+   "tag": "Rates, ratios and trials",
+   "g1": "#1e3a8a",
+   "g2": "#1d4ed8",
+   "ink": "#ffffff"
+  },
+  {
+   "id": "rec",
+   "name": "Recommendations",
+   "tag": "Class, level and exact wording",
+   "g1": "#065f46",
+   "g2": "#047857",
+   "ink": "#ffffff"
+  },
+  {
+   "id": "trap",
+   "name": "Traps",
+   "tag": "Where clinicians go wrong",
+   "g1": "#0f172a",
+   "g2": "#334155",
+   "ink": "#ffffff"
+  }
+ ],
+ "cards": [
+  {
+   "d": "def",
+   "q": "What is the working definition of mesenteric venous thrombosis (MVT)?",
+   "a": "Thrombosis within the <b>superior mesenteric vein</b>, with or without extension into the <b>portal or splenic vein</b>.",
+   "x": "Acute MVT may occur with obstruction of the SMV, IMV, splenic vein or portal vein.",
+   "s": "ESVS 2025 §7.1",
+   "id": "def-000"
+  },
+  {
+   "d": "def",
+   "q": "Which venous segments are most often involved together?",
+   "a": "<b>Portal vein + SMV</b> most often, followed by the <b>splenic vein</b> and <b>inferior mesenteric vein</b>.",
+   "x": "Concomitant involvement of more than one venous segment is frequent.",
+   "s": "ESVS 2025 §7.1",
+   "id": "def-001"
+  },
+  {
+   "d": "def",
+   "q": "What defines <u>acute</u> MVT (AMVT)?",
+   "a": "Symptom onset <b>within four weeks</b> of presentation.",
+   "x": "The four-week cut-off is explicitly arbitrary.",
+   "s": "ESVS 2025 §7.3.3",
+   "id": "def-002"
+  },
+  {
+   "d": "def",
+   "q": "What defines <u>chronic</u> MVT (CMVT)?",
+   "a": "Symptoms for <b>more than four weeks without bowel infarction</b> — or MVT found <b>incidentally</b> on imaging.",
+   "x": "",
+   "s": "ESVS 2025 §7.3.3",
+   "id": "def-003"
+  },
+  {
+   "d": "def",
+   "q": "What is venous mesenteric ischaemia (VMI)?",
+   "a": "The <b>acute onset of symptoms in the presence of AMVT</b>.",
+   "x": "This clinical entity, not the radiological clot, is the main focus of the guideline.",
+   "s": "ESVS 2025 §7.1",
+   "id": "def-004"
+  },
+  {
+   "d": "def",
+   "q": "Are acute and chronic MVT different diseases?",
+   "a": "No — <b>successive stages of the same disease</b> with the same causes, but they need <b>different management</b>.",
+   "x": "",
+   "s": "ESVS 2025 §7.3.3",
+   "id": "def-005"
+  },
+  {
+   "d": "def",
+   "q": "Name the four conditions ESVS Chapter 7 explicitly <u>excludes</u>.",
+   "a": "<b>Budd–Chiari</b> (± cirrhosis) · <b>isolated portal vein obstruction</b> · <b>sinusoidal obstruction</b> (hepatic veno-occlusive disease) · <b>hepatic disorders from heart failure or chemotherapy</b>.",
+   "x": "",
+   "s": "ESVS 2025 §7.1",
+   "id": "def-006"
+  },
+  {
+   "d": "def",
+   "q": "ESVS class wording: I, IIa, IIb, IIIa, IIIb?",
+   "a": "I = <b>is recommended</b> · IIa = <b>should be considered</b> · IIb = <b>may be considered</b> · IIIa = <b>is not indicated</b> · IIIb = <b>is not recommended</b>.",
+   "x": "",
+   "s": "ESVS 2025 Table 2",
+   "id": "def-007"
+  },
+  {
+   "d": "def",
+   "q": "What does ESVS <b>Level C</b> evidence mean?",
+   "a": "<b>Consensus</b> of experts, <b>low-quality studies</b> (small retrospective series, case series), or a meta-analysis of such studies.",
+   "x": "",
+   "s": "ESVS 2025 Table 3",
+   "id": "def-008"
+  },
+  {
+   "d": "def",
+   "q": "How many of the 11 MVT recommendations reach Level B?",
+   "a": "<b>Two</b> — Rec 46 (investigate the cause) and Rec 52 (three to six months of anticoagulation).",
+   "x": "The other nine are Level C. None is Level A.",
+   "s": "ESVS 2025 §7",
+   "id": "def-009"
+  },
+  {
+   "d": "epi",
+   "q": "What share of all acute mesenteric ischaemia is due to AMVT?",
+   "a": "<b>11.5%</b> (95% CI 9–14%).",
+   "x": "It is the least common cause of acute mesenteric ischaemia.",
+   "s": "ESVS 2025 §7.2 · Tamme 2022",
+   "id": "epi-010"
+  },
+  {
+   "d": "epi",
+   "q": "How often does AMVT appear among emergency department admissions?",
+   "a": "About <b>1 in 1000</b> emergency department admissions.",
+   "x": "",
+   "s": "ESVS 2025 §7.2 · Tamme 2022",
+   "id": "epi-011"
+  },
+  {
+   "d": "epi",
+   "q": "Incidence of VMI in the Swedish population study?",
+   "a": "<b>2.7 per 100 000</b> person-years.",
+   "x": "402 patients, with an autopsy rate of 87%.",
+   "s": "ESVS 2025 §7.2 · Acosta 2010",
+   "id": "epi-012"
+  },
+  {
+   "d": "epi",
+   "q": "Incidence of VMI in Finland?",
+   "a": "<b>0.5 per 100 000</b> person-years.",
+   "x": "Compare Sweden's autopsy-based figure of 2.7 per 100 000.",
+   "s": "ESVS 2025 §7.2 · Kärkkäinen 2015",
+   "id": "epi-013"
+  },
+  {
+   "d": "epi",
+   "q": "Mean age and sex distribution at presentation?",
+   "a": "Mean age <b>45–62 years</b>; only <b>34.3% female</b> (95% CI 30.5–38.5%).",
+   "x": "A male-predominant disease.",
+   "s": "ESVS 2025 §7.2 · Acosta & Salim 2021",
+   "id": "epi-014"
+  },
+  {
+   "d": "epi",
+   "q": "What is the current in-hospital mortality of AMVT?",
+   "a": "Around <b>10%</b>.",
+   "x": "It has fallen over recent decades.",
+   "s": "ESVS 2025 §7.5",
+   "id": "epi-015"
+  },
+  {
+   "d": "epi",
+   "q": "Mortality: AMVT vs acute arterial AMI vs NOMI?",
+   "a": "<b>~10%</b> vs <b>~50%</b> vs <b>~70%</b>.",
+   "x": "MVT is by far the most survivable of the three.",
+   "s": "ESVS 2025 §5, §6, §7.5",
+   "id": "epi-016"
+  },
+  {
+   "d": "epi",
+   "q": "In the AMESI study, what proportion of adult admissions were acute VMI?",
+   "a": "<b>0.004%</b> (95% CI 0.002–0.007%).",
+   "x": "A worldwide multicentre prospective observational study.",
+   "s": "ESVS 2025 §7.2 · AMESI 2024",
+   "id": "epi-017"
+  },
+  {
+   "d": "aet",
+   "q": "On thorough investigation, how many MVT patients have a <u>systemic</u> prothrombotic factor?",
+   "a": "About <b>60–70%</b>.",
+   "x": "",
+   "s": "ESVS 2025 §7.3.1",
+   "id": "aet-018"
+  },
+  {
+   "d": "aet",
+   "q": "How many MVT patients have a <u>local</u> triggering factor?",
+   "a": "<b>30–40%</b>.",
+   "x": "",
+   "s": "ESVS 2025 §7.3.1",
+   "id": "aet-019"
+  },
+  {
+   "d": "aet",
+   "q": "How many MVT cases remain unprovoked (idiopathic)?",
+   "a": "<b>20–30%</b>.",
+   "x": "",
+   "s": "ESVS 2025 §7.3.1",
+   "id": "aet-020"
+  },
+  {
+   "d": "aet",
+   "q": "Name the three <u>permanent</u> risk factors ESVS lists for MVT.",
+   "a": "<b>Solid cancer</b> · <b>liver cirrhosis</b> · <b>myeloproliferative disease</b>.",
+   "x": "",
+   "s": "ESVS 2025 §7.3.1",
+   "id": "aet-021"
+  },
+  {
+   "d": "aet",
+   "q": "Name the four <u>transient</u> risk factors ESVS lists for MVT.",
+   "a": "<b>Abdominal inflammation or infection</b> · <b>recent surgery</b> · <b>hormonal therapy</b> · <b>trauma</b>.",
+   "x": "",
+   "s": "ESVS 2025 §7.3.1",
+   "id": "aet-022"
+  },
+  {
+   "d": "aet",
+   "q": "Pooled prevalences (1725 patients): cirrhosis/portal hypertension, liver disease, pancreatitis, IBD?",
+   "a": "Cirrhosis/PHT <b>28.8%</b> · liver disease <b>27.8%</b> · pancreatitis <b>11.1%</b> · IBD <b>10.0%</b>.",
+   "x": "",
+   "s": "ESVS 2025 §7.3.1 · Wu 2023",
+   "id": "aet-023"
+  },
+  {
+   "d": "aet",
+   "q": "Which inherited thrombophilias are over-represented in MVT (systematic review of 14 studies)?",
+   "a": "<b>Prothrombin G20210A</b>, <b>antithrombin deficiency</b> and <b>protein S deficiency</b>.",
+   "x": "Higher than in both the general population and patients with a single VTE elsewhere.",
+   "s": "ESVS 2025 §7.3.1 · Zarrouk 2017",
+   "id": "aet-024"
+  },
+  {
+   "d": "aet",
+   "q": "Which two infections are linked to AMVT?",
+   "a": "<b>Cytomegalovirus</b> and <b>severe SARS-CoV-2</b>.",
+   "x": "CMV may act synergistically with a prothrombin G20210A mutation.",
+   "s": "ESVS 2025 §7.3.2",
+   "id": "aet-025"
+  },
+  {
+   "d": "haem",
+   "q": "What is the <i>JAK2</i> mutation prevalence in AMVT?",
+   "a": "<b>32.7%</b> (95% CI 25.5–35.9%) — against about <b>1%</b> in VTE at other sites.",
+   "x": "",
+   "s": "ESVS 2025 §7.3.1 · Dentali 2009",
+   "id": "haem-026"
+  },
+  {
+   "d": "haem",
+   "q": "What is the odds ratio for the association between <i>JAK2</i> and MVT?",
+   "a": "<b>OR 53.9</b> (95% CI 13.1–222.5).",
+   "x": "A very large association, measured imprecisely.",
+   "s": "ESVS 2025 §7.3.1 · Dentali 2009",
+   "id": "haem-027"
+  },
+  {
+   "d": "haem",
+   "q": "Of MVT patients carrying <i>JAK2</i>, how many were later diagnosed with an MPN?",
+   "a": "<b>52%</b> (95% CI 38–67%) — with MVT as the <b>first manifestation</b>.",
+   "x": "",
+   "s": "ESVS 2025 §7.3.1 · Dentali 2009",
+   "id": "haem-028"
+  },
+  {
+   "d": "haem",
+   "q": "When does ESVS say to screen for <i>JAK2</i> V617F?",
+   "a": "In MVT <b>without evidence of other major systemic or local risk factors</b>.",
+   "x": "",
+   "s": "ESVS 2025 §7.3.1",
+   "id": "haem-029"
+  },
+  {
+   "d": "haem",
+   "q": "Which myeloproliferative neoplasms commonly present first with AMVT?",
+   "a": "<b>Polycythaemia vera</b> and <b>essential thrombocythaemia</b>.",
+   "x": "",
+   "s": "ESVS 2025 §7.3.1",
+   "id": "haem-030"
+  },
+  {
+   "d": "haem",
+   "q": "Who should be tested for thrombophilia after AMVT?",
+   "a": "<b>Selected</b> patients who will <b>stop anticoagulation after three to six months</b>.",
+   "x": "Rec 48 · Class IIb, Level C.",
+   "s": "ESVS 2025 Rec 48",
+   "id": "haem-031"
+  },
+  {
+   "d": "haem",
+   "q": "MVT plus another indication for lifelong anticoagulation (e.g. AF). Test for thrombophilia?",
+   "a": "<b>No</b> — there is no indication, because the result cannot change management.",
+   "x": "",
+   "s": "ESVS 2025 §7.3.2",
+   "id": "haem-032"
+  },
+  {
+   "d": "haem",
+   "q": "Who should be investigated for antiphospholipid syndrome?",
+   "a": "Patients with <b>recurrent MVT and recurrent foetal loss</b>.",
+   "x": "Rec 47 · Class IIa, Level C.",
+   "s": "ESVS 2025 Rec 47",
+   "id": "haem-033"
+  },
+  {
+   "d": "haem",
+   "q": "Which assays does ESVS list for APS and thrombophilia testing?",
+   "a": "<b>Lupus anticoagulant</b>, <b>anticardiolipin</b>, <b>β2-glycoprotein</b> antibodies; <b>antithrombin</b>, <b>protein C</b>, <b>protein S</b>.",
+   "x": "",
+   "s": "ESVS 2025 §7.3.2",
+   "id": "haem-034"
+  },
+  {
+   "d": "haem",
+   "q": "What does ASH 2023 advise on thrombophilia testing in MVT?",
+   "a": "<b>Conditional testing</b> for patients who would stop anticoagulation after three to six months.",
+   "x": "Very low certainty of evidence about effects.",
+   "s": "ESVS 2025 §7.3.2 · Middeldorp 2023",
+   "id": "haem-035"
+  },
+  {
+   "d": "haem",
+   "q": "Is there a reliable biomarker for MVT?",
+   "a": "<b>No.</b> A single lactate or D-dimer to confirm or exclude acute mesenteric ischaemia is <b>Class IIIb — not recommended</b>.",
+   "x": "",
+   "s": "ESVS 2025 §7.3.2 · Recs 31, 42",
+   "id": "haem-036"
+  },
+  {
+   "d": "haem",
+   "q": "How did the D-dimer advice change from 2017 to 2025?",
+   "a": "2017 recommended D-dimer to <b>rule out</b> AMI. 2025 is <b>Class IIIb against</b> any single biomarker to confirm or exclude it.",
+   "x": "",
+   "s": "ESVS 2025 · What is new",
+   "id": "haem-037"
+  },
+  {
+   "d": "pres",
+   "q": "What is the mean duration of symptoms at presentation in AMVT?",
+   "a": "<b>6–14 days</b>.",
+   "x": "",
+   "s": "ESVS 2025 §7.3.3",
+   "id": "pres-038"
+  },
+  {
+   "d": "pres",
+   "q": "In more than 75% of cases, how long do symptoms persist before diagnosis?",
+   "a": "<b>Two to three days</b>.",
+   "x": "",
+   "s": "ESVS 2025 §7.3.3",
+   "id": "pres-039"
+  },
+  {
+   "d": "pres",
+   "q": "What share of patients with SMV involvement are symptomatic?",
+   "a": "<b>92%</b> — in contrast to isolated portal vein thrombosis.",
+   "x": "",
+   "s": "ESVS 2025 §7.3.3",
+   "id": "pres-040"
+  },
+  {
+   "d": "pres",
+   "q": "Untreated SMV thrombosis: risk of haemorrhagic bowel infarction?",
+   "a": "<b>33–45%</b>.",
+   "x": "",
+   "s": "ESVS 2025 §7.3.3",
+   "id": "pres-041"
+  },
+  {
+   "d": "pres",
+   "q": "What are the most common symptoms of MVT?",
+   "a": "<b>Abdominal pain</b>, <b>anorexia</b> and <b>diarrhoea</b>.",
+   "x": "Pain is non-specific early; localised tenderness develops later.",
+   "s": "ESVS 2025 §7.3.3",
+   "id": "pres-042"
+  },
+  {
+   "d": "pres",
+   "q": "What do fever and peritoneal signs indicate in MVT?",
+   "a": "<b>Progression of ischaemia to bowel infarction.</b>",
+   "x": "They are the complication, not the presentation.",
+   "s": "ESVS 2025 §7.3.3",
+   "id": "pres-043"
+  },
+  {
+   "d": "pres",
+   "q": "What share of MVT presents acutely?",
+   "a": "<b>20–74%</b>, depending on the vein segment involved.",
+   "x": "Acute presentation is more common when the mesenteric veins are involved.",
+   "s": "ESVS 2025 §7.3.3",
+   "id": "pres-044"
+  },
+  {
+   "d": "pres",
+   "q": "What is pylephlebitis?",
+   "a": "<b>Infectious thrombophlebitis of the portal vein</b> and its branches — high fever, malaise, abdominal tenderness, sepsis.",
+   "x": "May come with liver abscesses; follows appendicitis, pancreatitis or diverticulitis.",
+   "s": "ESVS 2025 §7.3.3",
+   "id": "pres-045"
+  },
+  {
+   "d": "pres",
+   "q": "What is a portal cavernoma?",
+   "a": "Chronic MVT in which the <b>obstructed portal vein is replaced by a network of collateral veins</b>.",
+   "x": "Complete portal vein occlusion is virtually always associated with portal hypertension.",
+   "s": "ESVS 2025 §7.3.3",
+   "id": "pres-046"
+  },
+  {
+   "d": "pres",
+   "q": "What are the classical (but rare) presentations of a cavernoma?",
+   "a": "<b>Ruptured oesophageal or gastric varices</b>, or <b>portal cholangiopathy</b> — jaundice, cholangitis, cholecystitis, pancreatitis.",
+   "x": "",
+   "s": "ESVS 2025 §7.3.3",
+   "id": "pres-047"
+  },
+  {
+   "d": "dx",
+   "q": "What is the imaging investigation of choice for suspected MVT?",
+   "a": "<b>Contrast-enhanced CT</b> with <b>arterial and portal venous phases</b> (optional non-contrast run).",
+   "x": "",
+   "s": "ESVS 2025 §7.4 · Rec 49",
+   "id": "dx-048"
+  },
+  {
+   "d": "dx",
+   "q": "What slice thickness does the CTA protocol specify?",
+   "a": "Three-phase CTA with <b>1 mm maximum</b> slice thickness.",
+   "x": "",
+   "s": "ESVS 2025 §7.4",
+   "id": "dx-049"
+  },
+  {
+   "d": "dx",
+   "q": "Which CT phase shows the extent of the venous thrombosis?",
+   "a": "The <b>portal venous phase</b>.",
+   "x": "It also shows the secondary bowel findings.",
+   "s": "ESVS 2025 §7.4",
+   "id": "dx-050"
+  },
+  {
+   "d": "dx",
+   "q": "Name the five non-vascular CT findings to look for.",
+   "a": "<b>Bowel wall thickening</b> · <b>bowel dilatation</b> · <b>mesenteric fat stranding</b> · <b>pneumatosis intestinalis</b> · <b>portal venous gas</b>.",
+   "x": "",
+   "s": "ESVS 2025 §7.4",
+   "id": "dx-051"
+  },
+  {
+   "d": "dx",
+   "q": "Is duplex ultrasound enough to diagnose MVT?",
+   "a": "<b>No</b> — it cannot show the extent of thrombosis or the bowel changes, and <b>must be complemented by CT</b>.",
+   "x": "",
+   "s": "ESVS 2025 §7.4",
+   "id": "dx-052"
+  },
+  {
+   "d": "dx",
+   "q": "Why write \"?mesenteric ischaemia\" on the CT request?",
+   "a": "Stating the suspicion is associated with <b>better diagnosis and outcomes</b>.",
+   "x": "New Class I Rec 32.",
+   "s": "ESVS 2025 Rec 32",
+   "id": "dx-053"
+  },
+  {
+   "d": "dx",
+   "q": "Should CTA wait for renal function results?",
+   "a": "<b>No</b> — urgent CTA is recommended <b>regardless of renal function</b>.",
+   "x": "Rec 33 · Class I.",
+   "s": "ESVS 2025 Rec 33",
+   "id": "dx-054"
+  },
+  {
+   "d": "dx",
+   "q": "What is the hardest diagnostic judgement in AMVT?",
+   "a": "Telling <b>reversible from irreversible</b> intestinal ischaemia — notably difficult, <b>especially in AMVT</b>.",
+   "x": "",
+   "s": "ESVS 2025 §7.4",
+   "id": "dx-055"
+  },
+  {
+   "d": "acute",
+   "q": "What is the first-line treatment for every AMVT patient without a major contraindication?",
+   "a": "<b>Unfractionated or low molecular weight heparin.</b>",
+   "x": "Start soon after diagnosis.",
+   "s": "ESVS 2025 §7.5.1 · Rec 50",
+   "id": "acute-056"
+  },
+  {
+   "d": "acute",
+   "q": "Why is unfractionated heparin favoured in the acute phase?",
+   "a": "It can be <b>reversed with protamine</b> if laparotomy becomes necessary or bleeding occurs.",
+   "x": "",
+   "s": "ESVS 2025 §7.5.1",
+   "id": "acute-057"
+  },
+  {
+   "d": "acute",
+   "q": "How often does early anticoagulation achieve recanalisation?",
+   "a": "In <b>40–80%</b> of patients.",
+   "x": "Complete recanalisation is associated with less extensive thrombosis.",
+   "s": "ESVS 2025 §7.5.1",
+   "id": "acute-058"
+  },
+  {
+   "d": "acute",
+   "q": "What are the goals of treating AMVT?",
+   "a": "<b>Stop propagation</b> and <b>promote recanalisation</b> — to prevent bowel infarction, portal hypertension and recurrence.",
+   "x": "",
+   "s": "ESVS 2025 §7.5",
+   "id": "acute-059"
+  },
+  {
+   "d": "acute",
+   "q": "What extra goals apply in chronic MVT?",
+   "a": "Preventing and treating <b>GI bleeding</b> and <b>portal cholangiopathy</b>.",
+   "x": "",
+   "s": "ESVS 2025 §7.5",
+   "id": "acute-060"
+  },
+  {
+   "d": "acute",
+   "q": "What supportive care starts immediately?",
+   "a": "<b>Pain control</b>, <b>fluids and electrolytes</b>, <b>bowel rest</b>.",
+   "x": "Add NG aspiration for ileus or vomiting, transfusion for bleeding, parenteral nutrition.",
+   "s": "ESVS 2025 §7.5.2",
+   "id": "acute-061"
+  },
+  {
+   "d": "acute",
+   "q": "Are antibiotics routine in MVT?",
+   "a": "<b>No</b> — no mortality or length-of-stay benefit shown.",
+   "x": "Give them for perforation, sepsis from bacterial translocation, pylephlebitis or septic thrombophlebitis.",
+   "s": "ESVS 2025 §7.5.2",
+   "id": "acute-062"
+  },
+  {
+   "d": "acute",
+   "q": "What is the single decision point at presentation in the ESVS algorithm?",
+   "a": "<b>Peritonitis?</b> Yes → laparotomy. No → anticoagulation plus supportive care.",
+   "x": "",
+   "s": "ESVS 2025 Fig. 6",
+   "id": "acute-063"
+  },
+  {
+   "d": "acute",
+   "q": "Anatomically, when does bowel infarction become likely?",
+   "a": "When the <b>venous arcades and vasa recta</b> are involved, causing <b>complete venous occlusion</b>.",
+   "x": "",
+   "s": "ESVS 2025 §7.5",
+   "id": "acute-064"
+  },
+  {
+   "d": "acute",
+   "q": "Most patients with AMVT are cured by…?",
+   "a": "<b>Therapeutic anticoagulation and supportive treatment</b> alone.",
+   "x": "Endovascular therapy and surgery are escalation steps.",
+   "s": "ESVS 2025 §7.5",
+   "id": "acute-065"
+  },
+  {
+   "d": "esc",
+   "q": "When should endovascular thrombolysis or thrombectomy be considered?",
+   "a": "When the patient <b>deteriorates during anticoagulant therapy</b>.",
+   "x": "Not simply because the clot is large.",
+   "s": "ESVS 2025 §7.5.3 · Rec 51",
+   "id": "esc-066"
+  },
+  {
+   "d": "esc",
+   "q": "Name the endovascular options for AMVT.",
+   "a": "<b>TIPS + aspiration thrombectomy</b> · <b>direct thrombolysis ± angioplasty</b> · <b>percutaneous transhepatic thrombectomy or thrombolysis</b> · <b>thrombolysis via the SMA</b>.",
+   "x": "",
+   "s": "ESVS 2025 §7.5.3",
+   "id": "esc-067"
+  },
+  {
+   "d": "esc",
+   "q": "Direct venous vs SMA route for thrombolysis — which is preferred?",
+   "a": "The <b>direct venous</b> route — used in more centres and <b>may be more effective</b>.",
+   "x": "",
+   "s": "ESVS 2025 §7.5.3",
+   "id": "esc-068"
+  },
+  {
+   "d": "esc",
+   "q": "Transjugular or transhepatic access: mean time to thrombus resolution?",
+   "a": "A mean of <b>40 hours</b>.",
+   "x": "",
+   "s": "ESVS 2025 §7.5.3",
+   "id": "esc-069"
+  },
+  {
+   "d": "esc",
+   "q": "Thrombolysis systematic review (480 patients): complete recanalisation, bleeding, bowel resection?",
+   "a": "<b>58%</b> (46–70%) · bleeding <b>18%</b> (7–32%) · resection <b>3%</b> (0–8%).",
+   "x": "",
+   "s": "ESVS 2025 §7.5.3 · Gao 2023",
+   "id": "esc-070"
+  },
+  {
+   "d": "esc",
+   "q": "Clinical effectiveness: anticoagulation vs endovascular treatment?",
+   "a": "<b>89%</b> vs <b>93%</b> — but <b>low-quality evidence with obvious selection bias</b>.",
+   "x": "",
+   "s": "ESVS 2025 §7.5.3 · Wang 2022",
+   "id": "esc-071"
+  },
+  {
+   "d": "esc",
+   "q": "What are the indications for open surgery?",
+   "a": "<b>Persisting or worsening symptoms</b>, <b>organ failure</b>, <b>perforation</b> or <b>peritonitis</b>.",
+   "x": "",
+   "s": "ESVS 2025 §7.5.4",
+   "id": "esc-072"
+  },
+  {
+   "d": "esc",
+   "q": "What is the aim of surgery in AMVT?",
+   "a": "<b>Remove irreversibly ischaemic bowel</b> and <b>preserve as much bowel as possible</b>.",
+   "x": "",
+   "s": "ESVS 2025 §7.5.4",
+   "id": "esc-073"
+  },
+  {
+   "d": "esc",
+   "q": "Bowel resection rate in AMVT (systematic review of 599 patients)?",
+   "a": "<b>43.9%</b>.",
+   "x": "Rates vary widely between studies.",
+   "s": "ESVS 2025 §7.5.4 · Acosta & Salim 2021",
+   "id": "esc-074"
+  },
+  {
+   "d": "esc",
+   "q": "What are the two hard problems of surgery in AMVT?",
+   "a": "<b>When to operate</b>, and <b>when a bowel segment is irreversibly injured</b>.",
+   "x": "",
+   "s": "ESVS 2025 §7.5.4",
+   "id": "esc-075"
+  },
+  {
+   "d": "esc",
+   "q": "What unresolved research question does ESVS name for MVT?",
+   "a": "The value of <b>endovascular treatment when anticoagulation fails</b> in extensive mesenteric or portal thrombosis.",
+   "x": "",
+   "s": "ESVS 2025 §11.4",
+   "id": "esc-076"
+  },
+  {
+   "d": "dur",
+   "q": "When can a vitamin K antagonist usually be started after AMVT?",
+   "a": "<b>Two to three weeks</b> after onset, once the acute ischaemic phase has passed.",
+   "x": "",
+   "s": "ESVS 2025 §7.6",
+   "id": "dur-077"
+  },
+  {
+   "d": "dur",
+   "q": "What is the estimated one-year recurrence after AMVT?",
+   "a": "<b>2.7%</b>.",
+   "x": "",
+   "s": "ESVS 2025 §7.6",
+   "id": "dur-078"
+  },
+  {
+   "d": "dur",
+   "q": "What is the minimum duration of anticoagulation for all AMVT?",
+   "a": "<b>Three to six months</b> of a VKA or LMWH.",
+   "x": "A DOAC may be considered as an alternative.",
+   "s": "ESVS 2025 Recs 52, 53",
+   "id": "dur-079"
+  },
+  {
+   "d": "dur",
+   "q": "AMVT with a <u>transient</u> risk factor. Stop at six months?",
+   "a": "<b>Consider extending beyond six months.</b>",
+   "x": "VKA: should be considered (IIa). DOAC: may be considered (IIb).",
+   "s": "ESVS 2025 Recs 54, 55",
+   "id": "dur-080"
+  },
+  {
+   "d": "dur",
+   "q": "AMVT with a <u>permanent</u> risk factor — duration?",
+   "a": "<b>Indefinite</b> anticoagulation.",
+   "x": "Class I, based on consensus.",
+   "s": "ESVS 2025 Rec 56",
+   "id": "dur-081"
+  },
+  {
+   "d": "dur",
+   "q": "<u>Idiopathic</u> AMVT — duration?",
+   "a": "<b>Indefinite</b> anticoagulation.",
+   "x": "Class I, based on consensus. Check that <i>JAK2</i> was tested first.",
+   "s": "ESVS 2025 Rec 56",
+   "id": "dur-082"
+  },
+  {
+   "d": "dur",
+   "q": "Why is extending anticoagulation for <u>transient</u> factors counterintuitive?",
+   "a": "In most VTE, a resolved transient factor means <b>stop at three months</b>. In MVT, recurrence can mean <b>extensive bowel loss and short bowel syndrome</b>.",
+   "x": "",
+   "s": "ESVS 2025 §7.6",
+   "id": "dur-083"
+  },
+  {
+   "d": "dur",
+   "q": "What three things must be balanced when deciding on extended anticoagulation?",
+   "a": "<b>Bleeding risk</b> (varices, low platelets, prior bleeds) · <b>recurrence risk</b> (persisting factors, prior VTE) · <b>consequences of recurrence</b> (bowel involvement, short bowel).",
+   "x": "A shared decision with the patient.",
+   "s": "ESVS 2025 §7.6",
+   "id": "dur-084"
+  },
+  {
+   "d": "dur",
+   "q": "Which DOACs have small retrospective data after AMVT?",
+   "a": "<b>Rivaroxaban</b> and <b>apixaban</b> — possibly as effective as VKA or enoxaparin.",
+   "x": "Their use is off-label.",
+   "s": "ESVS 2025 §7.6",
+   "id": "dur-085"
+  },
+  {
+   "d": "ev",
+   "q": "IPD meta-analysis (1635 patients): recurrent VTE on vs off anticoagulation?",
+   "a": "<b>3.4</b> vs <b>6.6</b> per 100 patient-years.",
+   "x": "Mean anticoagulation 316 days.",
+   "s": "ESVS 2025 §7.6 · Candeloro 2022",
+   "id": "ev-086"
+  },
+  {
+   "d": "ev",
+   "q": "Same IPD meta-analysis: major bleeding on vs off anticoagulation?",
+   "a": "<b>3.1</b> vs <b>5.8</b> per 100 patient-years.",
+   "x": "Higher after stopping, which points to confounding: sicker patients stop and bleed.",
+   "s": "ESVS 2025 §7.6 · Candeloro 2022",
+   "id": "ev-087"
+  },
+  {
+   "d": "ev",
+   "q": "In the IPD meta-analysis, what share of recurrences were in the mesenteric veins?",
+   "a": "<b>38.5%</b>.",
+   "x": "",
+   "s": "ESVS 2025 §7.6 · Candeloro 2022",
+   "id": "ev-088"
+  },
+  {
+   "d": "ev",
+   "q": "International registry (604 patients): thrombotic events on vs off anticoagulation?",
+   "a": "<b>5.6</b> vs <b>10.5</b> per 100 patient-years.",
+   "x": "",
+   "s": "ESVS 2025 §7.6 · Ageno 2015",
+   "id": "ev-089"
+  },
+  {
+   "d": "ev",
+   "q": "Same registry: major bleeding on vs off anticoagulation?",
+   "a": "<b>3.9</b> vs <b>1.0</b> per 100 patient-years.",
+   "x": "The opposite direction to the IPD meta-analysis.",
+   "s": "ESVS 2025 §7.6 · Ageno 2015",
+   "id": "ev-090"
+  },
+  {
+   "d": "ev",
+   "q": "Which subgroup had the highest rates of both thrombosis and bleeding?",
+   "a": "<b>Cirrhosis</b> — 11.3 thrombotic and 10.0 major bleeding events per 100 patient-years.",
+   "x": "",
+   "s": "ESVS 2025 §7.6 · Ageno 2015",
+   "id": "ev-091"
+  },
+  {
+   "d": "ev",
+   "q": "Which subgroup had the lowest rates of thrombosis and bleeding?",
+   "a": "MVT secondary to <b>transient risk factors</b>.",
+   "x": "",
+   "s": "ESVS 2025 §7.6 · Ageno 2015",
+   "id": "ev-092"
+  },
+  {
+   "d": "ev",
+   "q": "Anticoagulation vs stopping (meta-analysis): effect on recanalisation, bleeding, mortality, recurrence?",
+   "a": "Recanalisation <b>RR 2.39</b> · bleeding <b>RR 0.73</b> · mortality <b>RR 0.45</b> · recurrence <b>RR 0.91</b> (no difference).",
+   "x": "",
+   "s": "ESVS 2025 §7.6 · Valeriani 2021",
+   "id": "ev-093"
+  },
+  {
+   "d": "ev",
+   "q": "VKA vs DOAC in 102 MVT patients: recanalisation and major bleeding?",
+   "a": "Recanalisation <b>71% vs 69%</b>; major bleeding <b>14.3% vs 9.1%</b>.",
+   "x": "No significant difference except more GI bleeding with DOACs.",
+   "s": "ESVS 2025 §7.6 · Salim 2019",
+   "id": "ev-094"
+  },
+  {
+   "d": "ev",
+   "q": "Rivaroxaban cohort (96 patients): recurrent VTE at three and six months?",
+   "a": "<b>2.1%</b> at three months (two patients) · <b>3.1%</b> cumulative at six months.",
+   "x": "",
+   "s": "ESVS 2025 §7.6 · Ageno 2022",
+   "id": "ev-095"
+  },
+  {
+   "d": "ev",
+   "q": "Ten-year recurrence-free survival: isolated splenic vein vs isolated mesenteric vein thrombosis?",
+   "a": "<b>97%</b> vs <b>60%</b>.",
+   "x": "The segment affected changes the prognosis.",
+   "s": "ESVS 2025 §7.6 · Thatipelli 2010",
+   "id": "ev-096"
+  },
+  {
+   "d": "rec",
+   "q": "Investigating the cause of MVT — what does ESVS recommend, and how strongly?",
+   "a": "Investigation for the presence of an intra-abdominal malignancy, inflammatory disease, myeloproliferative neoplasm, cytomegalovirus and SARS-CoV-2 infection, and chronic liver disease is recommended for patients with mesenteric venous thrombosis.",
+   "x": "Thatipelli 2010 · Primignani 2010 · De Broucker 2022 · El-Hady 2023 · Elkrief 2023",
+   "s": "ESVS 2025 Rec 46",
+   "n": 46,
+   "cls": "I",
+   "lvl": "B",
+   "st": "Unchanged",
+   "id": "rec-097"
+  },
+  {
+   "d": "rec",
+   "q": "Recurrent MVT with recurrent foetal loss — what does ESVS recommend, and how strongly?",
+   "a": "Patients with recurrent mesenteric venous thrombosis and recurrent foetal loss should be investigated for antiphospholipid antibody syndrome.",
+   "x": "Thatipelli 2010 · Primignani 2010 · Elkrief 2023",
+   "s": "ESVS 2025 Rec 47",
+   "n": 47,
+   "cls": "IIa",
+   "lvl": "C",
+   "st": "Unchanged",
+   "id": "rec-098"
+  },
+  {
+   "d": "rec",
+   "q": "Thrombophilia testing after AMVT — what does ESVS recommend, and how strongly?",
+   "a": "Testing for thrombophilia may be considered in selected patients with acute venous mesenteric thrombosis who will discontinue anticoagulation treatment after three to six months.",
+   "x": "Middeldorp 2023",
+   "s": "ESVS 2025 Rec 48",
+   "n": 48,
+   "cls": "IIb",
+   "lvl": "C",
+   "st": "Unchanged",
+   "id": "rec-099"
+  },
+  {
+   "d": "rec",
+   "q": "Imaging for suspected MVT — what does ESVS recommend, and how strongly?",
+   "a": "Contrast enhanced computed tomography scanning with imaging in the arterial and portal phases (and optional non-contrast CT run) is recommended for patients suspected of mesenteric vein thrombosis.",
+   "x": "Salim 2018 · Henes 2017 — rephrased, LoE downgraded B → C",
+   "s": "ESVS 2025 Rec 49",
+   "n": 49,
+   "cls": "I",
+   "lvl": "C",
+   "st": "Changed",
+   "id": "rec-100"
+  },
+  {
+   "d": "rec",
+   "q": "First-line treatment of AMVT — what does ESVS recommend, and how strongly?",
+   "a": "Anticoagulation with unfractionated or low molecular weight heparin as first line therapy is recommended for all patients with acute mesenteric vein thrombosis.",
+   "x": "Wang 2022",
+   "s": "ESVS 2025 Rec 50",
+   "n": 50,
+   "cls": "I",
+   "lvl": "C",
+   "st": "Unchanged",
+   "id": "rec-101"
+  },
+  {
+   "d": "rec",
+   "q": "Deterioration on anticoagulation — what does ESVS recommend, and how strongly?",
+   "a": "Endovascular venous thrombolysis and mechanical thrombectomy may be considered for patients with acute venous mesenteric ischaemia who deteriorate during anticoagulant therapy.",
+   "x": "Acosta 2021 · Wang 2022 · Gao 2023",
+   "s": "ESVS 2025 Rec 51",
+   "n": 51,
+   "cls": "IIb",
+   "lvl": "C",
+   "st": "New",
+   "id": "rec-102"
+  },
+  {
+   "d": "rec",
+   "q": "Three to six months of VKA or LMWH — what does ESVS recommend, and how strongly?",
+   "a": "Anticoagulation for three to six months with a vitamin K antagonist or low molecular weight heparin is recommended for all patients with acute mesenteric vein thrombosis.",
+   "x": "Candeloro 2022 · Valeriani 2021 · Ageno 2015",
+   "s": "ESVS 2025 Rec 52",
+   "n": 52,
+   "cls": "I",
+   "lvl": "B",
+   "st": "Unchanged",
+   "id": "rec-103"
+  },
+  {
+   "d": "rec",
+   "q": "A DOAC for the first three to six months — what does ESVS recommend, and how strongly?",
+   "a": "Anticoagulation for three to six months with a direct oral anticoagulant as an alternative to a vitamin K antagonist or low molecular weight heparin may be considered for all patients with acute mesenteric vein thrombosis.",
+   "x": "Salim 2019 · Janczak 2018 · Ageno 2022 · Valeriani 2021",
+   "s": "ESVS 2025 Rec 53",
+   "n": 53,
+   "cls": "IIb",
+   "lvl": "C",
+   "st": "New",
+   "id": "rec-104"
+  },
+  {
+   "d": "rec",
+   "q": "Extending a VKA beyond six months for transient risk factors — what does ESVS recommend, and how strongly?",
+   "a": "Extended anticoagulation beyond six months with a vitamin K antagonist should be considered for patients with acute mesenteric vein thrombosis and transient risk factors for venous thrombosis.",
+   "x": "Candeloro 2022 · Valeriani 2021 · Ageno 2015",
+   "s": "ESVS 2025 Rec 54",
+   "n": 54,
+   "cls": "IIa",
+   "lvl": "C",
+   "st": "New",
+   "id": "rec-105"
+  },
+  {
+   "d": "rec",
+   "q": "Extending with a DOAC beyond six months for transient risk factors — what does ESVS recommend, and how strongly?",
+   "a": "Extended anticoagulation beyond six months with a direct oral anticoagulant as an alternative to a vitamin K antagonist may be considered for all patients with acute mesenteric vein thrombosis and transient risk factors for venous thrombosis.",
+   "x": "Valeriani 2021",
+   "s": "ESVS 2025 Rec 55",
+   "n": 55,
+   "cls": "IIb",
+   "lvl": "C",
+   "st": "New",
+   "id": "rec-106"
+  },
+  {
+   "d": "rec",
+   "q": "Idiopathic AMVT, or permanent risk factors — what does ESVS recommend, and how strongly?",
+   "a": "Indefinite anticoagulation is recommended for patients with idiopathic acute mesenteric vein thrombosis and patients with permanent risk factors for venous thrombosis.",
+   "x": "Consensus",
+   "s": "ESVS 2025 Rec 56",
+   "n": 56,
+   "cls": "I",
+   "lvl": "C",
+   "st": "Unchanged",
+   "id": "rec-107"
+  },
+  {
+   "d": "rec",
+   "q": "Assessing bowel viability at operation — what does ESVS recommend, and how strongly? (Ch. 5, applies to AMVT)",
+   "a": "Quantitative indocyanine green fluorescent imaging may be considered as an aid in the assessment of bowel viability in patients undergoing laparotomy or laparoscopy for acute mesenteric ischaemia.",
+   "x": "Used in only 7% of practices",
+   "s": "ESVS 2025 Rec 39",
+   "n": 39,
+   "cls": "IIb",
+   "lvl": "—",
+   "st": "New",
+   "id": "rec-108"
+  },
+  {
+   "d": "rec",
+   "q": "Bowel resection strategy — what does ESVS recommend, and how strongly? (Ch. 5, applies to AMVT)",
+   "a": "Resection without primary reconstruction and second look laparotomy for definitive treatment should be considered in patients undergoing acute mesenteric revascularisation who need bowel resection.",
+   "x": "Rephrased · consensus",
+   "s": "ESVS 2025 Rec 40",
+   "n": 40,
+   "cls": "IIa",
+   "lvl": "—",
+   "st": "Changed",
+   "id": "rec-109"
+  },
+  {
+   "d": "rec",
+   "q": "Antibiotics in acute mesenteric ischaemia — what does ESVS recommend, and how strongly? (Ch. 5)",
+   "a": "Treatment with antibiotics is recommended for patients with acute mesenteric ischaemia.",
+   "x": "LoE downgraded B → C. In MVT itself, antibiotics are indicated only for perforation, translocation sepsis, pylephlebitis or septic thrombophlebitis.",
+   "s": "ESVS 2025 Rec 41",
+   "n": 41,
+   "cls": "I",
+   "lvl": "C",
+   "st": "Changed",
+   "id": "rec-110"
+  },
+  {
+   "d": "trap",
+   "q": "A normal full blood count rules out a myeloproliferative neoplasm. True?",
+   "a": "<b>False.</b> Test <i>JAK2</i> V617F.",
+   "x": "52% of JAK2-positive MVT patients declared an MPN only during follow-up.",
+   "s": "ESVS 2025 §7.3.1",
+   "id": "trap-111"
+  },
+  {
+   "d": "trap",
+   "q": "A normal lactate makes MVT unlikely. True?",
+   "a": "<b>False.</b> No biomarker is reliable; a single lactate or D-dimer is <b>Class IIIb</b>.",
+   "x": "The CT decides.",
+   "s": "ESVS 2025 §7.3.2",
+   "id": "trap-112"
+  },
+  {
+   "d": "trap",
+   "q": "The CT shows a large clot. Thrombolyse?",
+   "a": "<b>Not on clot burden alone.</b> The trigger is <b>deterioration during anticoagulation</b>.",
+   "x": "Pooled bleeding with thrombolysis: 18%.",
+   "s": "ESVS 2025 Rec 51",
+   "id": "trap-113"
+  },
+  {
+   "d": "trap",
+   "q": "Appendicitis explains this patient's MVT. Workup complete?",
+   "a": "<b>No.</b> Systemic factors are found in 60–70%; investigate <b>every</b> patient.",
+   "x": "Rec 46 applies to all patients with MVT.",
+   "s": "ESVS 2025 Rec 46",
+   "id": "trap-114"
+  },
+  {
+   "d": "trap",
+   "q": "Transient cause, now resolved. Stop anticoagulation at three months?",
+   "a": "<b>Not by default.</b> ESVS suggests considering <b>extension beyond six months</b>.",
+   "x": "Recs 54 and 55.",
+   "s": "ESVS 2025 Recs 54, 55",
+   "id": "trap-115"
+  },
+  {
+   "d": "trap",
+   "q": "Order a full thrombophilia screen for every MVT patient?",
+   "a": "<b>No.</b> Only in selected patients who will <b>stop anticoagulation</b> at three to six months.",
+   "x": "Rec 48.",
+   "s": "ESVS 2025 Rec 48",
+   "id": "trap-116"
+  },
+  {
+   "d": "trap",
+   "q": "A trial of splanchnic vein thrombosis tells you about MVT. True?",
+   "a": "<b>Only partly.</b> Isolated splenic vein thrombosis has 97% ten-year recurrence-free survival; isolated MVT only 60%.",
+   "x": "Always ask which veins were studied.",
+   "s": "ESVS 2025 §7.6",
+   "id": "trap-117"
+  },
+  {
+   "d": "trap",
+   "q": "Duplex ultrasound shows SMV thrombus. Enough to plan treatment?",
+   "a": "<b>No.</b> Duplex cannot show the full extent or the bowel changes — <b>get the CT</b>.",
+   "x": "",
+   "s": "ESVS 2025 §7.4",
+   "id": "trap-118"
+  }
+ ]
+}

@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="en-GB" data-fs="l">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>MVT Flashcards</title>
+<meta name="description" content="119 interactive flashcards on mesenteric venous thrombosis, built from the ESVS 2025 guideline. Large type, colour-coded decks, spaced-repetition rating.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect x='12' y='20' width='76' height='60' rx='12' fill='%237c3aed'/><rect x='20' y='12' width='76' height='60' rx='12' fill='%2322c55e'/></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Newsreader:ital,opsz,wght@0,6..72,500;0,6..72,600;1,6..72,500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#eef3fb; --bg2:#e4ecf8; --surface:#ffffff; --surface2:#f5f8fd;
+  --ink:#0f1c2e; --ink2:#43566e; --ink3:#7489a3; --line:#d6e1ee; --line2:#c3d2e4;
+  --shadow:0 2px 6px rgba(15,28,46,.06),0 18px 44px rgba(15,28,46,.10);
+  --shadow-lg:0 30px 70px rgba(15,28,46,.20),0 8px 18px rgba(15,28,46,.08);
+  --again:#dc2626; --hard:#d97706; --good:#16a34a; --easy:#2563eb;
+  --sans:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;
+  --serif:'Newsreader',Georgia,serif;
+  --fq:38px; --fa:34px; --fx:21px; --fsrc:14px;
+  --g1:#3730a3; --g2:#4f46e5; --gink:#fff;
+}
+html[data-fs="s"]{--fq:26px;--fa:24px;--fx:17px;--fsrc:12.5px}
+html[data-fs="m"]{--fq:32px;--fa:29px;--fx:19px;--fsrc:13px}
+html[data-fs="l"]{--fq:38px;--fa:34px;--fx:21px;--fsrc:14px}
+html[data-fs="xl"]{--fq:46px;--fa:41px;--fx:24px;--fsrc:15px}
+html[data-theme="dark"]{
+  --bg:#0a1220; --bg2:#0e1a2c; --surface:#131f33; --surface2:#182740;
+  --ink:#eaf2fc; --ink2:#aec2da; --ink3:#7f97b4; --line:#243851; --line2:#2f4866;
+  --shadow:0 2px 6px rgba(0,0,0,.35),0 18px 44px rgba(0,0,0,.35);
+  --shadow-lg:0 30px 70px rgba(0,0,0,.55);
+  --again:#f87171; --hard:#fbbf24; --good:#4ade80; --easy:#60a5fa;
+}
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;min-height:100vh;background:var(--bg);color:var(--ink);font-family:var(--sans);
+  -webkit-font-smoothing:antialiased;line-height:1.5;
+  background-image:radial-gradient(1200px 600px at 110% -10%,color-mix(in srgb,var(--g2) 12%,transparent),transparent 60%),
+                   radial-gradient(900px 500px at -10% 110%,color-mix(in srgb,var(--g1) 10%,transparent),transparent 60%);
+  background-attachment:fixed;transition:background-color .3s}
+button{font-family:inherit;cursor:pointer}
+a{color:inherit}
+:focus-visible{outline:3px solid #60a5fa;outline-offset:3px;border-radius:8px}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+
+/* ── TOP BAR ── */
+.bar{position:sticky;top:0;z-index:50;height:64px;display:flex;align-items:center;gap:10px;padding:0 18px;
+  background:color-mix(in srgb,var(--surface) 82%,transparent);backdrop-filter:blur(14px) saturate(1.5);
+  border-bottom:1px solid var(--line)}
+.back-kb{display:flex;align-items:center;gap:8px;text-decoration:none;font-weight:700;font-size:14px;color:var(--ink2);
+  padding:8px 12px;border-radius:10px;border:1px solid var(--line);white-space:nowrap}
+.back-kb:hover{color:var(--ink);border-color:var(--line2)}
+.brand{font-weight:900;font-size:17px;letter-spacing:-.02em;display:flex;align-items:center;gap:9px;white-space:nowrap}
+.brand .stack{width:22px;height:18px;position:relative;flex:none}
+.brand .stack i{position:absolute;width:17px;height:13px;border-radius:4px}
+.brand .stack i:first-child{left:0;top:5px;background:#7c3aed}
+.brand .stack i:last-child{left:5px;top:0;background:#22c55e}
+.spacer{flex:1}
+.ctl{display:flex;align-items:center;border:1px solid var(--line);border-radius:11px;overflow:hidden;background:var(--surface)}
+.ctl button{border:0;background:transparent;color:var(--ink2);font-weight:800;height:38px;min-width:40px;padding:0 10px;font-size:14px}
+.ctl button:hover{background:var(--surface2);color:var(--ink)}
+.ctl button[aria-pressed="true"]{background:var(--ink);color:var(--surface)}
+.ctl .lbl{font-size:11px;font-weight:800;letter-spacing:.1em;color:var(--ink3);padding:0 6px 0 11px;text-transform:uppercase}
+.iconbtn{width:40px;height:40px;border-radius:11px;border:1px solid var(--line);background:var(--surface);color:var(--ink2);
+  display:grid;place-items:center;flex:none}
+.iconbtn:hover{color:var(--ink)}
+.iconbtn svg{width:19px;height:19px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+
+.view{max-width:1120px;margin:0 auto;padding:30px 22px 70px}
+[hidden]{display:none!important}
+
+/* ── HOME ── */
+.hero{display:grid;grid-template-columns:1.4fr 1fr;gap:26px;align-items:center;margin:14px 0 30px}
+.kicker{font-weight:800;font-size:12.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--ink3);margin-bottom:12px}
+.hero h1{font-family:var(--serif);font-weight:600;font-size:clamp(46px,7vw,78px);line-height:.98;letter-spacing:-.035em;margin:0 0 16px}
+.hero h1 em{font-style:italic;background:linear-gradient(90deg,#7c3aed,#db2777 45%,#f97316);-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero p{font-size:19px;color:var(--ink2);margin:0;max-width:560px;line-height:1.55}
+.hero-card{background:var(--surface);border:1px solid var(--line);border-radius:22px;padding:22px 24px;box-shadow:var(--shadow)}
+.hc-row{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:12px}
+.hc-big{font-size:44px;font-weight:900;letter-spacing:-.04em;line-height:1}
+.hc-big small{font-size:18px;color:var(--ink3);font-weight:700;letter-spacing:0}
+.hc-lbl{font-size:13px;font-weight:700;color:var(--ink3);text-transform:uppercase;letter-spacing:.1em}
+.meter{height:12px;border-radius:99px;background:var(--surface2);border:1px solid var(--line);overflow:hidden;display:flex}
+.meter span{display:block;height:100%}
+.legend{display:flex;gap:14px;margin-top:10px;font-size:13px;color:var(--ink2);font-weight:600;flex-wrap:wrap}
+.legend i{display:inline-block;width:10px;height:10px;border-radius:3px;margin-right:6px;vertical-align:-1px}
+.cta-row{display:flex;gap:12px;margin-top:18px;flex-wrap:wrap}
+.cta{flex:1;min-width:150px;border:0;border-radius:14px;padding:16px 18px;font-size:17px;font-weight:800;color:#fff;
+  background:linear-gradient(135deg,#7c3aed,#db2777);box-shadow:0 10px 24px rgba(124,58,237,.3);transition:transform .18s}
+.cta:hover{transform:translateY(-2px)}
+.cta.alt{background:var(--ink);color:var(--surface);box-shadow:none}
+
+.sec-h{display:flex;align-items:baseline;justify-content:space-between;gap:14px;margin:34px 0 14px;flex-wrap:wrap}
+.sec-h h2{font-size:26px;font-weight:900;letter-spacing:-.03em;margin:0}
+.opts{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+
+.decks{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:16px}
+.deck{position:relative;overflow:hidden;border:0;border-radius:22px;padding:22px 22px 18px;text-align:left;min-height:190px;
+  color:var(--dk-ink);background:linear-gradient(140deg,var(--dk1),var(--dk2));box-shadow:var(--shadow);
+  display:flex;flex-direction:column;transition:transform .22s,box-shadow .22s}
+.deck:hover{transform:translateY(-5px) rotate(-.4deg);box-shadow:var(--shadow-lg)}
+.deck::after{content:attr(data-n);position:absolute;right:-6px;bottom:-26px;font-size:130px;font-weight:900;letter-spacing:-.06em;
+  opacity:.14;line-height:1;pointer-events:none}
+.deck::before{content:'';position:absolute;inset:0;background:radial-gradient(420px 180px at 0% 0%,rgba(255,255,255,.22),transparent 60%);pointer-events:none}
+.deck .dn{font-size:22px;font-weight:900;letter-spacing:-.025em;line-height:1.15;position:relative}
+.deck .dt{font-size:14.5px;font-weight:600;opacity:.86;margin-top:6px;position:relative}
+.deck .dfoot{margin-top:auto;padding-top:18px;position:relative}
+.deck .dcount{display:flex;justify-content:space-between;font-size:13px;font-weight:800;opacity:.92;margin-bottom:8px}
+.deck .dbar{height:8px;border-radius:99px;background:color-mix(in srgb,currentColor 22%,transparent);overflow:hidden}
+.deck .dbar span{display:block;height:100%;background:currentColor;border-radius:99px;transition:width .5s}
+
+.help{margin-top:30px;display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:12px}
+.help div{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:14px 16px;font-size:15px;color:var(--ink2);font-weight:500}
+.help b{color:var(--ink)}
+kbd{font:800 13px var(--sans);background:var(--surface2);border:1px solid var(--line2);border-bottom-width:2.5px;border-radius:7px;padding:2px 8px;color:var(--ink)}
+.pill{border:1px solid var(--line);background:var(--surface);color:var(--ink2);border-radius:11px;padding:10px 14px;font-weight:700;font-size:14px;text-decoration:none;display:inline-flex;align-items:center;gap:8px}
+.pill:hover{color:var(--ink);border-color:var(--line2)}
+.pill.anki{background:linear-gradient(135deg,#0ea5e9,#2563eb);color:#fff;border:0}
+.srcnote{margin-top:26px;font-size:13.5px;color:var(--ink3);line-height:1.6;max-width:820px}
+
+/* ── STUDY ── */
+.study-top{display:flex;align-items:center;gap:12px;margin-bottom:14px;flex-wrap:wrap}
+.chip{display:inline-flex;align-items:center;gap:8px;font-weight:800;font-size:14px;padding:8px 14px;border-radius:99px;
+  background:linear-gradient(135deg,var(--g1),var(--g2));color:var(--gink)}
+.counter{font-weight:800;font-size:16px;color:var(--ink2);margin-left:auto;font-variant-numeric:tabular-nums}
+.progress{height:10px;border-radius:99px;background:var(--surface);border:1px solid var(--line);overflow:hidden;margin-bottom:22px}
+.progress span{display:block;height:100%;background:linear-gradient(90deg,var(--g1),var(--g2));border-radius:99px;transition:width .4s}
+
+.flip{perspective:1800px;max-width:900px;margin:0 auto;cursor:pointer;outline:none}
+.flip-inner{display:grid;transform-style:preserve-3d;transition:transform .6s cubic-bezier(.3,.75,.25,1)}
+.flip.flipped .flip-inner{transform:rotateY(180deg)}
+.flip.noanim .flip-inner{transition:none}
+.face{grid-area:1/1;-webkit-backface-visibility:hidden;backface-visibility:hidden;border-radius:28px;min-height:min(58vh,470px);
+  display:flex;flex-direction:column;overflow:hidden;box-shadow:var(--shadow-lg)}
+.front{background:linear-gradient(145deg,var(--g1),var(--g2));color:var(--gink);padding:30px 38px 26px;position:relative}
+.front::before{content:'';position:absolute;inset:0;background:radial-gradient(600px 260px at 0% 0%,rgba(255,255,255,.2),transparent 60%);pointer-events:none}
+.front::after{content:'?';position:absolute;right:26px;bottom:-40px;font-size:230px;font-weight:900;opacity:.09;line-height:1;pointer-events:none;font-family:var(--serif)}
+.back{transform:rotateY(180deg);background:var(--surface);color:var(--ink);border:1px solid var(--line)}
+.fhead{display:flex;justify-content:space-between;align-items:center;gap:10px;position:relative;z-index:1}
+.ftag{font-size:13px;font-weight:900;letter-spacing:.14em;text-transform:uppercase;opacity:.9}
+.fnum{font-size:13px;font-weight:800;opacity:.75;font-variant-numeric:tabular-nums}
+.q{font-size:var(--fq);font-weight:800;line-height:1.22;letter-spacing:-.022em;margin:auto 0;padding:26px 0;position:relative;z-index:1;text-wrap:balance}
+.q u{text-decoration-thickness:3px;text-underline-offset:5px}
+.hint{font-size:15px;font-weight:700;opacity:.8;display:flex;align-items:center;gap:8px;position:relative;z-index:1}
+.hint kbd{background:rgba(255,255,255,.2);border-color:rgba(255,255,255,.35);color:inherit}
+.band{height:12px;background:linear-gradient(90deg,var(--g1),var(--g2));flex:none}
+.bbody{padding:24px 38px 26px;display:flex;flex-direction:column;flex:1}
+.bq{font-size:calc(var(--fx) - 2px);color:var(--ink3);font-weight:600;line-height:1.4;padding-bottom:16px;border-bottom:1.5px dashed var(--line2)}
+.a{font-size:var(--fa);font-weight:700;line-height:1.3;letter-spacing:-.018em;margin:22px 0 0;text-wrap:pretty}
+.a b,.x b,.rtext b{font-weight:850;background:linear-gradient(transparent 56%,color-mix(in srgb,var(--g2) 34%,transparent) 56%);padding:0 2px;border-radius:2px}
+.x{font-size:var(--fx);color:var(--ink2);font-weight:500;line-height:1.5;margin-top:18px;padding:14px 18px;border-radius:14px;
+  background:color-mix(in srgb,var(--g2) 8%,var(--surface2));border-left:5px solid var(--g2)}
+.src{margin-top:auto;padding-top:20px;display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.src span{font-size:var(--fsrc);font-weight:700;color:var(--ink3);background:var(--surface2);border:1px solid var(--line);border-radius:99px;padding:5px 12px}
+/* rec cards */
+.rtext{font-family:var(--serif);font-size:calc(var(--fa) - 3px);font-weight:500;line-height:1.38;margin:20px 0 0;position:relative;padding-left:26px}
+.rtext::before{content:'\201C';position:absolute;left:-6px;top:-14px;font-size:70px;color:var(--g2);opacity:.5;line-height:1}
+.badges{display:flex;gap:10px;flex-wrap:wrap;margin-top:20px}
+.bdg{font-size:calc(var(--fx) - 2px);font-weight:900;padding:8px 16px;border-radius:12px;letter-spacing:.01em}
+.c-I{background:#dcfce7;color:#14532d}.c-IIa{background:#fef9c3;color:#713f12}.c-IIb{background:#ffedd5;color:#7c2d12}
+.l-B{background:#dbeafe;color:#1e3a8a}.l-C{background:#e0e7ff;color:#3730a3}.l-x{background:var(--surface2);color:var(--ink3)}
+.s-New{background:#fee2e2;color:#991b1b}.s-Changed{background:#fef3c7;color:#92400e}.s-Unchanged{background:var(--surface2);color:var(--ink2)}
+html[data-theme="dark"] .c-I{background:#14532d;color:#bbf7d0}html[data-theme="dark"] .c-IIa{background:#713f12;color:#fef08a}
+html[data-theme="dark"] .c-IIb{background:#7c2d12;color:#fed7aa}html[data-theme="dark"] .l-B{background:#1e3a8a;color:#bfdbfe}
+html[data-theme="dark"] .l-C{background:#312e81;color:#c7d2fe}html[data-theme="dark"] .s-New{background:#7f1d1d;color:#fecaca}
+html[data-theme="dark"] .s-Changed{background:#78350f;color:#fde68a}
+
+.controls{max-width:900px;margin:22px auto 0}
+.reveal{width:100%;border:0;border-radius:18px;padding:20px;font-size:21px;font-weight:900;color:var(--gink);
+  background:linear-gradient(135deg,var(--g1),var(--g2));box-shadow:0 12px 26px color-mix(in srgb,var(--g2) 35%,transparent);
+  display:flex;align-items:center;justify-content:center;gap:12px;transition:transform .15s}
+.reveal:hover{transform:translateY(-2px)}
+.reveal kbd{background:rgba(255,255,255,.22);border-color:rgba(255,255,255,.4);color:inherit}
+.rates{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+.rate{border:2px solid transparent;border-radius:18px;padding:14px 8px 12px;background:var(--surface);box-shadow:var(--shadow);
+  display:flex;flex-direction:column;align-items:center;gap:3px;transition:transform .15s,border-color .15s}
+.rate:hover{transform:translateY(-3px)}
+.rate b{font-size:21px;font-weight:900;letter-spacing:-.01em}
+.rate small{font-size:13.5px;font-weight:700;color:var(--ink3)}
+.rate kbd{font-size:12px;margin-top:4px}
+.r-again b{color:var(--again)} .r-again:hover{border-color:var(--again)}
+.r-hard b{color:var(--hard)} .r-hard:hover{border-color:var(--hard)}
+.r-good b{color:var(--good)} .r-good:hover{border-color:var(--good)}
+.r-easy b{color:var(--easy)} .r-easy:hover{border-color:var(--easy)}
+.subctl{display:flex;justify-content:center;gap:10px;margin-top:16px}
+.ghost{border:1px solid var(--line);background:transparent;color:var(--ink3);border-radius:10px;padding:8px 14px;font-weight:700;font-size:14px}
+.ghost:hover{color:var(--ink);border-color:var(--line2)}
+.enter{animation:enter .45s cubic-bezier(.3,.75,.25,1)}
+@keyframes enter{from{opacity:0;transform:translateY(18px) scale(.98)}to{opacity:1;transform:none}}
+
+/* ── DONE ── */
+.done{max-width:760px;margin:30px auto;text-align:center}
+.done .trophy{width:96px;height:96px;border-radius:28px;margin:0 auto 20px;display:grid;place-items:center;
+  background:linear-gradient(135deg,var(--g1),var(--g2));color:var(--gink);box-shadow:var(--shadow-lg)}
+.done .trophy svg{width:48px;height:48px;stroke:currentColor;fill:none;stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round}
+.done h2{font-family:var(--serif);font-size:clamp(38px,6vw,56px);font-weight:600;letter-spacing:-.03em;margin:0 0 8px}
+.done p{font-size:19px;color:var(--ink2);margin:0 0 26px}
+.dstats{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:26px}
+.dstats div{background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:18px 10px;box-shadow:var(--shadow)}
+.dstats b{display:block;font-size:40px;font-weight:900;letter-spacing:-.04em;line-height:1}
+.dstats span{display:block;font-size:13.5px;font-weight:700;color:var(--ink3);margin-top:8px;text-transform:uppercase;letter-spacing:.08em}
+.done .cta-row{justify-content:center}
+.missed{text-align:left;margin-top:30px}
+.missed h3{font-size:19px;font-weight:900;margin:0 0 12px}
+.missed li{background:var(--surface);border:1px solid var(--line);border-left:5px solid var(--again);border-radius:12px;padding:12px 16px;margin-bottom:8px;list-style:none;font-size:16px;font-weight:600}
+.missed ul{padding:0;margin:0}
+
+@media (max-width:860px){
+  .hero{grid-template-columns:1fr}
+  .ctl .lbl{display:none}
+}
+@media (max-width:640px){
+  .view{padding:20px 14px 60px}
+  .bar{padding:0 10px;gap:7px}
+  .back-kb span,.brand .txt{display:none}
+  .front{padding:22px 22px 20px}.bbody{padding:18px 22px 22px}
+  .q{font-size:clamp(22px,7vw,var(--fq))}
+  .a{font-size:clamp(21px,6.4vw,var(--fa))}
+  .rtext{font-size:clamp(19px,5.6vw,var(--fa))}
+  .x{font-size:clamp(16px,4.6vw,var(--fx))}
+  .face{min-height:min(52vh,420px);border-radius:22px}
+  .controls{position:sticky;bottom:0;z-index:20;margin-top:12px;padding:12px 0 calc(12px + env(safe-area-inset-bottom));
+    background:linear-gradient(to bottom,transparent,var(--bg) 26%)}
+  .rates{grid-template-columns:repeat(4,1fr);gap:8px}
+  .rate{padding:14px 2px;border-radius:14px}
+  .rate b{font-size:17px}
+  .rate small{display:none}
+  .reveal{padding:17px;font-size:19px}
+  .subctl{margin-top:8px}
+  .dstats{grid-template-columns:repeat(2,1fr)}
+  .front::after{font-size:160px}
+}
+@media (hover:none){.hint kbd,.reveal kbd,.rate kbd,#skipBtn kbd{display:none}}
+@media (prefers-reduced-motion:reduce){
+  .flip-inner{transition:none}.enter{animation:none}.deck,.cta,.rate,.reveal{transition:none}
+}
+</style>
+</head>
+<body>
+<header class="bar">
+  <a class="back-kb" href="../" aria-label="Back to the knowledge base"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg><span>Knowledge base</span></a>
+  <div class="brand"><span class="stack"><i></i><i></i></span><span class="txt">MVT Flashcards</span></div>
+  <div class="spacer"></div>
+  <div class="ctl" role="group" aria-label="Text size">
+    <span class="lbl">Text</span>
+    <button data-fs="s" aria-pressed="false" aria-label="Small text" style="font-size:12px">A</button>
+    <button data-fs="m" aria-pressed="false" aria-label="Medium text" style="font-size:14px">A</button>
+    <button data-fs="l" aria-pressed="true" aria-label="Large text" style="font-size:17px">A</button>
+    <button data-fs="xl" aria-pressed="false" aria-label="Extra large text" style="font-size:20px">A</button>
+  </div>
+  <button class="iconbtn" id="themeBtn" aria-label="Toggle dark mode"><svg viewBox="0 0 24 24" id="themeIcon"><path d="M21 12.8A9 9 0 1111.2 3a7 7 0 009.8 9.8z"/></svg></button>
+</header>
+
+<!-- ═══ HOME ═══ -->
+<main class="view" id="home">
+  <section class="hero">
+    <div>
+      <div class="kicker">ESVS 2025 · Mesenteric venous thrombosis</div>
+      <h1>Flash<em>cards</em></h1>
+      <p><b id="totalCards">119</b> cards in <b id="totalDecks">12</b> colour-coded decks. Read the question, say the answer out loud, flip, and be honest about how well you knew it. Your progress is saved in this browser.</p>
+    </div>
+    <div class="hero-card">
+      <div class="hc-row"><span class="hc-lbl">Mastered</span><span class="hc-big" id="mastPct">0<small>%</small></span></div>
+      <div class="meter" aria-hidden="true"><span id="mMast" style="background:#16a34a;width:0"></span><span id="mLearn" style="background:#f59e0b;width:0"></span></div>
+      <div class="legend"><span><i style="background:#16a34a"></i><b id="nMast">0</b> mastered</span><span><i style="background:#f59e0b"></i><b id="nLearn">0</b> learning</span><span><i style="background:var(--line2)"></i><b id="nNew">119</b> new</span></div>
+      <div class="cta-row">
+        <button class="cta" id="studyAll">Study all cards</button>
+        <button class="cta alt" id="studyWeak">Weakest 20</button>
+      </div>
+    </div>
+  </section>
+
+  <div class="sec-h">
+    <h2>Choose a deck</h2>
+    <div class="opts">
+      <div class="ctl" role="group" aria-label="Card order">
+        <span class="lbl">Order</span>
+        <button data-order="smart" aria-pressed="true">Weakest first</button>
+        <button data-order="shuffle" aria-pressed="false">Shuffle</button>
+        <button data-order="seq" aria-pressed="false">In order</button>
+      </div>
+    </div>
+  </div>
+  <div class="decks" id="decks"></div>
+
+  <div class="sec-h"><h2>Take it with you</h2></div>
+  <div class="opts">
+    <a class="pill anki" href="mvt-esvs-2025.apkg" download><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12M6 11l6 6 6-6M4 21h16"/></svg>Download Anki deck (.apkg)</a>
+    <a class="pill" href="../">Open the knowledge base</a>
+    <a class="pill" href="../deck/">Teaching slides</a>
+    <button class="pill" id="resetBtn">Reset my progress</button>
+  </div>
+
+  <div class="help">
+    <div><kbd>Space</kbd> or tap the card &mdash; <b>flip</b></div>
+    <div><kbd>1</kbd> Again &nbsp;<kbd>2</kbd> Hard &nbsp;<kbd>3</kbd> Good &nbsp;<kbd>4</kbd> Easy</div>
+    <div><kbd>S</kbd> skip &nbsp; <kbd>Esc</kbd> back to decks</div>
+  </div>
+  <p class="srcnote">Every card is transcribed from the ESVS 2025 Clinical Practice Guidelines on the Management of Diseases of the Mesenteric and Renal Arteries and Veins, Chapter 7 (<i>Eur J Vasc Endovasc Surg</i> 2025;70:153–218, open access, CC BY), and carries its section or recommendation number on the back. A teaching and revision aid for qualified clinicians, not for decisions about individual patients.</p>
+</main>
+
+<!-- ═══ STUDY ═══ -->
+<main class="view" id="study" hidden>
+  <div class="study-top">
+    <button class="ghost" id="toDecks">&larr; Decks</button>
+    <span class="chip" id="deckChip">Deck</span>
+    <span class="counter" id="counter">1 / 10</span>
+  </div>
+  <div class="progress"><span id="prog" style="width:0"></span></div>
+
+  <div class="flip" id="flip" tabindex="0" role="button" aria-label="Flashcard. Press Space to reveal the answer.">
+    <div class="flip-inner">
+      <div class="face front" id="front"></div>
+      <div class="face back" id="back" aria-live="polite"></div>
+    </div>
+  </div>
+
+  <div class="controls">
+    <button class="reveal" id="revealBtn">Show answer <kbd>Space</kbd></button>
+    <div class="rates" id="rates" hidden>
+      <button class="rate r-again" data-r="1"><b>Again</b><small>see it soon</small><kbd>1</kbd></button>
+      <button class="rate r-hard" data-r="2"><b>Hard</b><small>later today</small><kbd>2</kbd></button>
+      <button class="rate r-good" data-r="3"><b>Good</b><small>I knew it</small><kbd>3</kbd></button>
+      <button class="rate r-easy" data-r="4"><b>Easy</b><small>too easy</small><kbd>4</kbd></button>
+    </div>
+    <div class="subctl"><button class="ghost" id="skipBtn">Skip <kbd>S</kbd></button></div>
+  </div>
+</main>
+
+<!-- ═══ DONE ═══ -->
+<main class="view" id="done" hidden>
+  <div class="done">
+    <div class="trophy"><svg viewBox="0 0 24 24"><path d="M8 21h8M12 17v4M7 4h10v5a5 5 0 01-10 0V4zM17 5h3v2a3 3 0 01-3 3M7 5H4v2a3 3 0 003 3"/></svg></div>
+    <h2 id="doneTitle">Deck complete</h2>
+    <p id="doneSub"></p>
+    <div class="dstats">
+      <div><b id="dsSeen">0</b><span>Cards</span></div>
+      <div><b id="dsGood" style="color:var(--good)">0</b><span>Knew first time</span></div>
+      <div><b id="dsAgain" style="color:var(--again)">0</b><span>Missed</span></div>
+      <div><b id="dsMast">0%</b><span>Deck progress</span></div>
+    </div>
+    <div class="cta-row">
+      <button class="cta" id="redoMissed">Review what I missed</button>
+      <button class="cta alt" id="redoDeck">Study this deck again</button>
+      <button class="cta alt" id="doneDecks">All decks</button>
+    </div>
+    <div class="missed" id="missedWrap" hidden><h3>Cards to revisit</h3><ul id="missedList"></ul></div>
+  </div>
+</main>
+
+<script type="application/json" id="data">{"decks":[{"id":"def","name":"Definitions","tag":"Words that mean different things","g1":"#3730a3","g2":"#4f46e5","ink":"#ffffff"},{"id":"epi","name":"Epidemiology","tag":"The numbers worth memorising","g1":"#115e59","g2":"#0f766e","ink":"#ffffff"},{"id":"aet","name":"Risk factors","tag":"Why it happened","g1":"#fb923c","g2":"#f97316","ink":"#1c1917"},{"id":"haem","name":"Haematology workup","tag":"JAK2, thrombophilia, APS","g1":"#5b21b6","g2":"#7c3aed","ink":"#ffffff"},{"id":"pres","name":"Presentation","tag":"Pain first, peritonism late","g1":"#9d174d","g2":"#be185d","ink":"#ffffff"},{"id":"dx","name":"Diagnosis & imaging","tag":"One test decides it","g1":"#075985","g2":"#0369a1","ink":"#ffffff"},{"id":"acute","name":"Acute management","tag":"Heparin first, then watch","g1":"#4ade80","g2":"#22c55e","ink":"#052e16"},{"id":"esc","name":"Endovascular & surgery","tag":"When heparin is not enough","g1":"#991b1b","g2":"#dc2626","ink":"#ffffff"},{"id":"dur","name":"Anticoagulation duration","tag":"Months, extended, or for life","g1":"#fbbf24","g2":"#f59e0b","ink":"#1c1917"},{"id":"ev","name":"Evidence numbers","tag":"Rates, ratios and trials","g1":"#1e3a8a","g2":"#1d4ed8","ink":"#ffffff"},{"id":"rec","name":"Recommendations","tag":"Class, level and exact wording","g1":"#065f46","g2":"#047857","ink":"#ffffff"},{"id":"trap","name":"Traps","tag":"Where clinicians go wrong","g1":"#0f172a","g2":"#334155","ink":"#ffffff"}],"cards":[{"d":"def","q":"What is the working definition of mesenteric venous thrombosis (MVT)?","a":"Thrombosis within the <b>superior mesenteric vein<\/b>, with or without extension into the <b>portal or splenic vein<\/b>.","x":"Acute MVT may occur with obstruction of the SMV, IMV, splenic vein or portal vein.","s":"ESVS 2025 §7.1","id":"def-000"},{"d":"def","q":"Which venous segments are most often involved together?","a":"<b>Portal vein + SMV<\/b> most often, followed by the <b>splenic vein<\/b> and <b>inferior mesenteric vein<\/b>.","x":"Concomitant involvement of more than one venous segment is frequent.","s":"ESVS 2025 §7.1","id":"def-001"},{"d":"def","q":"What defines <u>acute<\/u> MVT (AMVT)?","a":"Symptom onset <b>within four weeks<\/b> of presentation.","x":"The four-week cut-off is explicitly arbitrary.","s":"ESVS 2025 §7.3.3","id":"def-002"},{"d":"def","q":"What defines <u>chronic<\/u> MVT (CMVT)?","a":"Symptoms for <b>more than four weeks without bowel infarction<\/b> — or MVT found <b>incidentally<\/b> on imaging.","x":"","s":"ESVS 2025 §7.3.3","id":"def-003"},{"d":"def","q":"What is venous mesenteric ischaemia (VMI)?","a":"The <b>acute onset of symptoms in the presence of AMVT<\/b>.","x":"This clinical entity, not the radiological clot, is the main focus of the guideline.","s":"ESVS 2025 §7.1","id":"def-004"},{"d":"def","q":"Are acute and chronic MVT different diseases?","a":"No — <b>successive stages of the same disease<\/b> with the same causes, but they need <b>different management<\/b>.","x":"","s":"ESVS 2025 §7.3.3","id":"def-005"},{"d":"def","q":"Name the four conditions ESVS Chapter 7 explicitly <u>excludes<\/u>.","a":"<b>Budd–Chiari<\/b> (± cirrhosis) · <b>isolated portal vein obstruction<\/b> · <b>sinusoidal obstruction<\/b> (hepatic veno-occlusive disease) · <b>hepatic disorders from heart failure or chemotherapy<\/b>.","x":"","s":"ESVS 2025 §7.1","id":"def-006"},{"d":"def","q":"ESVS class wording: I, IIa, IIb, IIIa, IIIb?","a":"I = <b>is recommended<\/b> · IIa = <b>should be considered<\/b> · IIb = <b>may be considered<\/b> · IIIa = <b>is not indicated<\/b> · IIIb = <b>is not recommended<\/b>.","x":"","s":"ESVS 2025 Table 2","id":"def-007"},{"d":"def","q":"What does ESVS <b>Level C<\/b> evidence mean?","a":"<b>Consensus<\/b> of experts, <b>low-quality studies<\/b> (small retrospective series, case series), or a meta-analysis of such studies.","x":"","s":"ESVS 2025 Table 3","id":"def-008"},{"d":"def","q":"How many of the 11 MVT recommendations reach Level B?","a":"<b>Two<\/b> — Rec 46 (investigate the cause) and Rec 52 (three to six months of anticoagulation).","x":"The other nine are Level C. None is Level A.","s":"ESVS 2025 §7","id":"def-009"},{"d":"epi","q":"What share of all acute mesenteric ischaemia is due to AMVT?","a":"<b>11.5%<\/b> (95% CI 9–14%).","x":"It is the least common cause of acute mesenteric ischaemia.","s":"ESVS 2025 §7.2 · Tamme 2022","id":"epi-010"},{"d":"epi","q":"How often does AMVT appear among emergency department admissions?","a":"About <b>1 in 1000<\/b> emergency department admissions.","x":"","s":"ESVS 2025 §7.2 · Tamme 2022","id":"epi-011"},{"d":"epi","q":"Incidence of VMI in the Swedish population study?","a":"<b>2.7 per 100 000<\/b> person-years.","x":"402 patients, with an autopsy rate of 87%.","s":"ESVS 2025 §7.2 · Acosta 2010","id":"epi-012"},{"d":"epi","q":"Incidence of VMI in Finland?","a":"<b>0.5 per 100 000<\/b> person-years.","x":"Compare Sweden's autopsy-based figure of 2.7 per 100 000.","s":"ESVS 2025 §7.2 · Kärkkäinen 2015","id":"epi-013"},{"d":"epi","q":"Mean age and sex distribution at presentation?","a":"Mean age <b>45–62 years<\/b>; only <b>34.3% female<\/b> (95% CI 30.5–38.5%).","x":"A male-predominant disease.","s":"ESVS 2025 §7.2 · Acosta & Salim 2021","id":"epi-014"},{"d":"epi","q":"What is the current in-hospital mortality of AMVT?","a":"Around <b>10%<\/b>.","x":"It has fallen over recent decades.","s":"ESVS 2025 §7.5","id":"epi-015"},{"d":"epi","q":"Mortality: AMVT vs acute arterial AMI vs NOMI?","a":"<b>~10%<\/b> vs <b>~50%<\/b> vs <b>~70%<\/b>.","x":"MVT is by far the most survivable of the three.","s":"ESVS 2025 §5, §6, §7.5","id":"epi-016"},{"d":"epi","q":"In the AMESI study, what proportion of adult admissions were acute VMI?","a":"<b>0.004%<\/b> (95% CI 0.002–0.007%).","x":"A worldwide multicentre prospective observational study.","s":"ESVS 2025 §7.2 · AMESI 2024","id":"epi-017"},{"d":"aet","q":"On thorough investigation, how many MVT patients have a <u>systemic<\/u> prothrombotic factor?","a":"About <b>60–70%<\/b>.","x":"","s":"ESVS 2025 §7.3.1","id":"aet-018"},{"d":"aet","q":"How many MVT patients have a <u>local<\/u> triggering factor?","a":"<b>30–40%<\/b>.","x":"","s":"ESVS 2025 §7.3.1","id":"aet-019"},{"d":"aet","q":"How many MVT cases remain unprovoked (idiopathic)?","a":"<b>20–30%<\/b>.","x":"","s":"ESVS 2025 §7.3.1","id":"aet-020"},{"d":"aet","q":"Name the three <u>permanent<\/u> risk factors ESVS lists for MVT.","a":"<b>Solid cancer<\/b> · <b>liver cirrhosis<\/b> · <b>myeloproliferative disease<\/b>.","x":"","s":"ESVS 2025 §7.3.1","id":"aet-021"},{"d":"aet","q":"Name the four <u>transient<\/u> risk factors ESVS lists for MVT.","a":"<b>Abdominal inflammation or infection<\/b> · <b>recent surgery<\/b> · <b>hormonal therapy<\/b> · <b>trauma<\/b>.","x":"","s":"ESVS 2025 §7.3.1","id":"aet-022"},{"d":"aet","q":"Pooled prevalences (1725 patients): cirrhosis/portal hypertension, liver disease, pancreatitis, IBD?","a":"Cirrhosis/PHT <b>28.8%<\/b> · liver disease <b>27.8%<\/b> · pancreatitis <b>11.1%<\/b> · IBD <b>10.0%<\/b>.","x":"","s":"ESVS 2025 §7.3.1 · Wu 2023","id":"aet-023"},{"d":"aet","q":"Which inherited thrombophilias are over-represented in MVT (systematic review of 14 studies)?","a":"<b>Prothrombin G20210A<\/b>, <b>antithrombin deficiency<\/b> and <b>protein S deficiency<\/b>.","x":"Higher than in both the general population and patients with a single VTE elsewhere.","s":"ESVS 2025 §7.3.1 · Zarrouk 2017","id":"aet-024"},{"d":"aet","q":"Which two infections are linked to AMVT?","a":"<b>Cytomegalovirus<\/b> and <b>severe SARS-CoV-2<\/b>.","x":"CMV may act synergistically with a prothrombin G20210A mutation.","s":"ESVS 2025 §7.3.2","id":"aet-025"},{"d":"haem","q":"What is the <i>JAK2<\/i> mutation prevalence in AMVT?","a":"<b>32.7%<\/b> (95% CI 25.5–35.9%) — against about <b>1%<\/b> in VTE at other sites.","x":"","s":"ESVS 2025 §7.3.1 · Dentali 2009","id":"haem-026"},{"d":"haem","q":"What is the odds ratio for the association between <i>JAK2<\/i> and MVT?","a":"<b>OR 53.9<\/b> (95% CI 13.1–222.5).","x":"A very large association, measured imprecisely.","s":"ESVS 2025 §7.3.1 · Dentali 2009","id":"haem-027"},{"d":"haem","q":"Of MVT patients carrying <i>JAK2<\/i>, how many were later diagnosed with an MPN?","a":"<b>52%<\/b> (95% CI 38–67%) — with MVT as the <b>first manifestation<\/b>.","x":"","s":"ESVS 2025 §7.3.1 · Dentali 2009","id":"haem-028"},{"d":"haem","q":"When does ESVS say to screen for <i>JAK2<\/i> V617F?","a":"In MVT <b>without evidence of other major systemic or local risk factors<\/b>.","x":"","s":"ESVS 2025 §7.3.1","id":"haem-029"},{"d":"haem","q":"Which myeloproliferative neoplasms commonly present first with AMVT?","a":"<b>Polycythaemia vera<\/b> and <b>essential thrombocythaemia<\/b>.","x":"","s":"ESVS 2025 §7.3.1","id":"haem-030"},{"d":"haem","q":"Who should be tested for thrombophilia after AMVT?","a":"<b>Selected<\/b> patients who will <b>stop anticoagulation after three to six months<\/b>.","x":"Rec 48 · Class IIb, Level C.","s":"ESVS 2025 Rec 48","id":"haem-031"},{"d":"haem","q":"MVT plus another indication for lifelong anticoagulation (e.g. AF). Test for thrombophilia?","a":"<b>No<\/b> — there is no indication, because the result cannot change management.","x":"","s":"ESVS 2025 §7.3.2","id":"haem-032"},{"d":"haem","q":"Who should be investigated for antiphospholipid syndrome?","a":"Patients with <b>recurrent MVT and recurrent foetal loss<\/b>.","x":"Rec 47 · Class IIa, Level C.","s":"ESVS 2025 Rec 47","id":"haem-033"},{"d":"haem","q":"Which assays does ESVS list for APS and thrombophilia testing?","a":"<b>Lupus anticoagulant<\/b>, <b>anticardiolipin<\/b>, <b>β2-glycoprotein<\/b> antibodies; <b>antithrombin<\/b>, <b>protein C<\/b>, <b>protein S<\/b>.","x":"","s":"ESVS 2025 §7.3.2","id":"haem-034"},{"d":"haem","q":"What does ASH 2023 advise on thrombophilia testing in MVT?","a":"<b>Conditional testing<\/b> for patients who would stop anticoagulation after three to six months.","x":"Very low certainty of evidence about effects.","s":"ESVS 2025 §7.3.2 · Middeldorp 2023","id":"haem-035"},{"d":"haem","q":"Is there a reliable biomarker for MVT?","a":"<b>No.<\/b> A single lactate or D-dimer to confirm or exclude acute mesenteric ischaemia is <b>Class IIIb — not recommended<\/b>.","x":"","s":"ESVS 2025 §7.3.2 · Recs 31, 42","id":"haem-036"},{"d":"haem","q":"How did the D-dimer advice change from 2017 to 2025?","a":"2017 recommended D-dimer to <b>rule out<\/b> AMI. 2025 is <b>Class IIIb against<\/b> any single biomarker to confirm or exclude it.","x":"","s":"ESVS 2025 · What is new","id":"haem-037"},{"d":"pres","q":"What is the mean duration of symptoms at presentation in AMVT?","a":"<b>6–14 days<\/b>.","x":"","s":"ESVS 2025 §7.3.3","id":"pres-038"},{"d":"pres","q":"In more than 75% of cases, how long do symptoms persist before diagnosis?","a":"<b>Two to three days<\/b>.","x":"","s":"ESVS 2025 §7.3.3","id":"pres-039"},{"d":"pres","q":"What share of patients with SMV involvement are symptomatic?","a":"<b>92%<\/b> — in contrast to isolated portal vein thrombosis.","x":"","s":"ESVS 2025 §7.3.3","id":"pres-040"},{"d":"pres","q":"Untreated SMV thrombosis: risk of haemorrhagic bowel infarction?","a":"<b>33–45%<\/b>.","x":"","s":"ESVS 2025 §7.3.3","id":"pres-041"},{"d":"pres","q":"What are the most common symptoms of MVT?","a":"<b>Abdominal pain<\/b>, <b>anorexia<\/b> and <b>diarrhoea<\/b>.","x":"Pain is non-specific early; localised tenderness develops later.","s":"ESVS 2025 §7.3.3","id":"pres-042"},{"d":"pres","q":"What do fever and peritoneal signs indicate in MVT?","a":"<b>Progression of ischaemia to bowel infarction.<\/b>","x":"They are the complication, not the presentation.","s":"ESVS 2025 §7.3.3","id":"pres-043"},{"d":"pres","q":"What share of MVT presents acutely?","a":"<b>20–74%<\/b>, depending on the vein segment involved.","x":"Acute presentation is more common when the mesenteric veins are involved.","s":"ESVS 2025 §7.3.3","id":"pres-044"},{"d":"pres","q":"What is pylephlebitis?","a":"<b>Infectious thrombophlebitis of the portal vein<\/b> and its branches — high fever, malaise, abdominal tenderness, sepsis.","x":"May come with liver abscesses; follows appendicitis, pancreatitis or diverticulitis.","s":"ESVS 2025 §7.3.3","id":"pres-045"},{"d":"pres","q":"What is a portal cavernoma?","a":"Chronic MVT in which the <b>obstructed portal vein is replaced by a network of collateral veins<\/b>.","x":"Complete portal vein occlusion is virtually always associated with portal hypertension.","s":"ESVS 2025 §7.3.3","id":"pres-046"},{"d":"pres","q":"What are the classical (but rare) presentations of a cavernoma?","a":"<b>Ruptured oesophageal or gastric varices<\/b>, or <b>portal cholangiopathy<\/b> — jaundice, cholangitis, cholecystitis, pancreatitis.","x":"","s":"ESVS 2025 §7.3.3","id":"pres-047"},{"d":"dx","q":"What is the imaging investigation of choice for suspected MVT?","a":"<b>Contrast-enhanced CT<\/b> with <b>arterial and portal venous phases<\/b> (optional non-contrast run).","x":"","s":"ESVS 2025 §7.4 · Rec 49","id":"dx-048"},{"d":"dx","q":"What slice thickness does the CTA protocol specify?","a":"Three-phase CTA with <b>1 mm maximum<\/b> slice thickness.","x":"","s":"ESVS 2025 §7.4","id":"dx-049"},{"d":"dx","q":"Which CT phase shows the extent of the venous thrombosis?","a":"The <b>portal venous phase<\/b>.","x":"It also shows the secondary bowel findings.","s":"ESVS 2025 §7.4","id":"dx-050"},{"d":"dx","q":"Name the five non-vascular CT findings to look for.","a":"<b>Bowel wall thickening<\/b> · <b>bowel dilatation<\/b> · <b>mesenteric fat stranding<\/b> · <b>pneumatosis intestinalis<\/b> · <b>portal venous gas<\/b>.","x":"","s":"ESVS 2025 §7.4","id":"dx-051"},{"d":"dx","q":"Is duplex ultrasound enough to diagnose MVT?","a":"<b>No<\/b> — it cannot show the extent of thrombosis or the bowel changes, and <b>must be complemented by CT<\/b>.","x":"","s":"ESVS 2025 §7.4","id":"dx-052"},{"d":"dx","q":"Why write \"?mesenteric ischaemia\" on the CT request?","a":"Stating the suspicion is associated with <b>better diagnosis and outcomes<\/b>.","x":"New Class I Rec 32.","s":"ESVS 2025 Rec 32","id":"dx-053"},{"d":"dx","q":"Should CTA wait for renal function results?","a":"<b>No<\/b> — urgent CTA is recommended <b>regardless of renal function<\/b>.","x":"Rec 33 · Class I.","s":"ESVS 2025 Rec 33","id":"dx-054"},{"d":"dx","q":"What is the hardest diagnostic judgement in AMVT?","a":"Telling <b>reversible from irreversible<\/b> intestinal ischaemia — notably difficult, <b>especially in AMVT<\/b>.","x":"","s":"ESVS 2025 §7.4","id":"dx-055"},{"d":"acute","q":"What is the first-line treatment for every AMVT patient without a major contraindication?","a":"<b>Unfractionated or low molecular weight heparin.<\/b>","x":"Start soon after diagnosis.","s":"ESVS 2025 §7.5.1 · Rec 50","id":"acute-056"},{"d":"acute","q":"Why is unfractionated heparin favoured in the acute phase?","a":"It can be <b>reversed with protamine<\/b> if laparotomy becomes necessary or bleeding occurs.","x":"","s":"ESVS 2025 §7.5.1","id":"acute-057"},{"d":"acute","q":"How often does early anticoagulation achieve recanalisation?","a":"In <b>40–80%<\/b> of patients.","x":"Complete recanalisation is associated with less extensive thrombosis.","s":"ESVS 2025 §7.5.1","id":"acute-058"},{"d":"acute","q":"What are the goals of treating AMVT?","a":"<b>Stop propagation<\/b> and <b>promote recanalisation<\/b> — to prevent bowel infarction, portal hypertension and recurrence.","x":"","s":"ESVS 2025 §7.5","id":"acute-059"},{"d":"acute","q":"What extra goals apply in chronic MVT?","a":"Preventing and treating <b>GI bleeding<\/b> and <b>portal cholangiopathy<\/b>.","x":"","s":"ESVS 2025 §7.5","id":"acute-060"},{"d":"acute","q":"What supportive care starts immediately?","a":"<b>Pain control<\/b>, <b>fluids and electrolytes<\/b>, <b>bowel rest<\/b>.","x":"Add NG aspiration for ileus or vomiting, transfusion for bleeding, parenteral nutrition.","s":"ESVS 2025 §7.5.2","id":"acute-061"},{"d":"acute","q":"Are antibiotics routine in MVT?","a":"<b>No<\/b> — no mortality or length-of-stay benefit shown.","x":"Give them for perforation, sepsis from bacterial translocation, pylephlebitis or septic thrombophlebitis.","s":"ESVS 2025 §7.5.2","id":"acute-062"},{"d":"acute","q":"What is the single decision point at presentation in the ESVS algorithm?","a":"<b>Peritonitis?<\/b> Yes → laparotomy. No → anticoagulation plus supportive care.","x":"","s":"ESVS 2025 Fig. 6","id":"acute-063"},{"d":"acute","q":"Anatomically, when does bowel infarction become likely?","a":"When the <b>venous arcades and vasa recta<\/b> are involved, causing <b>complete venous occlusion<\/b>.","x":"","s":"ESVS 2025 §7.5","id":"acute-064"},{"d":"acute","q":"Most patients with AMVT are cured by…?","a":"<b>Therapeutic anticoagulation and supportive treatment<\/b> alone.","x":"Endovascular therapy and surgery are escalation steps.","s":"ESVS 2025 §7.5","id":"acute-065"},{"d":"esc","q":"When should endovascular thrombolysis or thrombectomy be considered?","a":"When the patient <b>deteriorates during anticoagulant therapy<\/b>.","x":"Not simply because the clot is large.","s":"ESVS 2025 §7.5.3 · Rec 51","id":"esc-066"},{"d":"esc","q":"Name the endovascular options for AMVT.","a":"<b>TIPS + aspiration thrombectomy<\/b> · <b>direct thrombolysis ± angioplasty<\/b> · <b>percutaneous transhepatic thrombectomy or thrombolysis<\/b> · <b>thrombolysis via the SMA<\/b>.","x":"","s":"ESVS 2025 §7.5.3","id":"esc-067"},{"d":"esc","q":"Direct venous vs SMA route for thrombolysis — which is preferred?","a":"The <b>direct venous<\/b> route — used in more centres and <b>may be more effective<\/b>.","x":"","s":"ESVS 2025 §7.5.3","id":"esc-068"},{"d":"esc","q":"Transjugular or transhepatic access: mean time to thrombus resolution?","a":"A mean of <b>40 hours<\/b>.","x":"","s":"ESVS 2025 §7.5.3","id":"esc-069"},{"d":"esc","q":"Thrombolysis systematic review (480 patients): complete recanalisation, bleeding, bowel resection?","a":"<b>58%<\/b> (46–70%) · bleeding <b>18%<\/b> (7–32%) · resection <b>3%<\/b> (0–8%).","x":"","s":"ESVS 2025 §7.5.3 · Gao 2023","id":"esc-070"},{"d":"esc","q":"Clinical effectiveness: anticoagulation vs endovascular treatment?","a":"<b>89%<\/b> vs <b>93%<\/b> — but <b>low-quality evidence with obvious selection bias<\/b>.","x":"","s":"ESVS 2025 §7.5.3 · Wang 2022","id":"esc-071"},{"d":"esc","q":"What are the indications for open surgery?","a":"<b>Persisting or worsening symptoms<\/b>, <b>organ failure<\/b>, <b>perforation<\/b> or <b>peritonitis<\/b>.","x":"","s":"ESVS 2025 §7.5.4","id":"esc-072"},{"d":"esc","q":"What is the aim of surgery in AMVT?","a":"<b>Remove irreversibly ischaemic bowel<\/b> and <b>preserve as much bowel as possible<\/b>.","x":"","s":"ESVS 2025 §7.5.4","id":"esc-073"},{"d":"esc","q":"Bowel resection rate in AMVT (systematic review of 599 patients)?","a":"<b>43.9%<\/b>.","x":"Rates vary widely between studies.","s":"ESVS 2025 §7.5.4 · Acosta & Salim 2021","id":"esc-074"},{"d":"esc","q":"What are the two hard problems of surgery in AMVT?","a":"<b>When to operate<\/b>, and <b>when a bowel segment is irreversibly injured<\/b>.","x":"","s":"ESVS 2025 §7.5.4","id":"esc-075"},{"d":"esc","q":"What unresolved research question does ESVS name for MVT?","a":"The value of <b>endovascular treatment when anticoagulation fails<\/b> in extensive mesenteric or portal thrombosis.","x":"","s":"ESVS 2025 §11.4","id":"esc-076"},{"d":"dur","q":"When can a vitamin K antagonist usually be started after AMVT?","a":"<b>Two to three weeks<\/b> after onset, once the acute ischaemic phase has passed.","x":"","s":"ESVS 2025 §7.6","id":"dur-077"},{"d":"dur","q":"What is the estimated one-year recurrence after AMVT?","a":"<b>2.7%<\/b>.","x":"","s":"ESVS 2025 §7.6","id":"dur-078"},{"d":"dur","q":"What is the minimum duration of anticoagulation for all AMVT?","a":"<b>Three to six months<\/b> of a VKA or LMWH.","x":"A DOAC may be considered as an alternative.","s":"ESVS 2025 Recs 52, 53","id":"dur-079"},{"d":"dur","q":"AMVT with a <u>transient<\/u> risk factor. Stop at six months?","a":"<b>Consider extending beyond six months.<\/b>","x":"VKA: should be considered (IIa). DOAC: may be considered (IIb).","s":"ESVS 2025 Recs 54, 55","id":"dur-080"},{"d":"dur","q":"AMVT with a <u>permanent<\/u> risk factor — duration?","a":"<b>Indefinite<\/b> anticoagulation.","x":"Class I, based on consensus.","s":"ESVS 2025 Rec 56","id":"dur-081"},{"d":"dur","q":"<u>Idiopathic<\/u> AMVT — duration?","a":"<b>Indefinite<\/b> anticoagulation.","x":"Class I, based on consensus. Check that <i>JAK2<\/i> was tested first.","s":"ESVS 2025 Rec 56","id":"dur-082"},{"d":"dur","q":"Why is extending anticoagulation for <u>transient<\/u> factors counterintuitive?","a":"In most VTE, a resolved transient factor means <b>stop at three months<\/b>. In MVT, recurrence can mean <b>extensive bowel loss and short bowel syndrome<\/b>.","x":"","s":"ESVS 2025 §7.6","id":"dur-083"},{"d":"dur","q":"What three things must be balanced when deciding on extended anticoagulation?","a":"<b>Bleeding risk<\/b> (varices, low platelets, prior bleeds) · <b>recurrence risk<\/b> (persisting factors, prior VTE) · <b>consequences of recurrence<\/b> (bowel involvement, short bowel).","x":"A shared decision with the patient.","s":"ESVS 2025 §7.6","id":"dur-084"},{"d":"dur","q":"Which DOACs have small retrospective data after AMVT?","a":"<b>Rivaroxaban<\/b> and <b>apixaban<\/b> — possibly as effective as VKA or enoxaparin.","x":"Their use is off-label.","s":"ESVS 2025 §7.6","id":"dur-085"},{"d":"ev","q":"IPD meta-analysis (1635 patients): recurrent VTE on vs off anticoagulation?","a":"<b>3.4<\/b> vs <b>6.6<\/b> per 100 patient-years.","x":"Mean anticoagulation 316 days.","s":"ESVS 2025 §7.6 · Candeloro 2022","id":"ev-086"},{"d":"ev","q":"Same IPD meta-analysis: major bleeding on vs off anticoagulation?","a":"<b>3.1<\/b> vs <b>5.8<\/b> per 100 patient-years.","x":"Higher after stopping, which points to confounding: sicker patients stop and bleed.","s":"ESVS 2025 §7.6 · Candeloro 2022","id":"ev-087"},{"d":"ev","q":"In the IPD meta-analysis, what share of recurrences were in the mesenteric veins?","a":"<b>38.5%<\/b>.","x":"","s":"ESVS 2025 §7.6 · Candeloro 2022","id":"ev-088"},{"d":"ev","q":"International registry (604 patients): thrombotic events on vs off anticoagulation?","a":"<b>5.6<\/b> vs <b>10.5<\/b> per 100 patient-years.","x":"","s":"ESVS 2025 §7.6 · Ageno 2015","id":"ev-089"},{"d":"ev","q":"Same registry: major bleeding on vs off anticoagulation?","a":"<b>3.9<\/b> vs <b>1.0<\/b> per 100 patient-years.","x":"The opposite direction to the IPD meta-analysis.","s":"ESVS 2025 §7.6 · Ageno 2015","id":"ev-090"},{"d":"ev","q":"Which subgroup had the highest rates of both thrombosis and bleeding?","a":"<b>Cirrhosis<\/b> — 11.3 thrombotic and 10.0 major bleeding events per 100 patient-years.","x":"","s":"ESVS 2025 §7.6 · Ageno 2015","id":"ev-091"},{"d":"ev","q":"Which subgroup had the lowest rates of thrombosis and bleeding?","a":"MVT secondary to <b>transient risk factors<\/b>.","x":"","s":"ESVS 2025 §7.6 · Ageno 2015","id":"ev-092"},{"d":"ev","q":"Anticoagulation vs stopping (meta-analysis): effect on recanalisation, bleeding, mortality, recurrence?","a":"Recanalisation <b>RR 2.39<\/b> · bleeding <b>RR 0.73<\/b> · mortality <b>RR 0.45<\/b> · recurrence <b>RR 0.91<\/b> (no difference).","x":"","s":"ESVS 2025 §7.6 · Valeriani 2021","id":"ev-093"},{"d":"ev","q":"VKA vs DOAC in 102 MVT patients: recanalisation and major bleeding?","a":"Recanalisation <b>71% vs 69%<\/b>; major bleeding <b>14.3% vs 9.1%<\/b>.","x":"No significant difference except more GI bleeding with DOACs.","s":"ESVS 2025 §7.6 · Salim 2019","id":"ev-094"},{"d":"ev","q":"Rivaroxaban cohort (96 patients): recurrent VTE at three and six months?","a":"<b>2.1%<\/b> at three months (two patients) · <b>3.1%<\/b> cumulative at six months.","x":"","s":"ESVS 2025 §7.6 · Ageno 2022","id":"ev-095"},{"d":"ev","q":"Ten-year recurrence-free survival: isolated splenic vein vs isolated mesenteric vein thrombosis?","a":"<b>97%<\/b> vs <b>60%<\/b>.","x":"The segment affected changes the prognosis.","s":"ESVS 2025 §7.6 · Thatipelli 2010","id":"ev-096"},{"d":"rec","q":"Investigating the cause of MVT — what does ESVS recommend, and how strongly?","a":"Investigation for the presence of an intra-abdominal malignancy, inflammatory disease, myeloproliferative neoplasm, cytomegalovirus and SARS-CoV-2 infection, and chronic liver disease is recommended for patients with mesenteric venous thrombosis.","x":"Thatipelli 2010 · Primignani 2010 · De Broucker 2022 · El-Hady 2023 · Elkrief 2023","s":"ESVS 2025 Rec 46","n":46,"cls":"I","lvl":"B","st":"Unchanged","id":"rec-097"},{"d":"rec","q":"Recurrent MVT with recurrent foetal loss — what does ESVS recommend, and how strongly?","a":"Patients with recurrent mesenteric venous thrombosis and recurrent foetal loss should be investigated for antiphospholipid antibody syndrome.","x":"Thatipelli 2010 · Primignani 2010 · Elkrief 2023","s":"ESVS 2025 Rec 47","n":47,"cls":"IIa","lvl":"C","st":"Unchanged","id":"rec-098"},{"d":"rec","q":"Thrombophilia testing after AMVT — what does ESVS recommend, and how strongly?","a":"Testing for thrombophilia may be considered in selected patients with acute venous mesenteric thrombosis who will discontinue anticoagulation treatment after three to six months.","x":"Middeldorp 2023","s":"ESVS 2025 Rec 48","n":48,"cls":"IIb","lvl":"C","st":"Unchanged","id":"rec-099"},{"d":"rec","q":"Imaging for suspected MVT — what does ESVS recommend, and how strongly?","a":"Contrast enhanced computed tomography scanning with imaging in the arterial and portal phases (and optional non-contrast CT run) is recommended for patients suspected of mesenteric vein thrombosis.","x":"Salim 2018 · Henes 2017 — rephrased, LoE downgraded B → C","s":"ESVS 2025 Rec 49","n":49,"cls":"I","lvl":"C","st":"Changed","id":"rec-100"},{"d":"rec","q":"First-line treatment of AMVT — what does ESVS recommend, and how strongly?","a":"Anticoagulation with unfractionated or low molecular weight heparin as first line therapy is recommended for all patients with acute mesenteric vein thrombosis.","x":"Wang 2022","s":"ESVS 2025 Rec 50","n":50,"cls":"I","lvl":"C","st":"Unchanged","id":"rec-101"},{"d":"rec","q":"Deterioration on anticoagulation — what does ESVS recommend, and how strongly?","a":"Endovascular venous thrombolysis and mechanical thrombectomy may be considered for patients with acute venous mesenteric ischaemia who deteriorate during anticoagulant therapy.","x":"Acosta 2021 · Wang 2022 · Gao 2023","s":"ESVS 2025 Rec 51","n":51,"cls":"IIb","lvl":"C","st":"New","id":"rec-102"},{"d":"rec","q":"Three to six months of VKA or LMWH — what does ESVS recommend, and how strongly?","a":"Anticoagulation for three to six months with a vitamin K antagonist or low molecular weight heparin is recommended for all patients with acute mesenteric vein thrombosis.","x":"Candeloro 2022 · Valeriani 2021 · Ageno 2015","s":"ESVS 2025 Rec 52","n":52,"cls":"I","lvl":"B","st":"Unchanged","id":"rec-103"},{"d":"rec","q":"A DOAC for the first three to six months — what does ESVS recommend, and how strongly?","a":"Anticoagulation for three to six months with a direct oral anticoagulant as an alternative to a vitamin K antagonist or low molecular weight heparin may be considered for all patients with acute mesenteric vein thrombosis.","x":"Salim 2019 · Janczak 2018 · Ageno 2022 · Valeriani 2021","s":"ESVS 2025 Rec 53","n":53,"cls":"IIb","lvl":"C","st":"New","id":"rec-104"},{"d":"rec","q":"Extending a VKA beyond six months for transient risk factors — what does ESVS recommend, and how strongly?","a":"Extended anticoagulation beyond six months with a vitamin K antagonist should be considered for patients with acute mesenteric vein thrombosis and transient risk factors for venous thrombosis.","x":"Candeloro 2022 · Valeriani 2021 · Ageno 2015","s":"ESVS 2025 Rec 54","n":54,"cls":"IIa","lvl":"C","st":"New","id":"rec-105"},{"d":"rec","q":"Extending with a DOAC beyond six months for transient risk factors — what does ESVS recommend, and how strongly?","a":"Extended anticoagulation beyond six months with a direct oral anticoagulant as an alternative to a vitamin K antagonist may be considered for all patients with acute mesenteric vein thrombosis and transient risk factors for venous thrombosis.","x":"Valeriani 2021","s":"ESVS 2025 Rec 55","n":55,"cls":"IIb","lvl":"C","st":"New","id":"rec-106"},{"d":"rec","q":"Idiopathic AMVT, or permanent risk factors — what does ESVS recommend, and how strongly?","a":"Indefinite anticoagulation is recommended for patients with idiopathic acute mesenteric vein thrombosis and patients with permanent risk factors for venous thrombosis.","x":"Consensus","s":"ESVS 2025 Rec 56","n":56,"cls":"I","lvl":"C","st":"Unchanged","id":"rec-107"},{"d":"rec","q":"Assessing bowel viability at operation — what does ESVS recommend, and how strongly? (Ch. 5, applies to AMVT)","a":"Quantitative indocyanine green fluorescent imaging may be considered as an aid in the assessment of bowel viability in patients undergoing laparotomy or laparoscopy for acute mesenteric ischaemia.","x":"Used in only 7% of practices","s":"ESVS 2025 Rec 39","n":39,"cls":"IIb","lvl":"—","st":"New","id":"rec-108"},{"d":"rec","q":"Bowel resection strategy — what does ESVS recommend, and how strongly? (Ch. 5, applies to AMVT)","a":"Resection without primary reconstruction and second look laparotomy for definitive treatment should be considered in patients undergoing acute mesenteric revascularisation who need bowel resection.","x":"Rephrased · consensus","s":"ESVS 2025 Rec 40","n":40,"cls":"IIa","lvl":"—","st":"Changed","id":"rec-109"},{"d":"rec","q":"Antibiotics in acute mesenteric ischaemia — what does ESVS recommend, and how strongly? (Ch. 5)","a":"Treatment with antibiotics is recommended for patients with acute mesenteric ischaemia.","x":"LoE downgraded B → C. In MVT itself, antibiotics are indicated only for perforation, translocation sepsis, pylephlebitis or septic thrombophlebitis.","s":"ESVS 2025 Rec 41","n":41,"cls":"I","lvl":"C","st":"Changed","id":"rec-110"},{"d":"trap","q":"A normal full blood count rules out a myeloproliferative neoplasm. True?","a":"<b>False.<\/b> Test <i>JAK2<\/i> V617F.","x":"52% of JAK2-positive MVT patients declared an MPN only during follow-up.","s":"ESVS 2025 §7.3.1","id":"trap-111"},{"d":"trap","q":"A normal lactate makes MVT unlikely. True?","a":"<b>False.<\/b> No biomarker is reliable; a single lactate or D-dimer is <b>Class IIIb<\/b>.","x":"The CT decides.","s":"ESVS 2025 §7.3.2","id":"trap-112"},{"d":"trap","q":"The CT shows a large clot. Thrombolyse?","a":"<b>Not on clot burden alone.<\/b> The trigger is <b>deterioration during anticoagulation<\/b>.","x":"Pooled bleeding with thrombolysis: 18%.","s":"ESVS 2025 Rec 51","id":"trap-113"},{"d":"trap","q":"Appendicitis explains this patient's MVT. Workup complete?","a":"<b>No.<\/b> Systemic factors are found in 60–70%; investigate <b>every<\/b> patient.","x":"Rec 46 applies to all patients with MVT.","s":"ESVS 2025 Rec 46","id":"trap-114"},{"d":"trap","q":"Transient cause, now resolved. Stop anticoagulation at three months?","a":"<b>Not by default.<\/b> ESVS suggests considering <b>extension beyond six months<\/b>.","x":"Recs 54 and 55.","s":"ESVS 2025 Recs 54, 55","id":"trap-115"},{"d":"trap","q":"Order a full thrombophilia screen for every MVT patient?","a":"<b>No.<\/b> Only in selected patients who will <b>stop anticoagulation<\/b> at three to six months.","x":"Rec 48.","s":"ESVS 2025 Rec 48","id":"trap-116"},{"d":"trap","q":"A trial of splanchnic vein thrombosis tells you about MVT. True?","a":"<b>Only partly.<\/b> Isolated splenic vein thrombosis has 97% ten-year recurrence-free survival; isolated MVT only 60%.","x":"Always ask which veins were studied.","s":"ESVS 2025 §7.6","id":"trap-117"},{"d":"trap","q":"Duplex ultrasound shows SMV thrombus. Enough to plan treatment?","a":"<b>No.<\/b> Duplex cannot show the full extent or the bowel changes — <b>get the CT<\/b>.","x":"","s":"ESVS 2025 §7.4","id":"trap-118"}]}</script>
+<script>
+(function(){
+'use strict';
+const $=s=>document.querySelector(s), $$=s=>Array.from(document.querySelectorAll(s));
+const DATA=JSON.parse($('#data').textContent);
+const DECKS=DATA.decks, CARDS=DATA.cards, BYID={}, DECK={};
+CARDS.forEach(c=>BYID[c.id]=c); DECKS.forEach((d,i)=>{d.i=i+1;DECK[d.id]=d});
+
+/* ── storage (per-viewer convenience; page works without it) ── */
+const KEY='mvt-cards-v1';
+let st={box:{},seen:{},fs:'l',order:'smart'};
+try{const raw=localStorage.getItem(KEY); if(raw) st=Object.assign(st,JSON.parse(raw));}catch(e){}
+function save(){try{localStorage.setItem(KEY,JSON.stringify(st))}catch(e){}}
+const box=id=>st.box[id]||0;
+const status=id=>!(id in st.box)?'new':(box(id)>=3?'mast':'learn');
+const progress=ids=>ids.length?ids.reduce((s,id)=>s+Math.min(box(id),3),0)/(ids.length*3):0;
+
+/* ── theme (shares the knowledge base's preference) ── */
+const html=document.documentElement;
+const SUN='<circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/>';
+const MOON='<path d="M21 12.8A9 9 0 1111.2 3a7 7 0 009.8 9.8z"/>';
+function setTheme(t){html.setAttribute('data-theme',t);$('#themeIcon').innerHTML=t==='dark'?SUN:MOON}
+let theme=null; try{theme=localStorage.getItem('mvt-theme')}catch(e){}
+if(!theme) theme=matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';
+setTheme(theme);
+$('#themeBtn').onclick=()=>{theme=theme==='dark'?'light':'dark';setTheme(theme);try{localStorage.setItem('mvt-theme',theme)}catch(e){}};
+
+/* ── text size ── */
+function setFs(f){html.setAttribute('data-fs',f);$$('.ctl button[data-fs]').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.fs===f)));st.fs=f;save()}
+$$('.ctl button[data-fs]').forEach(b=>b.onclick=()=>setFs(b.dataset.fs));
+setFs(st.fs||'l');
+
+/* ── order ── */
+function setOrder(o){st.order=o;save();$$('.ctl button[data-order]').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.order===o)))}
+$$('.ctl button[data-order]').forEach(b=>b.onclick=()=>setOrder(b.dataset.order));
+setOrder(st.order||'smart');
+
+function paint(el,d){el.style.setProperty('--g1',d.g1);el.style.setProperty('--g2',d.g2);el.style.setProperty('--gink',d.ink)}
+
+/* ── HOME ── */
+function renderHome(){
+  const n=CARDS.length; let m=0,l=0;
+  CARDS.forEach(c=>{const s=status(c.id); if(s==='mast')m++; else if(s==='learn')l++;});
+  $('#totalCards').textContent=n; $('#totalDecks').textContent=DECKS.length;
+  $('#mastPct').innerHTML=Math.round(m/n*100)+'<small>%</small>';
+  $('#nMast').textContent=m; $('#nLearn').textContent=l; $('#nNew').textContent=n-m-l;
+  $('#mMast').style.width=(m/n*100)+'%'; $('#mLearn').style.width=(l/n*100)+'%';
+  $('#decks').innerHTML=DECKS.map(d=>{
+    const cs=CARDS.filter(c=>c.d===d.id), mm=cs.filter(c=>status(c.id)==='mast').length;
+    return `<button class="deck" data-deck="${d.id}" data-n="${String(d.i).padStart(2,'0')}"
+      style="--dk1:${d.g1};--dk2:${d.g2};--dk-ink:${d.ink}">
+      <span class="dn">${d.name}</span><span class="dt">${d.tag}</span>
+      <span class="dfoot"><span class="dcount"><span>${cs.length} cards</span><span>${mm} mastered</span></span>
+      <span class="dbar"><span style="width:${progress(cs.map(c=>c.id))*100}%"></span></span></span></button>`;
+  }).join('');
+  $$('.deck').forEach(b=>b.onclick=()=>start(b.dataset.deck));
+}
+
+/* ── SESSION ── */
+let S=null;
+function order(ids){
+  const a=ids.slice();
+  if(st.order==='seq') return a;
+  for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]];}
+  if(st.order==='smart') a.sort((x,y)=>box(x)-box(y)||(st.seen[x]||0)-(st.seen[y]||0));
+  return a;
+}
+function start(deckId,ids,title){
+  let pool=ids||(deckId==='all'?CARDS.map(c=>c.id):CARDS.filter(c=>c.d===deckId).map(c=>c.id));
+  if(!ids) pool=order(pool);
+  S={deckId,title:title||(deckId==='all'?'All decks':DECK[deckId].name),queue:pool,total:pool.length,
+     done:0,good:0,firstGood:0,rated:new Set(),again:new Set(),hardOnce:new Set(),all:pool.slice()};
+  show('study'); next(true);
+}
+function show(v){['home','study','done'].forEach(x=>$('#'+x).hidden=(x!==v));window.scrollTo(0,0);
+  if(v==='home'){['--g1','--g2','--gink'].forEach(k=>document.body.style.removeProperty(k));renderHome()}}
+const flip=$('#flip'), front=$('#front'), back=$('#back');
+
+function next(first){
+  if(!S.queue.length){finish();return}
+  const c=BYID[S.queue[0]], d=DECK[c.d];
+  const root=document.body; paint(root,d);
+  $('#deckChip').textContent=S.deckId==='all'||S.deckId==='weak'?S.title+' · '+d.name:d.name;
+  $('#counter').textContent=`${Math.min(S.done+1,S.total)} / ${S.total}`;
+  $('#prog').style.width=(S.done/S.total*100)+'%';
+  flip.classList.add('noanim'); flip.classList.remove('flipped'); void flip.offsetWidth;
+  front.innerHTML=`<div class="fhead"><span class="ftag">${d.name}</span><span class="fnum">${c.n?'Rec '+c.n:''}</span></div>
+    <div class="q">${c.q}</div><div class="hint">Tap to reveal &middot; <kbd>Space</kbd></div>`;
+  let body;
+  if(c.d==='rec'){
+    const lvl=c.lvl==='—'?'<span class="bdg l-x">Level not graded here</span>':`<span class="bdg l-${c.lvl}">Level ${c.lvl}</span>`;
+    body=`<div class="bq">${c.q}</div>
+      <div class="badges"><span class="bdg c-${c.cls}">Class ${c.cls}</span>${lvl}<span class="bdg s-${c.st}">${c.st==='New'?'New in 2025':c.st}</span></div>
+      <div class="rtext">${c.a}</div>${c.x?`<div class="x">${c.x}</div>`:''}`;
+  } else {
+    body=`<div class="bq">${c.q}</div><div class="a">${c.a}</div>${c.x?`<div class="x">${c.x}</div>`:''}`;
+  }
+  back.innerHTML=`<div class="band"></div><div class="bbody">${body}<div class="src"><span>${c.s}</span></div></div>`;
+  back.setAttribute('aria-hidden','true');
+  requestAnimationFrame(()=>{flip.classList.remove('noanim');flip.classList.remove('enter');void flip.offsetWidth;flip.classList.add('enter')});
+  $('#revealBtn').hidden=false; $('#rates').hidden=true;
+  if(!first) flip.focus({preventScroll:true});
+}
+function reveal(){
+  if(!S||flip.classList.contains('flipped')) return;
+  flip.classList.add('flipped'); back.removeAttribute('aria-hidden');
+  $('#revealBtn').hidden=true; $('#rates').hidden=false;
+}
+function rate(r){
+  if(!S||!flip.classList.contains('flipped')) return;
+  const id=S.queue.shift(); st.seen[id]=Date.now();
+  if(!S.rated.has(id)){S.rated.add(id); if(r>=3) S.firstGood++;}
+  if(r===1){st.box[id]=0;S.again.add(id);S.queue.splice(Math.min(3,S.queue.length),0,id);}
+  else if(r===2){st.box[id]=Math.max(1,box(id));
+    if(!S.hardOnce.has(id)){S.hardOnce.add(id);S.queue.push(id);} else {S.done++;}}
+  else {st.box[id]=Math.min(5,box(id)+(r===4?2:1));S.done++;S.good++;}
+  save(); next();
+}
+function skip(){if(!S||!S.queue.length)return;S.queue.push(S.queue.shift());next()}
+function finish(){
+  $('#prog').style.width='100%';
+  const ids=S.all;
+  $('#doneTitle').textContent=S.again.size?'Deck complete':'Flawless run';
+  $('#doneSub').textContent=`${S.title} · ${S.total} cards`;
+  $('#dsSeen').textContent=S.total; $('#dsGood').textContent=S.firstGood; $('#dsAgain').textContent=S.again.size;
+  $('#dsMast').textContent=Math.round(progress(ids)*100)+'%';
+  const miss=[...S.again];
+  $('#redoMissed').hidden=!miss.length;
+  $('#missedWrap').hidden=!miss.length;
+  $('#missedList').innerHTML=miss.map(id=>`<li>${BYID[id].q}</li>`).join('');
+  show('done');
+}
+$('#redoMissed').onclick=()=>{const m=[...S.again];start(S.deckId,order(m),'Missed cards')};
+$('#redoDeck').onclick=()=>start(S.deckId==='weak'?'all':S.deckId);
+$('#doneDecks').onclick=$('#toDecks').onclick=()=>{S=null;show('home')};
+$('#studyAll').onclick=()=>start('all');
+$('#studyWeak').onclick=()=>{
+  const ids=CARDS.map(c=>c.id).sort((a,b)=>box(a)-box(b)||(st.seen[a]||0)-(st.seen[b]||0)||Math.random()-.5).slice(0,20);
+  start('weak',ids,'Weakest 20');
+};
+$('#resetBtn').onclick=()=>{if(confirm('Clear all saved progress for these flashcards?')){st.box={};st.seen={};save();renderHome()}};
+flip.onclick=reveal; $('#revealBtn').onclick=reveal; $('#skipBtn').onclick=skip;
+$$('.rate').forEach(b=>b.onclick=()=>rate(+b.dataset.r));
+document.addEventListener('keydown',e=>{
+  if(e.metaKey||e.ctrlKey||e.altKey) return;
+  if($('#study').hidden) return;
+  if(e.key===' '||e.key==='Enter'){ if(document.activeElement&&document.activeElement.classList.contains('rate')) return; e.preventDefault(); reveal(); }
+  else if(['1','2','3','4'].includes(e.key)){ e.preventDefault(); rate(+e.key); }
+  else if(e.key==='s'||e.key==='S'){ e.preventDefault(); skip(); }
+  else if(e.key==='Escape'){ S=null; show('home'); }
+});
+renderHome();
+})();
+</script>
+</body>
+</html>

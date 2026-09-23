@@ -100,6 +100,16 @@ em{font-style:italic}
   font-size:11.5px;color:var(--ink-4);line-height:1.55}
 .sidebar-foot b{color:var(--ink-3);display:block;margin-bottom:3px;font-size:11px;letter-spacing:.08em;text-transform:uppercase}
 
+/* ── FLASHCARD LINKS ── */
+.side-cta{display:block;margin:18px 18px 4px;padding:14px 16px;border-radius:14px;text-decoration:none;color:#fff;
+  background:linear-gradient(135deg,#7c3aed,#db2777 60%,#f97316);box-shadow:0 10px 22px rgba(124,58,237,.25);transition:transform .18s}
+.side-cta:hover{transform:translateY(-2px);text-decoration:none}
+.side-cta b{display:block;font-size:15px;color:#fff;letter-spacing:-.01em}
+.side-cta span{display:block;font-size:12px;opacity:.9;margin-top:2px}
+.hero-meta a.hm-cards{font:800 11.5px var(--sans);padding:7px 13px;border-radius:999px;text-decoration:none;color:#fff;
+  background:linear-gradient(135deg,#7c3aed,#db2777);border:1px solid rgba(255,255,255,.25)}
+.hero-meta a.hm-cards:hover{filter:brightness(1.1)}
+
 /* ── MAIN ── */
 main{margin-left:var(--sidebar);padding:60px 0 0}
 .wrap{max-width:var(--maxw);margin:0 auto;padding:0 40px}
@@ -523,6 +533,7 @@ footer.kbfoot a{color:var(--cyan)}
     <a class="nav-a" href="#quickref"><span class="n">16</span>One-page summary</a>
     <a class="nav-a" href="#references"><span class="n">17</span>References &amp; glossary</a>
   </div>
+  <a class="side-cta" href="cards/"><b>Flashcards &rarr;</b><span>119 cards · 12 colour-coded decks · Anki download</span></a>
   <div class="sidebar-foot">
     <b>Source</b>
     ESVS 2025 Clinical Practice Guidelines on the Management of Diseases of the Mesenteric and Renal Arteries and Veins, Chapter 7. <i>Eur J Vasc Endovasc Surg</i> 2025;70:153–218.
@@ -540,6 +551,7 @@ footer.kbfoot a{color:var(--cyan)}
       <span>11 graded recommendations</span>
       <span>Haematology-weighted</span>
       <span>FRCPath / FCPS revision</span>
+      <a class="hm-cards" href="cards/">119 flashcards &rarr;</a>
     </div>
     <div class="hero-stats">
       <div><b>11.5%</b><span>of all acute mesenteric ischaemia</span></div>
@@ -579,6 +591,7 @@ footer.kbfoot a{color:var(--cyan)}
     <div class="ctitle">How to use this knowledge base</div>
     <p style="margin-bottom:8px">Press <b>⌘K</b> (or <b>Ctrl+K</b>) anywhere to search every paragraph, table, recommendation and exam question. The sidebar tracks where you are. Section <a href="#recommendations">13</a> holds all 11 ESVS recommendations verbatim with their class, level and citations; section <a href="#quickref">16</a> is a single printable page for the ward.</p>
     <p style="margin-bottom:8px"><b>Provenance.</b> Every clinical statement, number and recommendation on this page is transcribed from the ESVS 2025 guideline document. Nothing is recalled from memory. Editorial commentary — where a point is being interpreted rather than reported — is explicitly marked as such.</p>
+    <p style="margin-bottom:8px"><b>Flashcards.</b> All of this page condensed into <a href="cards/">119 interactive flashcards</a> in 12 colour-coded decks, with spaced-repetition rating and a downloadable Anki deck.</p>
     <p style="margin-bottom:0"><b>Teaching slides.</b> The earlier eleven-slide interactive explainer built from the same source is still available at <a href="deck/">/deck/</a> — use it to present, and this page to look things up.</p>
   </div>
 
@@ -1549,6 +1562,11 @@ footer.kbfoot a{color:var(--cyan)}
   <p class="sec-standfirst">Single best answer questions and structured viva prompts, written to the level of FRCPath Part 2 and FCPS. Every answer is traceable to a statement earlier on this page.</p>
   <div class="rule"></div>
 
+  <div class="callout good">
+    <div class="ctitle">Drill it</div>
+    <p style="margin-bottom:0">For rapid recall rather than reasoning, use the <a href="cards/"><b>flashcards</b></a>: 119 cards covering every number, definition and recommendation on this page, rated Again, Hard, Good or Easy so the weakest ones come back first. Also available as an Anki deck.</p>
+  </div>
+
   <h3 class="sub">Single best answer</h3>
   <div id="quizWrap">
     <div class="quiz" data-ans="2">
@@ -1862,6 +1880,7 @@ footer.kbfoot a{color:var(--cyan)}
       <p>The ESVS 2025 guideline is published open access under a <a href="http://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener">CC BY 4.0 licence</a>.</p>
       <p><a href="https://doi.org/10.1016/j.ejvs.2025.06.010" target="_blank" rel="noopener">doi:10.1016/j.ejvs.2025.06.010</a></p>
       <p><a href="deck/">Interactive teaching slides →</a></p>
+      <p><a href="cards/">Flashcards and Anki deck →</a></p>
     </div>
     <div class="foot-note">
       <b>Not for clinical decision-making in individual patients.</b> This page is a teaching aid for qualified clinicians. It does not replace the full guideline, local protocols, or clinical judgement. The ESVS states that its guidelines are a guiding principle and should under no circumstance be seen as the legal standard of care in all cases; the care given to a single patient always depends on that individual patient. Clinical statements here are transcribed from the guideline text; passages marked <i>Editorial note</i> are interpretation added for teaching and are identified as such. No patient-identifiable information is included.
