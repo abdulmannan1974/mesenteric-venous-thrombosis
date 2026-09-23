@@ -1,0 +1,1763 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Mesenteric Venous Thrombosis · Interactive Teaching Artefact</title>
+
+<!-- Webfonts (CDN) -->
+<style>
+/* html-ppt :: shared webfonts */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@200;300;400;500;600;700;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@300;400;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,800;1,400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@300;400;500;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Archivo+Black&display=swap');
+
+</style>
+
+<!-- Base tokens + primitives -->
+<style>
+/* html-ppt :: base.css — reset + shared tokens + layout primitives */
+/* Default tokens. Themes in assets/themes/*.css override the :root block. */
+:root {
+  --bg: #ffffff;
+  --bg-soft: #f7f7f8;
+  --surface: #ffffff;
+  --surface-2: #f2f2f4;
+  --border: rgba(0,0,0,.08);
+  --border-strong: rgba(0,0,0,.16);
+  --text-1: #111216;
+  --text-2: #55596a;
+  --text-3: #8a8f9e;
+  --accent: #3b6cff;
+  --accent-2: #7a5cff;
+  --accent-3: #ff5c8a;
+  --good: #1aaf6c;
+  --warn: #f5a524;
+  --bad:  #e0445a;
+  --grad: linear-gradient(135deg,#3b6cff,#7a5cff 55%,#ff5c8a);
+  --grad-soft: linear-gradient(135deg,#eef2ff,#f5ecff 55%,#ffeef5);
+  --radius: 18px;
+  --radius-sm: 12px;
+  --radius-lg: 26px;
+  --shadow: 0 10px 30px rgba(18,24,40,.08), 0 2px 6px rgba(18,24,40,.04);
+  --shadow-lg: 0 24px 60px rgba(18,24,40,.14), 0 6px 16px rgba(18,24,40,.06);
+  --font-sans: 'Inter','Noto Sans SC',-apple-system,BlinkMacSystemFont,Helvetica,Arial,sans-serif;
+  --font-serif: 'Playfair Display','Noto Serif SC',Georgia,serif;
+  --font-mono: 'JetBrains Mono','IBM Plex Mono',SFMono-Regular,Menlo,monospace;
+  --font-display: var(--font-sans);
+  --letter-tight: -.03em;
+  --letter-normal: -.01em;
+  --ease: cubic-bezier(.4,0,.2,1);
+}
+
+*,*::before,*::after{box-sizing:border-box}
+html,body{margin:0;padding:0;background:var(--bg);color:var(--text-1);
+  font-family:var(--font-sans);font-weight:400;line-height:1.6;
+  -webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;
+  letter-spacing:var(--letter-normal)}
+img,svg,video{max-width:100%;display:block}
+a{color:var(--accent);text-decoration:none}
+a:hover{text-decoration:underline}
+code,kbd,pre,samp{font-family:var(--font-mono)}
+
+/* ================= SLIDE SYSTEM ================= */
+.deck{position:relative;width:100vw;height:100vh;overflow:hidden;background:var(--bg)}
+.slide{
+  position:absolute;inset:0;
+  display:flex;flex-direction:column;justify-content:center;
+  padding:72px 96px;
+  box-sizing:border-box;
+  opacity:0;pointer-events:none;
+  transition:opacity .5s var(--ease), transform .5s var(--ease);
+  transform:translateX(30px);
+  overflow:hidden;
+}
+.slide.is-active{opacity:1;pointer-events:auto;transform:translateX(0);z-index:2}
+.slide.is-prev{transform:translateX(-30px)}
+
+/* single-page standalone (used when a layout file is opened directly) */
+body.single .slide{position:relative;width:100vw;height:100vh;opacity:1;transform:none;pointer-events:auto}
+
+/* ================= TYPOGRAPHY ================= */
+.eyebrow{font-size:13px;font-weight:500;letter-spacing:.16em;text-transform:uppercase;color:var(--text-3)}
+.kicker{font-size:14px;font-weight:600;color:var(--accent);letter-spacing:.08em;text-transform:uppercase}
+h1.title,.h1{font-family:var(--font-display);font-size:72px;line-height:1.05;font-weight:800;letter-spacing:var(--letter-tight);margin:0 0 18px;color:var(--text-1)}
+h2.title,.h2{font-family:var(--font-display);font-size:54px;line-height:1.1;font-weight:700;letter-spacing:var(--letter-tight);margin:0 0 14px}
+h3,.h3{font-size:32px;line-height:1.2;font-weight:600;letter-spacing:var(--letter-normal);margin:0 0 10px}
+h4,.h4{font-size:22px;line-height:1.3;font-weight:600;margin:0 0 8px}
+.lede{font-size:22px;line-height:1.55;color:var(--text-2);font-weight:300;max-width:62ch}
+.dim{color:var(--text-2)}
+.dim2{color:var(--text-3)}
+.mono{font-family:var(--font-mono)}
+.serif{font-family:var(--font-serif)}
+.gradient-text{background:var(--grad);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:transparent}
+
+/* ================= LAYOUT PRIMITIVES ================= */
+.stack>*+*{margin-top:14px}
+.row{display:flex;gap:24px;align-items:center}
+.row.wrap{flex-wrap:wrap}
+.grid{display:grid;gap:24px}
+.g2{grid-template-columns:repeat(2,1fr)}
+.g3{grid-template-columns:repeat(3,1fr)}
+.g4{grid-template-columns:repeat(4,1fr)}
+.center{display:flex;align-items:center;justify-content:center;text-align:center}
+.fill{flex:1}
+.sp-t{padding-top:24px}.sp-b{padding-bottom:24px}
+.mt-s{margin-top:8px}.mt-m{margin-top:18px}.mt-l{margin-top:32px}
+.mb-s{margin-bottom:8px}.mb-m{margin-bottom:18px}.mb-l{margin-bottom:32px}
+
+/* ================= CARDS ================= */
+.card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);
+  padding:26px 28px;box-shadow:var(--shadow);position:relative;overflow:hidden}
+.card-soft{background:var(--surface-2);border:1px solid var(--border)}
+.card-outline{background:transparent;border:1.5px solid var(--border-strong);box-shadow:none}
+.card-accent{background:var(--surface);border-top:3px solid var(--accent)}
+.card-hover{transition:transform .3s var(--ease),box-shadow .3s var(--ease)}
+.card-hover:hover{transform:translateY(-4px);box-shadow:var(--shadow-lg)}
+
+.pill{display:inline-block;padding:4px 12px;border-radius:999px;font-size:12px;font-weight:500;
+  background:var(--surface-2);color:var(--text-2);border:1px solid var(--border)}
+.pill-accent{background:color-mix(in srgb,var(--accent) 12%,transparent);color:var(--accent);border-color:color-mix(in srgb,var(--accent) 28%,transparent)}
+
+/* ================= BARS / DIVIDERS ================= */
+.divider{height:1px;background:var(--border);width:100%}
+.divider-accent{height:3px;width:72px;background:var(--accent);border-radius:2px}
+
+/* ================= CHROME (header/footer/progress) ================= */
+.deck-header{position:absolute;top:24px;left:40px;right:40px;display:flex;align-items:center;justify-content:space-between;
+  font-size:12px;color:var(--text-3);letter-spacing:.12em;text-transform:uppercase;z-index:10;pointer-events:none}
+.deck-footer{position:absolute;bottom:24px;left:40px;right:40px;display:flex;align-items:center;justify-content:space-between;
+  font-size:12px;color:var(--text-3);z-index:10;pointer-events:none}
+.slide-number::before{content:attr(data-current)}
+.slide-number::after{content:" / " attr(data-total)}
+.progress-bar{position:fixed;left:0;right:0;bottom:0;height:3px;background:transparent;z-index:20}
+.progress-bar > span{display:block;height:100%;width:0;background:var(--accent);transition:width .3s var(--ease)}
+
+/* ================= PRESENTER / OVERVIEW ================= */
+.notes{display:none!important}
+.notes-overlay{position:fixed;inset:auto 0 0 0;max-height:42vh;background:rgba(20,22,30,.95);color:#e8ebf4;
+  padding:20px 32px;font-size:16px;line-height:1.6;border-top:1px solid rgba(255,255,255,.1);transform:translateY(100%);
+  transition:transform .3s var(--ease);z-index:40;overflow:auto;font-family:var(--font-sans)}
+.notes-overlay.open{transform:translateY(0)}
+.overview{position:fixed;inset:0;background:rgba(10,12,18,.92);backdrop-filter:blur(12px);z-index:50;
+  display:none;padding:40px;overflow:auto}
+.overview.open{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;align-content:start}
+.overview .thumb{background:var(--surface);border:1px solid var(--border);border-radius:12px;
+  aspect-ratio:16/9;overflow:hidden;cursor:pointer;position:relative;color:var(--text-1);padding:16px;
+  font-size:11px;transition:transform .2s var(--ease)}
+.overview .thumb:hover{transform:scale(1.04)}
+.overview .thumb .n{position:absolute;top:8px;left:10px;font-weight:700;font-size:14px;color:var(--text-3)}
+.overview .thumb .t{position:absolute;bottom:10px;left:14px;right:14px;font-weight:600;color:var(--text-1)}
+
+/* ================= PRESENTER VIEW ================= */
+/* Presenter view opens in a separate popup window (S key).
+ * All presenter styles are self-contained in the popup HTML generated by runtime.js.
+ * The audience window (this file) is NOT affected — it stays as normal deck view.
+ * Only the .notes class below is needed to hide speaker notes from audience. */
+
+/* ================= UTILITY ================= */
+.hidden{display:none!important}
+.nowrap{white-space:nowrap}
+.tr{text-align:right}.tc{text-align:center}.tl{text-align:left}
+.uppercase{text-transform:uppercase;letter-spacing:.12em}
+
+/* ================= PRINT ================= */
+@media print{
+  .slide{position:relative;opacity:1!important;transform:none!important;page-break-after:always;height:100vh}
+  .deck-header,.deck-footer,.progress-bar,.notes-overlay,.overview{display:none!important}
+}
+
+</style>
+
+<!-- Theme: bd-clinical -->
+<style>
+/* theme: bd-clinical — Blood Doctor clinical neutral
+   Use for: guidelines, protocols, audit reports, MDT updates, safety briefings,
+   anything where you need a no-nonsense, NHS-style professional look.
+   Inspired by IBM Carbon + Mintlify docs. */
+:root{
+  --bg:#ffffff;
+  --bg-soft:#f4f6f9;
+  --surface:#ffffff;
+  --surface-2:#eef2f6;
+  --border:rgba(15,23,42,.10);
+  --border-strong:rgba(15,23,42,.20);
+  --text-1:#0f172a;      /* slate 900 */
+  --text-2:#334155;      /* slate 700 */
+  --text-3:#64748b;      /* slate 500 */
+  --accent:#0e5fad;      /* clinical deep blue */
+  --accent-2:#1d7ed8;
+  --accent-3:#0a3d6f;
+  --good:#0f7a3a;
+  --warn:#b45309;
+  --bad:#b91c1c;
+  --grad:linear-gradient(135deg,#0e5fad 0%,#1d7ed8 100%);
+  --grad-soft:linear-gradient(135deg,#f4f6f9 0%,#eef2f6 100%);
+  --radius:6px;
+  --radius-sm:3px;
+  --radius-lg:10px;
+  --shadow:0 1px 2px rgba(15,23,42,.04), 0 0 0 1px rgba(15,23,42,.06);
+  --shadow-lg:0 8px 24px rgba(15,23,42,.10), 0 0 0 1px rgba(15,23,42,.08);
+  --font-sans:'Inter','IBM Plex Sans','Noto Sans SC',-apple-system,BlinkMacSystemFont,Helvetica,Arial,sans-serif;
+  --font-display:'Inter','IBM Plex Sans',-apple-system,Helvetica,sans-serif;
+  --font-serif:'Source Serif Pro','Noto Serif SC',Georgia,serif;
+  --font-mono:'JetBrains Mono','IBM Plex Mono',SFMono-Regular,Menlo,monospace;
+  --letter-tight:-.015em;
+}
+.h1,h1.title{font-weight:700;letter-spacing:-.02em}
+.h2,h2.title{font-weight:600}
+.kicker{color:var(--accent);font-weight:600;letter-spacing:.08em;text-transform:uppercase}
+.card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius)}
+/* clinical accent strip on key cards */
+.card.card-key{border-left:3px solid var(--accent)}
+
+</style>
+
+<!-- Template scoped CSS: knowledge-arch-blueprint -->
+<style>
+/* knowledge-arch-blueprint — 奶油纸 + 建筑蓝图风 */
+.tpl-knowledge-arch-blueprint{
+  --kb-bg:#F0EAE0;
+  --kb-ink:#1a1a1a;
+  --kb-ink2:#555;
+  --kb-ink3:#aaa;
+  --kb-rust:#B5392A;
+  --kb-rust-soft:rgba(181,57,42,.08);
+  --kb-line:#cec8be;
+  background:var(--kb-bg);
+  color:var(--kb-ink);
+  font-family:'Inter','Noto Sans SC',-apple-system,sans-serif;
+}
+.tpl-knowledge-arch-blueprint .slide{background:var(--kb-bg);color:var(--kb-ink);padding:64px 80px}
+.tpl-knowledge-arch-blueprint .kb-grid-bg{position:absolute;inset:0;pointer-events:none;opacity:.35;background-image:linear-gradient(rgba(26,26,26,.06) 1px,transparent 1px),linear-gradient(90deg,rgba(26,26,26,.06) 1px,transparent 1px);background-size:48px 48px;mask-image:radial-gradient(ellipse at center,black 40%,transparent 85%)}
+.tpl-knowledge-arch-blueprint .slide > *{position:relative;z-index:2}
+.tpl-knowledge-arch-blueprint .kb-kicker{font-size:13px;font-weight:800;letter-spacing:4px;text-transform:uppercase;color:var(--kb-rust);margin-bottom:12px}
+.tpl-knowledge-arch-blueprint .kb-h1{font-size:66px;font-weight:900;line-height:1.08;color:#111;margin:0 0 14px;letter-spacing:-.02em}
+.tpl-knowledge-arch-blueprint .kb-h1 span.rust{color:var(--kb-rust)}
+.tpl-knowledge-arch-blueprint .kb-sub{font-size:20px;color:#666;line-height:1.55;max-width:780px}
+.tpl-knowledge-arch-blueprint .kb-insight{display:inline-block;background:var(--kb-rust);color:#fff;border-radius:10px;padding:16px 22px;font-size:14px;font-weight:700;line-height:1.5;max-width:340px;box-shadow:0 8px 24px rgba(181,57,42,.22)}
+.tpl-knowledge-arch-blueprint .kb-insight .kk{font-size:10px;letter-spacing:2px;opacity:.7;display:block;margin-bottom:6px;font-weight:800}
+.tpl-knowledge-arch-blueprint .kb-section-label{font-size:11px;font-weight:800;letter-spacing:3.5px;text-transform:uppercase;color:#aaa;margin:30px 0 12px;display:flex;align-items:center;gap:14px}
+.tpl-knowledge-arch-blueprint .kb-section-label::after{content:'';flex:1;height:1px;background:var(--kb-line)}
+.tpl-knowledge-arch-blueprint .kb-pipeline{display:flex;align-items:stretch;gap:14px;margin-top:24px}
+.tpl-knowledge-arch-blueprint .kb-step{flex:1;border:2px solid #1a1a1a;border-radius:12px;padding:22px 18px;background:#fff;position:relative;min-height:200px;display:flex;flex-direction:column}
+.tpl-knowledge-arch-blueprint .kb-step.hero{background:var(--kb-rust);border-color:var(--kb-rust);color:#fff;flex:1.25;box-shadow:0 10px 32px rgba(181,57,42,.28);transform:translateY(-10px)}
+.tpl-knowledge-arch-blueprint .kb-step-num{font-size:10px;font-weight:800;letter-spacing:2.5px;color:#bbb;margin-bottom:8px;text-transform:uppercase}
+.tpl-knowledge-arch-blueprint .kb-step.hero .kb-step-num{color:rgba(255,255,255,.6)}
+.tpl-knowledge-arch-blueprint .kb-step-title{font-size:22px;font-weight:900;line-height:1.15;color:#111;margin-bottom:8px}
+.tpl-knowledge-arch-blueprint .kb-step.hero .kb-step-title{color:#fff}
+.tpl-knowledge-arch-blueprint .kb-step-body{font-size:13px;line-height:1.55;color:#555;margin-top:auto}
+.tpl-knowledge-arch-blueprint .kb-step.hero .kb-step-body{color:rgba(255,255,255,.88)}
+.tpl-knowledge-arch-blueprint .kb-grid-2{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:24px}
+.tpl-knowledge-arch-blueprint .kb-card{background:#fff;border:2px solid #1a1a1a;border-radius:12px;padding:22px 24px}
+.tpl-knowledge-arch-blueprint .kb-card h4{font-size:20px;font-weight:900;margin-bottom:6px}
+.tpl-knowledge-arch-blueprint .kb-card p{font-size:14px;color:#555;line-height:1.55}
+.tpl-knowledge-arch-blueprint .kb-legend{display:flex;gap:18px;flex-wrap:wrap;margin-top:22px;font-size:12px;color:#666}
+.tpl-knowledge-arch-blueprint .kb-legend .d{display:flex;align-items:center;gap:8px}
+.tpl-knowledge-arch-blueprint .kb-legend .b{width:14px;height:14px;border:2px solid #1a1a1a;border-radius:3px}
+.tpl-knowledge-arch-blueprint .kb-legend .b.rust{background:var(--kb-rust);border-color:var(--kb-rust)}
+.tpl-knowledge-arch-blueprint .kb-footer{position:absolute;left:80px;right:80px;bottom:36px;display:flex;justify-content:space-between;font-size:11px;color:#999;letter-spacing:.15em;text-transform:uppercase;border-top:1px solid var(--kb-line);padding-top:16px}
+.tpl-knowledge-arch-blueprint .kb-mono{font-family:'JetBrains Mono',monospace}
+.tpl-knowledge-arch-blueprint .kb-codebox{background:#1a1a1a;color:#f0eae0;border-radius:12px;padding:22px 26px;font-family:'JetBrains Mono',monospace;font-size:14px;line-height:1.8;margin-top:20px;border:2px solid #1a1a1a}
+.tpl-knowledge-arch-blueprint .kb-codebox .cm{color:#7a766c}
+.tpl-knowledge-arch-blueprint .kb-codebox .kw{color:#e8a87c}
+.tpl-knowledge-arch-blueprint .kb-codebox .st{color:#b3d1bc}
+.tpl-knowledge-arch-blueprint .kb-codebox .hl{color:var(--kb-rust);background:rgba(255,255,255,.08);padding:0 4px;border-radius:3px}
+.tpl-knowledge-arch-blueprint .kb-big-num{font-family:'Playfair Display',Georgia,serif;font-size:200px;font-weight:900;line-height:.9;color:var(--kb-rust);letter-spacing:-.04em}
+
+</style>
+
+<!-- Animations -->
+<style>
+/* html-ppt :: animations.css
+ * Apply by adding class="anim-<name>" or data-anim="<name>".
+ * Durations are deliberately snappy; tweak --anim-dur per element.
+ */
+:root{--anim-dur:.7s;--anim-ease:cubic-bezier(.4,0,.2,1)}
+
+/* ---------- FADE DIRECTIONALS ---------- */
+@keyframes kf-fade-up{from{opacity:0;transform:translateY(32px)}to{opacity:1;transform:none}}
+@keyframes kf-fade-down{from{opacity:0;transform:translateY(-32px)}to{opacity:1;transform:none}}
+@keyframes kf-fade-left{from{opacity:0;transform:translateX(-40px)}to{opacity:1;transform:none}}
+@keyframes kf-fade-right{from{opacity:0;transform:translateX(40px)}to{opacity:1;transform:none}}
+.anim-fade-up{animation:kf-fade-up var(--anim-dur) var(--anim-ease) both}
+.anim-fade-down{animation:kf-fade-down var(--anim-dur) var(--anim-ease) both}
+.anim-fade-left{animation:kf-fade-left var(--anim-dur) var(--anim-ease) both}
+.anim-fade-right{animation:kf-fade-right var(--anim-dur) var(--anim-ease) both}
+
+/* ---------- RISE / DROP / ZOOM / BLUR / GLITCH ---------- */
+@keyframes kf-rise{from{opacity:0;transform:translateY(60px) scale(.97);filter:blur(6px)}to{opacity:1;transform:none;filter:none}}
+@keyframes kf-drop{from{opacity:0;transform:translateY(-60px) scale(.97)}to{opacity:1;transform:none}}
+@keyframes kf-zoom{0%{opacity:0;transform:scale(.6)}60%{transform:scale(1.04)}100%{opacity:1;transform:scale(1)}}
+@keyframes kf-blur{from{opacity:0;filter:blur(18px)}to{opacity:1;filter:none}}
+@keyframes kf-glitch{0%{opacity:0;transform:translateX(0);clip-path:inset(0 0 0 0)}
+  20%{opacity:1;transform:translateX(-6px);clip-path:inset(20% 0 30% 0)}
+  40%{transform:translateX(4px);clip-path:inset(50% 0 10% 0)}
+  60%{transform:translateX(-3px);clip-path:inset(10% 0 60% 0)}
+  80%{transform:translateX(2px);clip-path:inset(0 0 0 0)}
+  100%{opacity:1;transform:none}}
+.anim-rise-in{animation:kf-rise .9s var(--anim-ease) both}
+.anim-drop-in{animation:kf-drop .8s var(--anim-ease) both}
+.anim-zoom-pop{animation:kf-zoom .7s cubic-bezier(.22,1.3,.36,1) both}
+.anim-blur-in{animation:kf-blur .8s var(--anim-ease) both}
+.anim-glitch-in{animation:kf-glitch .8s steps(5,end) both}
+
+/* ---------- TYPEWRITER ---------- */
+.anim-typewriter{display:inline-block;overflow:hidden;white-space:nowrap;border-right:2px solid currentColor;
+  width:0;animation:kf-type 2.4s steps(40,end) forwards, kf-caret 1s step-end infinite}
+@keyframes kf-type{to{width:100%}}
+@keyframes kf-caret{50%{border-color:transparent}}
+
+/* ---------- GLOW / SHIMMER / GRADIENT-FLOW ---------- */
+@keyframes kf-neon{0%,100%{text-shadow:0 0 8px var(--accent),0 0 20px var(--accent)}
+  50%{text-shadow:0 0 16px var(--accent),0 0 40px var(--accent),0 0 80px var(--accent)}}
+.anim-neon-glow{animation:kf-neon 2s ease-in-out infinite}
+
+.anim-shimmer-sweep{position:relative;overflow:hidden}
+.anim-shimmer-sweep::after{content:"";position:absolute;inset:0;
+  background:linear-gradient(110deg,transparent 40%,rgba(255,255,255,.55) 50%,transparent 60%);
+  transform:translateX(-100%);animation:kf-shimmer 2.4s var(--anim-ease) infinite}
+@keyframes kf-shimmer{to{transform:translateX(100%)}}
+
+.anim-gradient-flow{background:linear-gradient(90deg,var(--accent),var(--accent-2,var(--accent)),var(--accent-3,var(--accent)),var(--accent));
+  background-size:300% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;-webkit-text-fill-color:transparent;
+  animation:kf-gradflow 4s linear infinite}
+@keyframes kf-gradflow{to{background-position:300% 0}}
+
+/* ---------- STAGGER LIST ---------- */
+.anim-stagger-list > *{opacity:0;animation:kf-rise .65s var(--anim-ease) both}
+.anim-stagger-list > *:nth-child(1){animation-delay:.05s}
+.anim-stagger-list > *:nth-child(2){animation-delay:.15s}
+.anim-stagger-list > *:nth-child(3){animation-delay:.25s}
+.anim-stagger-list > *:nth-child(4){animation-delay:.35s}
+.anim-stagger-list > *:nth-child(5){animation-delay:.45s}
+.anim-stagger-list > *:nth-child(6){animation-delay:.55s}
+.anim-stagger-list > *:nth-child(7){animation-delay:.65s}
+.anim-stagger-list > *:nth-child(8){animation-delay:.75s}
+.anim-stagger-list > *:nth-child(n+9){animation-delay:.85s}
+
+/* ---------- COUNTER-UP (JS-driven, marker class only) ---------- */
+.counter{font-variant-numeric:tabular-nums}
+
+/* ---------- SVG PATH DRAW ---------- */
+.anim-path-draw path,.anim-path-draw line,.anim-path-draw polyline,.anim-path-draw circle,.anim-path-draw rect{
+  stroke-dasharray:1000;stroke-dashoffset:1000;animation:kf-draw 2s var(--anim-ease) forwards}
+@keyframes kf-draw{to{stroke-dashoffset:0}}
+
+/* ---------- PARALLAX TILT (hover) ---------- */
+.anim-parallax-tilt{transform-style:preserve-3d;transition:transform .4s var(--anim-ease)}
+.anim-parallax-tilt:hover{transform:perspective(900px) rotateX(6deg) rotateY(-8deg) translateZ(10px)}
+
+/* ---------- CARD FLIP 3D ---------- */
+@keyframes kf-flip{from{transform:perspective(1200px) rotateY(-90deg);opacity:0}
+  to{transform:perspective(1200px) rotateY(0);opacity:1}}
+.anim-card-flip-3d{animation:kf-flip .9s var(--anim-ease) both;transform-style:preserve-3d;backface-visibility:hidden}
+
+/* ---------- CUBE ROTATE 3D ---------- */
+@keyframes kf-cube{from{transform:perspective(1200px) rotateX(20deg) rotateY(-90deg) translateZ(-200px);opacity:0}
+  to{transform:perspective(1200px) rotateX(0) rotateY(0) translateZ(0);opacity:1}}
+.anim-cube-rotate-3d{animation:kf-cube 1s var(--anim-ease) both}
+
+/* ---------- PAGE TURN 3D ---------- */
+@keyframes kf-pageturn{from{transform:perspective(1600px) rotateY(-85deg);transform-origin:left center;opacity:0}
+  to{transform:perspective(1600px) rotateY(0);opacity:1}}
+.anim-page-turn-3d{animation:kf-pageturn 1s var(--anim-ease) both;transform-origin:left center}
+
+/* ---------- PERSPECTIVE ZOOM ---------- */
+@keyframes kf-pzoom{from{opacity:0;transform:perspective(1400px) translateZ(-400px) rotateX(12deg)}
+  to{opacity:1;transform:none}}
+.anim-perspective-zoom{animation:kf-pzoom 1s var(--anim-ease) both}
+
+/* ---------- MARQUEE SCROLL ---------- */
+.anim-marquee-scroll{display:flex;gap:48px;white-space:nowrap;animation:kf-marquee 20s linear infinite}
+@keyframes kf-marquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+/* ---------- KEN BURNS ---------- */
+@keyframes kf-kenburns{0%{transform:scale(1) translate(0,0)}100%{transform:scale(1.15) translate(-2%,-1%)}}
+.anim-kenburns{animation:kf-kenburns 14s ease-in-out infinite alternate}
+
+/* ---------- CONFETTI BURST (pseudo — pure CSS sparkles) ---------- */
+.anim-confetti-burst{position:relative}
+.anim-confetti-burst::before,.anim-confetti-burst::after{
+  content:"";position:absolute;top:50%;left:50%;width:8px;height:8px;border-radius:50%;
+  background:var(--accent);box-shadow:
+    20px -30px 0 var(--accent-2,var(--accent)),-25px -20px 0 var(--accent-3,var(--accent)),
+    30px 20px 0 var(--good,#1aaf6c),-30px 25px 0 var(--warn,#f5a524),
+    40px -10px 0 var(--bad,#e0445a),-45px 0 0 var(--accent),
+    10px 40px 0 var(--accent-2,var(--accent)),-15px -40px 0 var(--accent-3,var(--accent));
+  opacity:0;animation:kf-confetti 1.2s var(--anim-ease) forwards}
+.anim-confetti-burst::after{animation-delay:.15s;transform:rotate(45deg)}
+@keyframes kf-confetti{0%{opacity:0;transform:scale(.2)}30%{opacity:1}100%{opacity:0;transform:scale(2.2)}}
+
+/* ---------- SPOTLIGHT ---------- */
+@keyframes kf-spot{0%{clip-path:circle(0% at 50% 50%)}100%{clip-path:circle(140% at 50% 50%)}}
+.anim-spotlight{animation:kf-spot 1.1s var(--anim-ease) both}
+
+/* ---------- MORPH SHAPE (SVG) ---------- */
+.anim-morph-shape path{animation:kf-morph 6s ease-in-out infinite alternate}
+@keyframes kf-morph{0%{d:path("M60,120 Q120,20 180,120 T300,120")}
+  100%{d:path("M60,120 Q120,220 180,120 T300,120")}}
+
+/* ---------- RIPPLE REVEAL ---------- */
+@keyframes kf-ripple{0%{clip-path:circle(0% at 20% 80%);opacity:.4}
+  100%{clip-path:circle(160% at 20% 80%);opacity:1}}
+.anim-ripple-reveal{animation:kf-ripple 1.2s var(--anim-ease) both}
+
+/* reduced motion */
+@media (prefers-reduced-motion: reduce){
+  [class*="anim-"]{animation:none!important;transition:none!important}
+}
+
+</style>
+
+<!-- Universal template safety (overflow handling, footer pinning) -->
+<style>
+/* template-safety.css — overflow safety net applied to every deck.
+
+   The .slide is fixed-height (100vh) with overflow:hidden inherited from
+   base.css. Without these rules, content silently spills off the bottom
+   when a slide is over-packed. The rules below let the main column scroll
+   inside the slide and pin the footer so it stays visible.
+
+   Add a new block here when bundling a new full-deck template. */
+
+
+/* === GLOBAL SVG SIZING ===
+   Inline SVGs in slide content should never push the slide past the viewport.
+   Cap them by default; per-slide style overrides (e.g. max-height:48vh) win
+   because of specificity. */
+.deck .slide svg{
+  max-width:100%;
+  max-height:55vh;
+  height:auto;
+}
+
+
+/* === GLOBAL CONTENT-CENTRING UTILITY ===
+   Apply to .main when the column would otherwise leave a vertical gap below
+   it. Centres the kicker / heading / body grid in the available space so the
+   slide reads as deliberate, not under-filled. */
+.tpl-course-module .main.main-centred,
+.tpl-tech-sharing .main.main-centred,
+.tpl-weekly-report .main.main-centred,
+.tpl-presenter-mode-reveal .main.main-centred{
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+}
+
+
+/* === course-module === */
+.tpl-course-module .slide{align-content:start}
+.tpl-course-module .main{
+  min-width:0;
+  max-height:calc(100vh - 96px);
+  overflow-y:auto;
+  scrollbar-width:thin;
+  padding-bottom:60px;
+  position:relative;
+}
+.tpl-course-module .main::-webkit-scrollbar{width:6px}
+.tpl-course-module .main::-webkit-scrollbar-thumb{background:rgba(20,20,19,.12);border-radius:3px}
+.tpl-course-module .slide:not(.full) .deck-footer{
+  position:absolute;left:80px;right:80px;bottom:24px;
+  display:flex;justify-content:space-between;align-items:center;
+  font-size:12px;
+  padding-top:12px;border-top:1px solid var(--border);
+}
+.tpl-course-module .slide.full .deck-footer{
+  margin-top:48px;
+  display:flex;justify-content:space-between;align-items:center;
+  font-size:12px;
+  padding-top:12px;border-top:1px solid var(--border);
+}
+
+
+/* === tech-sharing === */
+.tpl-tech-sharing .slide{overflow-y:auto;scrollbar-width:thin}
+.tpl-tech-sharing .slide::-webkit-scrollbar{width:6px}
+.tpl-tech-sharing .slide::-webkit-scrollbar-thumb{background:rgba(0,0,0,.16);border-radius:3px}
+
+
+/* === weekly-report === */
+.tpl-weekly-report .slide{overflow-y:auto;scrollbar-width:thin}
+.tpl-weekly-report .slide::-webkit-scrollbar{width:6px}
+.tpl-weekly-report .slide::-webkit-scrollbar-thumb{background:rgba(0,0,0,.16);border-radius:3px}
+
+
+/* === presenter-mode-reveal === */
+.tpl-presenter-mode-reveal .slide{overflow-y:auto;scrollbar-width:thin}
+.tpl-presenter-mode-reveal .slide::-webkit-scrollbar{width:6px}
+.tpl-presenter-mode-reveal .slide::-webkit-scrollbar-thumb{background:rgba(255,255,255,.16);border-radius:3px}
+
+
+/* === knowledge-arch-blueprint === */
+.tpl-knowledge-arch-blueprint .slide{overflow-y:auto;scrollbar-width:thin}
+
+
+/* === obsidian-claude-gradient === */
+.tpl-obsidian-claude-gradient .slide{overflow-y:auto;scrollbar-width:thin}
+
+
+/* === pitch-deck === */
+.tpl-pitch-deck .slide{overflow-y:auto;scrollbar-width:thin}
+
+
+/* === testing-safety-alert === */
+.tpl-testing-safety-alert .slide{overflow-y:auto;scrollbar-width:thin}
+
+
+
+/* === tech-sharing === */
+.tpl-tech-sharing .slide{overflow-y:auto;scrollbar-width:thin}
+.tpl-tech-sharing .slide::-webkit-scrollbar{width:6px}
+.tpl-tech-sharing .slide::-webkit-scrollbar-thumb{background:rgba(0,0,0,.16);border-radius:3px}
+
+
+/* === weekly-report === */
+.tpl-weekly-report .slide{overflow-y:auto;scrollbar-width:thin}
+.tpl-weekly-report .slide::-webkit-scrollbar{width:6px}
+.tpl-weekly-report .slide::-webkit-scrollbar-thumb{background:rgba(0,0,0,.16);border-radius:3px}
+
+
+/* === presenter-mode-reveal === */
+.tpl-presenter-mode-reveal .slide{overflow-y:auto;scrollbar-width:thin}
+.tpl-presenter-mode-reveal .slide::-webkit-scrollbar{width:6px}
+.tpl-presenter-mode-reveal .slide::-webkit-scrollbar-thumb{background:rgba(255,255,255,.16);border-radius:3px}
+
+
+/* === knowledge-arch-blueprint === */
+.tpl-knowledge-arch-blueprint .slide{overflow-y:auto;scrollbar-width:thin}
+
+
+/* === obsidian-claude-gradient === */
+.tpl-obsidian-claude-gradient .slide{overflow-y:auto;scrollbar-width:thin}
+
+
+/* === pitch-deck === */
+.tpl-pitch-deck .slide{overflow-y:auto;scrollbar-width:thin}
+
+
+/* === testing-safety-alert === */
+.tpl-testing-safety-alert .slide{overflow-y:auto;scrollbar-width:thin}
+
+</style>
+
+<!-- Brand override -->
+<style>
+/* Purpose-built interaction layer for the MVT deck. It overrides only local visual tokens. */
+.tpl-knowledge-arch-blueprint{--kb-bg:#eef5fb;--kb-ink:#123052;--kb-ink2:#41617f;--kb-ink3:#7c94a9;--kb-rust:#d54949;--kb-rust-soft:rgba(213,73,73,.10);--kb-line:#c6d7e5;--mvt-blue:#2563b6;--mvt-cyan:#55c6e8;--mvt-navy:#123052;--mvt-red:#d54949;--mvt-rose:#fff0ef;--mvt-green:#0f8b68;--mvt-amber:#d48716}
+.tpl-knowledge-arch-blueprint .slide{background:var(--kb-bg);padding:62px 80px}.tpl-knowledge-arch-blueprint .kb-grid-bg{opacity:.6;background-image:linear-gradient(rgba(35,93,153,.06) 1px,transparent 1px),linear-gradient(90deg,rgba(35,93,153,.06) 1px,transparent 1px)}.tpl-knowledge-arch-blueprint .kb-h1{color:var(--mvt-navy);font-family:var(--font-display);font-size:62px}.tpl-knowledge-arch-blueprint .kb-h1 span.rust{color:var(--mvt-red)}.tpl-knowledge-arch-blueprint .kb-sub{color:var(--kb-ink2)}.tpl-knowledge-arch-blueprint .kb-kicker{color:var(--mvt-blue)}.tpl-knowledge-arch-blueprint .kb-footer{border-color:var(--kb-line);color:#67829a}
+.mvt-topline{font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:#58728b;font-weight:800;display:flex;align-items:center;gap:11px}.mvt-mark{width:10px;height:10px;border-radius:50%;background:var(--mvt-red);box-shadow:0 0 0 7px rgba(213,73,73,.12)}.mvt-divider{color:#b3c4d1}.mvt-cover{isolation:isolate}.mvt-cover-grid{display:grid;grid-template-columns:1fr .88fr;gap:72px;align-items:center;height:calc(100vh - 350px);min-height:560px}.mvt-title{font-size:78px!important;margin-top:14px!important;letter-spacing:-.055em!important}.mvt-cover-copy{font-size:23px!important;max-width:510px}.mvt-button{border:0;cursor:pointer;font:800 15px var(--font-sans);border-radius:9px;padding:17px 22px;background:var(--mvt-navy);color:#fff;box-shadow:0 12px 30px rgba(18,48,82,.22);transition:transform .25s,box-shadow .25s}.mvt-button:hover{transform:translateY(-3px);box-shadow:0 18px 36px rgba(18,48,82,.3)}.mvt-button span{font-size:20px;margin-left:12px}.mvt-go{margin-top:20px}.mvt-shortcuts{font-size:12px;color:#70889d;margin-top:16px}.mvt-hero-diagram{position:relative;background:linear-gradient(135deg,#fff 0%,#f4fbff 100%);border:1px solid #d6e6f1;border-radius:24px;padding:28px;box-shadow:0 22px 60px rgba(30,81,125,.12)}.mvt-hero-label{font-size:11px;color:var(--mvt-blue);font-weight:900;letter-spacing:.2em}.mvt-hero-diagram svg{display:block;width:100%;height:360px;max-height:none}.mvt-bowel-loop{fill:none;stroke:#e9b89f;stroke-width:23;stroke-linecap:round;opacity:.88}.mvt-vein{fill:none;stroke:url(#vessel);stroke-width:25;stroke-linecap:round}.mvt-vein.branch{stroke-width:14;opacity:.75}.flowdot{fill:#dff7ff;filter:drop-shadow(0 0 5px #56c8eb);animation:flowPulse 2s ease-in-out infinite}.flowdot.b{animation-delay:.55s}.flowdot.c{animation-delay:1.1s}.mvt-clot circle{fill:#d54949}.mvt-clot path,.mvt-x path{stroke:#fff;stroke-width:7;stroke-linecap:round}.mvt-stopped{stroke:#e7f4f9;stroke-width:25;stroke-linecap:round}.svg-label{font:700 12px var(--font-sans);fill:#8a5e49;letter-spacing:.1em}.svg-label.blue{fill:#2563b6}.svg-label.red{fill:#d54949}.mvt-hero-caption{font-size:14px;color:#4c6680;text-align:center}.mvt-pulse{display:inline-block;width:9px;height:9px;background:#d54949;border-radius:50%;margin-right:8px;animation:dotPulse 1.8s infinite}.cover-orbit{position:absolute;border:1px solid rgba(55,127,193,.14);border-radius:50%;z-index:-1}.orbit-a{width:820px;height:820px;right:-240px;top:-355px}.orbit-b{width:580px;height:580px;right:-150px;top:-230px;border-color:rgba(213,73,73,.14)}
+.mvt-heading-row{display:flex;align-items:center;justify-content:space-between;gap:20px}.mvt-chip{color:var(--mvt-blue);background:#e4f3ff;border:1px solid #c8e4f6;border-radius:999px;padding:8px 13px;font-size:11px;font-weight:800;letter-spacing:.08em;white-space:nowrap}.mvt-compare{display:grid;grid-template-columns:230px 1fr;grid-template-rows:1fr 1fr;gap:14px 30px;margin-top:25px}.mvt-mode{background:transparent;border:0;border-left:3px solid transparent;padding:20px 16px;cursor:pointer;text-align:left;color:#6e8498;transition:background .25s,color .25s,border .25s;display:block;width:100%}.mvt-mode:nth-of-type(1){grid-column:1;grid-row:1}.mvt-mode:nth-of-type(2){grid-column:1;grid-row:2}.mvt-mode.active{background:#fff;border-left-color:var(--mvt-blue);color:var(--mvt-navy);box-shadow:0 8px 20px rgba(30,75,115,.08)}.mvt-mode b,.mvt-mode small{display:block}.mvt-mode b{font-size:18px;margin:6px 0}.mvt-mode small{font-size:12px}.mode-dot{width:9px;height:9px;border-radius:50%;display:inline-block}.mode-dot.venous{background:var(--mvt-blue)}.mode-dot.arterial{background:var(--mvt-red)}.mvt-flow-stage{grid-column:2;grid-row:1 / span 2;min-height:480px;background:#fff;border:1px solid #d3e3ef;border-radius:18px;padding:26px 34px}.mvt-flow-caption{display:grid;grid-template-columns:180px 1fr;gap:16px;align-items:start}.mvt-state-label{font-size:11px;font-weight:900;letter-spacing:.16em;color:var(--mvt-blue);padding-top:6px}.mvt-state-head{font-family:var(--font-display);font-size:32px;margin:0;color:var(--mvt-navy)}.mvt-state-copy{grid-column:2;font-size:15px;color:#506b85;margin:2px 0}.mvt-flow-svg{width:100%;height:270px;max-height:none!important}.flow-normal rect{fill:#e5f3ff;stroke:#77aed9;stroke-width:2}.flow-normal text{font:800 15px var(--font-sans);text-anchor:middle;fill:#235586}.flow-normal path{stroke:#2563b6;stroke-width:11;stroke-linecap:round}.flow-normal circle{fill:#f6cfb7;stroke:#dc9878;stroke-width:4}.flow-normal circle+text,.flow-normal circle+text+text{font:800 15px var(--font-sans);text-anchor:middle;fill:#865640}.flow-venous,.flow-arterial{opacity:0;transition:opacity .4s}.mvt-compare[data-mode="venous"] .flow-venous{opacity:1}.mvt-compare[data-mode="venous"] .flow-normal{opacity:.75}.mvt-compare[data-mode="arterial"] .flow-arterial{opacity:1}.mvt-compare[data-mode="arterial"] .flow-normal{opacity:.27}.mvt-pool{stroke:#d54949;stroke-width:11;stroke-linecap:round;stroke-dasharray:11 12;animation:dash 2.8s linear infinite}.mvt-pressure{fill:rgba(213,73,73,.12);stroke:#d54949;stroke-width:6;animation:pressure 1.8s ease-in-out infinite}.mvt-x circle{fill:#d54949}.mvt-return{fill:none;stroke:#d54949;stroke-width:4;stroke-dasharray:9 9}.mvt-pale{fill:#f4f8fb!important;stroke:#c5d4df!important;stroke-width:4}.mvt-x.inlet circle{fill:#d54949}.mvt-logic-strip{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;border-top:1px solid #dae7f0;padding-top:16px}.mvt-logic-strip div{display:flex;flex-direction:column;gap:4px}.logic-key{font-size:10px;color:#7190aa;letter-spacing:.13em}.mvt-logic-strip span{font-size:13px;color:#31506f;font-weight:700}
+.mvt-cascade{display:flex;gap:12px;align-items:stretch;margin-top:44px}.mvt-step{flex:1;background:#fff;border:1px solid #d5e5ef;border-radius:14px;padding:20px;min-height:250px;position:relative;transition:transform .25s,box-shadow .25s}.mvt-step:hover{transform:translateY(-7px);box-shadow:0 16px 30px rgba(30,81,125,.11)}.mvt-step.danger{border-color:#efb8b3;background:#fff9f8}.step-no{font-size:11px;font-weight:900;letter-spacing:.13em;color:#8aa0b2}.mvt-step-icon{font-size:42px;font-weight:700;width:62px;height:62px;border-radius:50%;display:grid;place-items:center;margin:22px 0 18px;background:#e8f6ff;color:var(--mvt-blue)}.mvt-step-icon.pool{background:#fff3d5;color:#c3831d}.mvt-step-icon.swell{background:#f8e9dd;color:#b5673d}.mvt-step-icon.dead{background:#ffe8e7;color:var(--mvt-red)}.mvt-step h3{font-size:21px;margin:0 0 8px;color:var(--mvt-navy)}.mvt-step p{font-size:13px;color:#617b91;line-height:1.5}.mvt-arrow{font-size:30px;color:#85a6c1;align-self:center}.mvt-arrow.danger{color:var(--mvt-red)}.mvt-clinical-lens{display:grid;grid-template-columns:60px 1fr auto;gap:18px;align-items:center;background:var(--mvt-navy);padding:20px 25px;border-radius:14px;color:#fff;margin-top:28px}.lens-icon{width:40px;height:40px;border-radius:50%;display:grid;place-items:center;background:var(--mvt-red);font-size:24px;font-weight:900}.mvt-clinical-lens b{font-size:15px;letter-spacing:.08em}.mvt-clinical-lens p{font-size:14px;opacity:.78;margin:4px 0}.mvt-lens-coda{text-align:right;font-size:12px;font-weight:800;letter-spacing:.05em}.mvt-lens-coda small{opacity:.65;font-weight:500;letter-spacing:0}
+.mvt-cause-stage{display:grid;grid-template-columns:1fr 110px 220px 110px 1fr;align-items:center;max-width:1120px;margin:46px auto 24px}.cause-node{min-height:190px;border:1px solid #d2e3f0;border-radius:16px;background:#fff;text-align:left;padding:24px;cursor:pointer;transition:transform .25s,border .25s,box-shadow .25s;color:var(--mvt-navy)}.cause-node:hover,.cause-node.selected{transform:translateY(-6px);box-shadow:0 17px 30px rgba(31,86,130,.13);border-color:var(--mvt-blue)}.cause-node.systemic.selected{border-color:var(--mvt-red)}.cause-node span,.cause-centre span{font-size:10px;letter-spacing:.16em;font-weight:900;color:var(--mvt-blue);display:block}.cause-node.systemic span{color:var(--mvt-red)}.cause-node b{font-size:20px;display:block;margin:12px 0}.cause-node small{font-size:12px;line-height:1.5;color:#698297}.cause-link{height:3px;background:linear-gradient(90deg,var(--mvt-blue),#b1d8eb);position:relative}.cause-link::after{content:'›';font-size:28px;color:var(--mvt-blue);position:absolute;right:-3px;top:-18px}.cause-link.right{background:linear-gradient(90deg,#f2bfbc,var(--mvt-red))}.cause-link.right::after{color:var(--mvt-red)}.cause-centre{width:190px;height:190px;border-radius:50%;background:var(--mvt-navy);display:flex;flex-direction:column;justify-content:center;align-items:center;color:#fff;box-shadow:0 0 0 18px rgba(37,99,182,.08)}.cause-centre span{color:#9dd8f2}.cause-centre b{font-family:var(--font-display);font-size:42px}.cause-centre small{text-align:center;opacity:.7;font-size:11px}.mvt-cause-detail{min-height:61px;display:flex;flex-direction:column;justify-content:center;text-align:center;background:#fff;border:1px solid #d3e4f0;border-radius:12px;padding:10px 26px;max-width:800px;margin:auto;color:#55728d}.mvt-cause-detail b{font-size:14px;color:var(--mvt-navy)}.mvt-cause-detail span{font-size:13px;margin-top:3px}.mvt-evidence-row{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:22px}.mvt-evidence-row div{border-top:2px solid #a9cde8;padding:12px 2px;display:grid;grid-template-columns:180px 1fr;gap:15px}.mvt-evidence-row b{font-size:12px;color:var(--mvt-blue);letter-spacing:.08em;text-transform:uppercase}.mvt-evidence-row span{font-size:13px;color:#526d85;line-height:1.45}
+.mvt-ct-layout{display:grid;grid-template-columns:.95fr 1.05fr;gap:36px;align-items:center;margin-top:24px}.mvt-ct-frame{height:370px;background:#1c334d;border-radius:24px;position:relative;overflow:hidden;box-shadow:0 18px 40px rgba(18,48,82,.22)}.ct-rings{position:absolute;border-radius:50%;border:30px solid #bec9d2;opacity:.92}.ct-rings.r1{width:380px;height:380px;left:45px;top:-4px}.ct-rings.r2{width:240px;height:240px;left:115px;top:66px;border-color:#61788b}.ct-rings.r3{width:110px;height:110px;left:180px;top:131px;border-color:#dde3e8}.ct-vessel{height:24px;border-radius:20px;background:#dceeff;position:absolute;transform:rotate(32deg);box-shadow:0 0 18px #8fd3ff}.ct-vessel.v1{width:290px;left:115px;top:156px}.ct-vessel.v2{width:180px;left:185px;top:208px;transform:rotate(-35deg)}.ct-clot{width:46px;height:46px;background:#df6565;position:absolute;left:284px;top:178px;border-radius:46% 54% 61% 39%;box-shadow:0 0 18px rgba(229,89,89,.9)}.ct-centre{position:absolute;left:170px;top:145px;text-align:center;font-size:11px;letter-spacing:.1em;line-height:1.4;color:#1c334d;font-weight:900}.ct-centre b{font-size:17px}.ct-target{position:absolute;border:1px solid rgba(255,255,255,.6);border-radius:999px;color:#fff;background:rgba(9,24,40,.7);font:700 12px var(--font-sans);padding:8px 12px;cursor:pointer;transition:transform .2s,background .2s}.ct-target:hover,.ct-target.active{transform:scale(1.06);background:var(--mvt-red)}.ct-target span{display:inline-grid;place-items:center;width:18px;height:18px;background:#fff;color:#19334d;border-radius:50%;margin-right:5px}.t1{top:30px;right:26px}.t2{bottom:36px;right:26px}.t3{bottom:20px;left:20px}.mvt-ct-note{background:#fff;border:1px solid #d3e4ef;padding:30px;border-radius:18px;min-height:245px;display:flex;flex-direction:column;justify-content:center}.note-index{font-size:11px;font-weight:900;letter-spacing:.15em;color:var(--mvt-blue)}.mvt-ct-note h2{font-family:var(--font-display);font-size:32px;margin:10px 0;color:var(--mvt-navy)}.mvt-ct-note p{font-size:15px;line-height:1.55;color:#587289}.mvt-ct-tags{display:flex;gap:7px;flex-wrap:wrap;margin-top:6px}.mvt-ct-tags span{font-size:11px;background:#e9f5fc;color:#37688e;padding:6px 9px;border-radius:999px}.mvt-ct-bottom{margin-top:20px;padding:16px 20px;background:#e3f3ff;border-radius:12px;color:#315978;display:flex;gap:14px;align-items:center}.mvt-ct-bottom b{font-size:14px}.mvt-ct-bottom span{font-size:13px}
+.mvt-gate-wrap{display:grid;grid-template-columns:1fr 1.05fr;gap:40px;margin-top:38px;align-items:center}.mvt-question{font-size:14px;color:#68859d;letter-spacing:.1em;font-weight:800}.gate-choice-grid{display:grid;gap:13px}.gate-choice{text-align:left;padding:20px;background:#fff;border:1px solid #d4e4ef;border-radius:13px;cursor:pointer;transition:.25s;color:var(--mvt-navy)}.gate-choice b,.gate-choice small{display:block}.gate-choice b{font-size:18px;margin-bottom:5px}.gate-choice small{font-size:12px;color:#648096}.gate-choice.active.stable{border-color:var(--mvt-blue);box-shadow:0 12px 26px rgba(35,99,182,.12)}.gate-choice.active.danger{border-color:var(--mvt-red);box-shadow:0 12px 26px rgba(213,73,73,.13)}.mvt-gate-result{border-radius:22px;padding:38px;min-height:315px;color:#fff;display:flex;flex-direction:column;justify-content:center;transition:background .3s}.mvt-gate-result.stable{background:linear-gradient(135deg,#1a4d85,#2763a6)}.mvt-gate-result.danger{background:linear-gradient(135deg,#9a333e,#d54949)}.gate-status{font-size:11px;letter-spacing:.14em;font-weight:900}.status-dot{display:inline-block;width:9px;height:9px;border-radius:50%;background:#91f1d1;margin-right:8px}.danger .status-dot{background:#ffd0c9}.mvt-gate-result h2{font-family:var(--font-display);font-size:34px;line-height:1.1;margin:16px 0}.mvt-gate-result p{font-size:15px;line-height:1.55;opacity:.85}.gate-action{font-size:13px;font-weight:800;border-top:1px solid rgba(255,255,255,.24);padding-top:15px;margin-top:11px}.gate-action span{opacity:.6;padding:0 8px}.mvt-danger-rule{margin-top:22px;text-align:center;font-size:17px;color:#557089}.mvt-danger-rule b{color:var(--mvt-red)}
+.mvt-treatment-grid{display:grid;grid-template-columns:.95fr 1.1fr;gap:42px;margin-top:24px;align-items:center}.mvt-treatment-core{height:355px;background:var(--mvt-navy);border-radius:24px;color:#fff;padding:40px;position:relative;overflow:hidden;display:flex;flex-direction:column;justify-content:center}.mvt-core-ring{position:absolute;width:420px;height:420px;border:1px solid rgba(153,219,255,.35);border-radius:50%;right:-210px;top:-26px;box-shadow:0 0 0 48px rgba(84,198,232,.07),0 0 0 98px rgba(84,198,232,.05)}.core-kicker{font-size:11px;letter-spacing:.17em;color:#9edcf4;font-weight:900}.mvt-treatment-core h2{font-family:var(--font-display);font-size:55px;line-height:.93;margin:18px 0}.mvt-treatment-core p{font-size:15px;line-height:1.5;opacity:.78;max-width:310px}.mvt-mini-button{background:transparent;border:1px solid rgba(255,255,255,.45);color:#fff;border-radius:999px;align-self:flex-start;padding:9px 13px;font:700 12px var(--font-sans);cursor:pointer;z-index:1}.mvt-mini-button:hover{background:rgba(255,255,255,.12)}.mvt-treatment-steps{display:grid;grid-template-columns:1fr 1fr;gap:14px}.mvt-treatment-steps article{border:1px solid #d5e5ef;border-radius:14px;background:#fff;padding:19px;min-height:150px}.mvt-treatment-steps span{font-weight:900;color:var(--mvt-blue);font-size:12px}.mvt-treatment-steps b{display:block;font-size:17px;margin:12px 0 7px;color:var(--mvt-navy)}.mvt-treatment-steps p{font-size:12px;line-height:1.45;color:#607a90}.mvt-reveal-panel{max-height:0;opacity:0;overflow:hidden;transition:max-height .35s,opacity .35s;margin:12px 0 0 0;background:#f0f9ff;color:#42637f;border-radius:11px;padding:0 20px;display:flex;gap:12px}.mvt-reveal-panel.open{max-height:100px;opacity:1;padding:15px 20px}.mvt-reveal-panel b{font-size:13px;color:var(--mvt-navy);white-space:nowrap}.mvt-reveal-panel span{font-size:13px;line-height:1.45}
+.mvt-escalation-flow{display:grid;grid-template-columns:1fr 40px 1.2fr 40px 1fr;gap:10px;align-items:center;margin-top:62px}.mvt-escalation-box{min-height:250px;border-radius:18px;padding:25px;display:flex;flex-direction:column;justify-content:end;transition:transform .25s}.mvt-escalation-box:hover{transform:translateY(-8px)}.mvt-escalation-box.good{background:#e7f8f2;color:#146b54}.mvt-escalation-box.warning{background:#fff3dc;color:#9c6513}.mvt-escalation-box.bad{background:#fff0ef;color:#a0353d}.box-eye{font-size:10px;font-weight:900;letter-spacing:.16em;margin-bottom:auto}.mvt-escalation-box h3{font-family:var(--font-display);font-size:29px;line-height:1.05;margin:16px 0 9px}.mvt-escalation-box p{font-size:13px;line-height:1.48;margin:0}.mvt-flow-arrow{font-size:35px;color:#8ca9bd;text-align:center}.mvt-flow-arrow.danger{color:var(--mvt-red)}.mvt-scope-note{margin-top:24px;border-left:4px solid var(--mvt-red);padding:15px 20px;background:#fff8f7;display:grid;grid-template-columns:130px 1fr;gap:18px}.mvt-scope-note span{font-size:11px;color:var(--mvt-red);letter-spacing:.15em;font-weight:900}.mvt-scope-note p{font-size:14px;color:#5c7182;margin:0;line-height:1.48}
+.mvt-duration-track{display:grid;grid-template-columns:190px 90px 220px 90px 1fr;align-items:center;margin-top:52px}.duration-start,.duration-window{min-height:150px;border-radius:14px;padding:22px;display:flex;flex-direction:column;justify-content:center}.duration-start{background:var(--mvt-navy);color:#fff}.duration-window{background:#fff;border:1px solid #d4e4ef;color:var(--mvt-navy)}.duration-start span,.duration-window span,.duration-option span{font-size:10px;letter-spacing:.13em;font-weight:900;opacity:.65}.duration-start b,.duration-window b{font-family:var(--font-display);font-size:27px;margin:8px 0}.duration-window small{font-size:12px;color:#617c93;line-height:1.45}.duration-line{height:2px;background:#a4cbe2;position:relative}.duration-line::after{content:'›';position:absolute;right:-1px;top:-19px;font-size:30px;color:#6d9fbd}.duration-branch{display:grid;grid-template-columns:1fr 1fr;gap:12px}.duration-option{background:#fff;border:1px solid #d5e4ef;border-radius:14px;text-align:left;padding:20px;min-height:150px;cursor:pointer;transition:.25s;color:var(--mvt-navy)}.duration-option:hover,.duration-option.active{transform:translateY(-5px);box-shadow:0 14px 26px rgba(30,78,120,.1);border-color:var(--mvt-blue)}.duration-option.persistent.active{border-color:var(--mvt-red)}.duration-option.transient span{color:var(--mvt-blue)}.duration-option.persistent span{color:var(--mvt-red)}.duration-option b{display:block;font-size:17px;margin:13px 0 7px}.duration-option small{font-size:12px;line-height:1.45;color:#678096}.mvt-duration-explain{display:grid;grid-template-columns:180px 1fr;gap:16px;margin-top:25px;background:#e8f5fd;border-radius:12px;padding:17px 20px}.mvt-duration-explain b{font-size:14px;color:var(--mvt-navy)}.mvt-duration-explain span{font-size:13px;color:#55738e;line-height:1.45}
+.mvt-filter-row{display:flex;gap:9px;margin:20px 0}.rec-filter{border:1px solid #cfe0eb;background:#fff;border-radius:999px;padding:8px 14px;color:#5c7991;font:800 12px var(--font-sans);cursor:pointer}.rec-filter.active{background:var(--mvt-navy);border-color:var(--mvt-navy);color:#fff}.mvt-rec-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:13px}.rec-card{background:#fff;border:1px solid #d2e3ee;border-radius:14px;padding:19px;min-height:156px;transition:transform .25s,opacity .25s}.rec-card:hover{transform:translateY(-6px);box-shadow:0 13px 23px rgba(30,80,120,.09)}.rec-card.is-hidden{opacity:.12;transform:scale(.96);pointer-events:none}.rec-no{font-size:11px;color:var(--mvt-blue);font-weight:900;letter-spacing:.13em}.rec-card b{display:block;color:var(--mvt-navy);font-size:16px;line-height:1.28;margin:12px 0 7px}.rec-card p{font-size:12px;color:#668096;line-height:1.45}.mvt-grade-key{margin-top:18px;font-size:12px;color:#668096;display:flex;align-items:center;gap:6px}.mvt-grade-key b{color:var(--mvt-navy)}.mvt-grade-key span{height:12px;width:1px;background:#b9cddd;margin:0 8px}.mvt-grade-key em{margin-left:auto;color:#8a5b4a}
+.mvt-algorithm{display:flex;align-items:stretch;gap:12px;margin-top:48px}.algo-node{flex:1;background:#fff;border:1px solid #d5e5ef;border-radius:14px;padding:18px;min-height:220px}.algo-node.primary{background:#e8f7ff;border-color:#77c5e8}.algo-node.danger{background:#fff1ef;border-color:#efc2bd}.algo-node span{font-size:11px;color:var(--mvt-blue);letter-spacing:.12em;font-weight:900}.algo-node.danger span{color:var(--mvt-red)}.algo-node b{display:block;font-size:18px;color:var(--mvt-navy);margin:18px 0 8px}.algo-node p{font-size:12px;color:#617c91;line-height:1.5}.algo-arrow{align-self:center;font-size:25px;color:#8ca9c0}.mvt-takeaway{margin-top:26px;font-family:var(--font-display);font-size:24px;text-align:center;color:var(--mvt-navy)}.mvt-takeaway b{color:var(--mvt-red)}.mvt-reference{font-size:11px;text-align:center;color:#728aa0;margin-top:19px;max-width:900px;margin-left:auto;margin-right:auto;line-height:1.4}
+@keyframes flowPulse{0%,100%{opacity:.35;transform:scale(.65)}50%{opacity:1;transform:scale(1.15)}}@keyframes dotPulse{0%,100%{box-shadow:0 0 0 0 rgba(213,73,73,.35)}50%{box-shadow:0 0 0 8px rgba(213,73,73,0)}}@keyframes dash{to{stroke-dashoffset:-46}}@keyframes pressure{50%{r:104;opacity:.72}}
+@media (max-width:1100px){.mvt-title{font-size:64px!important}.mvt-cover-grid{gap:35px}.mvt-cause-stage{grid-template-columns:1fr 50px 170px 50px 1fr}.cause-centre{width:150px;height:150px}.mvt-duration-track{grid-template-columns:150px 50px 175px 50px 1fr}.mvt-algorithm{gap:6px}.algo-node{padding:12px}.algo-arrow{font-size:18px}}
+
+</style>
+
+</head>
+<body class="tpl-knowledge-arch-blueprint">
+<div class="deck">
+<!-- MVT interactive teaching deck: source content based on supplied ESVS 2025 Chapter 7 / Recommendations 46–56. -->
+
+<section class="slide is-active mvt-cover" data-title="MVT: follow the drain">
+  <div class="kb-grid-bg"></div>
+  <div class="cover-orbit orbit-a"></div><div class="cover-orbit orbit-b"></div>
+  <div class="mvt-topline" data-anim="fade-down"><span class="mvt-mark"></span>Blood flow teaching lab <span class="mvt-divider">/</span> ESVS 2025</div>
+  <div class="mvt-cover-grid">
+    <div>
+      <p class="kb-kicker" data-anim="fade-up">Interactive visual explainer</p>
+      <h1 class="kb-h1 mvt-title" data-anim="rise-in">Mesenteric<br><span class="rust">venous thrombosis</span></h1>
+      <p class="kb-sub mvt-cover-copy" data-anim="fade-up">The bowel has not lost its tap.<br>Its <b>drain is blocked</b>.</p>
+      <button class="mvt-button mvt-go" data-goto="2" data-anim="zoom-pop">Follow the blood flow <span>→</span></button>
+      <p class="mvt-shortcuts">Use <b>← →</b> to navigate · <b>O</b> overview · <b>F</b> fullscreen · click interactive elements</p>
+    </div>
+    <div class="mvt-hero-diagram anim-perspective-zoom" aria-label="Normal and obstructed mesenteric venous drainage diagram">
+      <div class="mvt-hero-label">MENTAL MODEL</div>
+      <svg viewBox="0 0 560 430" role="img" aria-label="A normal drain becomes obstructed by a thrombus">
+        <defs>
+          <linearGradient id="vessel" x1="0" x2="1"><stop stop-color="#2766B5"/><stop offset="1" stop-color="#7BC7FF"/></linearGradient>
+          <filter id="glow"><feGaussianBlur stdDeviation="5" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+        </defs>
+        <path class="mvt-bowel-loop" d="M72 85 C 22 165, 160 176, 92 237 S 166 337, 93 386"/>
+        <path class="mvt-bowel-loop" d="M168 57 C 100 130, 255 170, 183 241 S 266 330, 188 390"/>
+        <path class="mvt-bowel-loop" d="M260 64 C 202 132, 342 163, 280 232 S 356 325, 280 388"/>
+        <path class="mvt-bowel-loop" d="M350 82 C 300 142, 425 175, 365 244 S 425 320, 360 380"/>
+        <path class="mvt-vein" d="M118 95 C 235 118, 280 135, 416 205 C 452 223, 484 246, 526 261"/>
+        <path class="mvt-vein branch" d="M183 175 L 361 195"/><path class="mvt-vein branch" d="M258 250 L 402 224"/><path class="mvt-vein branch" d="M194 327 L 416 254"/>
+        <circle class="flowdot a" cx="177" cy="109" r="8"/><circle class="flowdot b" cx="292" cy="146" r="8"/><circle class="flowdot c" cx="414" cy="205" r="8"/>
+        <g class="mvt-clot" filter="url(#glow)"><circle cx="421" cy="235" r="39"/><path d="M399 213l43 44m0-44l-43 44"/></g>
+        <path class="mvt-stopped" d="M462 248 L 525 263"/>
+        <text x="60" y="35" class="svg-label">BOWEL WALL</text><text x="346" y="165" class="svg-label blue">SMV DRAIN</text><text x="448" y="320" class="svg-label red">THROMBUS</text>
+      </svg>
+      <div class="mvt-hero-caption"><span class="mvt-pulse"></span><b>Blocked outflow</b> raises pressure upstream.</div>
+    </div>
+  </div>
+  <div class="deck-footer"><span class="dim2">Dr Abdul Mannan FRCPath FCPS · Blood🩸Doctor</span><span class="slide-number" data-current="1" data-total="11"></span></div>
+  <div class="notes">Open with the distinction: MVT is venous outflow obstruction. The relevant bedside question is bowel viability, not simply whether a clot is visible.</div>
+</section>
+
+<section class="slide mvt-lab" data-title="Tap versus drain">
+  <div class="kb-grid-bg"></div>
+  <p class="kb-kicker" data-anim="fade-down">01 · Build the mental model</p>
+  <div class="mvt-heading-row"><h1 class="kb-h1" data-anim="fade-up">A blocked <span class="rust">drain</span>, not a blocked tap</h1><div class="mvt-chip">Click either pathway</div></div>
+  <div class="mvt-compare" data-mode="venous">
+    <button class="mvt-mode active" data-mode="venous"><span class="mode-dot venous"></span><b>Venous MVT</b><small>outflow fails</small></button>
+    <button class="mvt-mode" data-mode="arterial"><span class="mode-dot arterial"></span><b>Arterial occlusion</b><small>inflow fails</small></button>
+    <div class="mvt-flow-stage" aria-live="polite">
+      <div class="mvt-flow-caption"><span class="mvt-state-label">VENOUS MVT</span><h2 class="mvt-state-head">Blood enters. Blood cannot leave.</h2><p class="mvt-state-copy">The upstream bowel becomes congested and oedematous; rising venous pressure progressively impairs capillary inflow.</p></div>
+      <svg viewBox="0 0 1100 300" class="mvt-flow-svg" role="img" aria-label="Comparison of normal inflow and venous outflow obstruction">
+        <defs><marker id="arrowBlue" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10Z" fill="#2563B6"/></marker><marker id="arrowRed" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10Z" fill="#D74B4B"/></marker></defs>
+        <g class="flow-normal"><rect x="80" y="95" width="178" height="104" rx="20"/><text x="169" y="143">ARTERIAL</text><text x="169" y="168">INFLOW</text><path d="M266 147H412" marker-end="url(#arrowBlue)"/><circle cx="507" cy="147" r="81"/><text x="507" y="143">BOWEL</text><text x="507" y="168">CAPILLARIES</text><path class="mvt-v-out" d="M596 147H840" marker-end="url(#arrowBlue)"/><rect x="849" y="95" width="178" height="104" rx="20"/><text x="938" y="143">SMV</text><text x="938" y="168">OUTFLOW</text></g>
+        <g class="flow-venous"><path class="mvt-pool" d="M414 147H255"/><circle class="mvt-pressure" cx="507" cy="147" r="94"/><path class="mvt-v-out" d="M596 147H780"/><g class="mvt-x"><circle cx="808" cy="147" r="43"/><path d="M784 122l48 50m0-50l-48 50"/></g><path class="mvt-return" d="M780 200 C675 270, 430 270, 375 202" marker-end="url(#arrowRed)"/></g>
+        <g class="flow-arterial"><g class="mvt-x inlet"><circle cx="337" cy="147" r="43"/><path d="M313 122l48 50m0-50l-48 50"/></g><circle class="mvt-pale" cx="507" cy="147" r="81"/></g>
+      </svg>
+      <div class="mvt-logic-strip"><div><b class="logic-key">FIRST CHANGE</b><span class="logic-one">Congestion + oedema</span></div><div><b class="logic-key">FINAL HAZARD</b><span class="logic-two">Capillary failure → haemorrhagic infarction</span></div><div><b class="logic-key">INITIAL MOVE</b><span class="logic-three">Prompt therapeutic anticoagulation</span></div></div>
+    </div>
+  </div>
+  <div class="deck-footer"><span class="dim2">Mechanism first: follow the direction of failed flow</span><span class="slide-number" data-current="2" data-total="11"></span></div>
+  <div class="notes">Ask learners to predict what happens when venous pressure rises. Emphasise that the arterial supply may initially still be patent.</div>
+</section>
+
+<section class="slide" data-title="How congestion becomes infarction">
+  <div class="kb-grid-bg"></div>
+  <p class="kb-kicker" data-anim="fade-down">02 · Mechanism</p>
+  <h1 class="kb-h1" data-anim="fade-up">Congestion becomes <span class="rust">ischaemia</span> in four moves</h1>
+  <p class="kb-sub">The visual sequence explains why the examination and lactate may initially be deceptively modest.</p>
+  <div class="mvt-cascade anim-stagger-list">
+    <article class="mvt-step"><span class="step-no">01</span><div class="mvt-step-icon in">↓</div><h3>Venous clot</h3><p>SMV obstruction prevents normal drainage.</p></article>
+    <div class="mvt-arrow">→</div>
+    <article class="mvt-step"><span class="step-no">02</span><div class="mvt-step-icon pool">≈</div><h3>Pressure rises</h3><p>Blood pools in mesentery and bowel wall.</p></article>
+    <div class="mvt-arrow">→</div>
+    <article class="mvt-step"><span class="step-no">03</span><div class="mvt-step-icon swell">↗</div><h3>Wall swells</h3><p>Oedema widens the diffusion distance.</p></article>
+    <div class="mvt-arrow danger">→</div>
+    <article class="mvt-step danger"><span class="step-no">04</span><div class="mvt-step-icon dead">×</div><h3>Influx fails</h3><p>Capillary perfusion collapses: infarction may follow.</p></article>
+  </div>
+  <div class="mvt-clinical-lens anim-fade-up"><div class="lens-icon">!</div><div><b>Clinical consequence</b><p>Trend the patient and bowel viability. A single biomarker cannot rule out a dangerous process.</p></div><div class="mvt-lens-coda">PAIN → TENDERNESS → PERITONISM<br><small>an evolution to watch, not a timer to wait out</small></div></div>
+  <div class="deck-footer"><span class="dim2">Congestion is early; irreversible injury is late</span><span class="slide-number" data-current="3" data-total="11"></span></div>
+  <div class="notes">Do not infer safety from an early normal lactate. It is neither a screening test nor a substitute for CT and serial examination.</div>
+</section>
+
+<section class="slide" data-title="Find the driver">
+  <div class="kb-grid-bg"></div>
+  <p class="kb-kicker" data-anim="fade-down">03 · Aetiology drives duration</p>
+  <h1 class="kb-h1" data-anim="fade-up">Seek the <span class="rust">driver</span>, not just the clot</h1>
+  <p class="kb-sub">MVT is often the meeting point of a local abdominal trigger and a systemic prothrombotic tendency.</p>
+  <div class="mvt-cause-stage">
+    <button class="cause-node local" data-cause="local"><span>LOCAL</span><b>Abdominal trigger</b><small>Pancreatitis · IBD · infection · surgery/trauma</small></button>
+    <div class="cause-link"></div><div class="cause-centre"><span>WHY?</span><b>MVT</b><small>thrombus in the drainage pathway</small></div><div class="cause-link right"></div>
+    <button class="cause-node systemic" data-cause="systemic"><span>SYSTEMIC</span><b>Prothrombotic state</b><small>MPN · cancer · liver disease · hormonal exposure</small></button>
+  </div>
+  <div class="mvt-cause-detail" id="cause-detail"><b>Click a side of the constellation</b><span>to see the focused investigation principle.</span></div>
+  <div class="mvt-evidence-row"><div><b>ESVS recommendation</b><span>Investigate malignancy, inflammatory disease, MPN, CMV, SARS-CoV-2 and chronic liver disease.</span></div><div><b>Haematology pearl</b><span>Unexplained splanchnic thrombosis may be the first clue to an MPN: direct testing accordingly.</span></div></div>
+  <div class="deck-footer"><span class="dim2">Aetiology decides recurrence risk and anticoagulation horizon</span><span class="slide-number" data-current="4" data-total="11"></span></div>
+  <div class="notes">Avoid reflex broad thrombophilia panels. Select tests where the result could alter whether anticoagulation can safely stop.</div>
+</section>
+
+<section class="slide" data-title="CT: map clot and bowel">
+  <div class="kb-grid-bg"></div>
+  <p class="kb-kicker" data-anim="fade-down">04 · Diagnose the pattern</p>
+  <div class="mvt-heading-row"><h1 class="kb-h1" data-anim="fade-up">CT answers <span class="rust">three</span> questions</h1><div class="mvt-chip">Click a scan label</div></div>
+  <div class="mvt-ct-layout">
+    <div class="mvt-ct-frame anim-zoom-pop">
+      <div class="ct-rings r1"></div><div class="ct-rings r2"></div><div class="ct-rings r3"></div><div class="ct-vessel v1"></div><div class="ct-vessel v2"></div><div class="ct-clot"></div>
+      <button class="ct-target t1" data-ct="extent"><span>1</span>Clot extent</button><button class="ct-target t2" data-ct="bowel"><span>2</span>Bowel response</button><button class="ct-target t3" data-ct="driver"><span>3</span>Underlying driver</button>
+      <div class="ct-centre">PORTO-<br>MESENTERIC<br><b>MAP</b></div>
+    </div>
+    <div class="mvt-ct-note" id="ct-note"><span class="note-index">CLICK 01–03</span><h2>Begin with the vascular map.</h2><p>Contrast CT with arterial and portal-venous phases is the guideline-recommended test: it confirms MVT and frames urgency.</p><div class="mvt-ct-tags"><span>SMV</span><span>portal vein</span><span>splenic vein</span></div></div>
+  </div>
+  <div class="mvt-ct-bottom"><b>CT is not merely a clot detector.</b><span>It must also show whether bowel is congested, threatened, perforated, or has an alternative cause.</span></div>
+  <div class="deck-footer"><span class="dim2">ESVS 2025 · Recommendation 49 · contrast CT in arterial + portal-venous phases</span><span class="slide-number" data-current="5" data-total="11"></span></div>
+  <div class="notes">Describe CT as both a diagnosis and a staging investigation. Do not use duplex in place of CT to map acute MVT and bowel consequences.</div>
+</section>
+
+<section class="slide" data-title="The urgency gate">
+  <div class="kb-grid-bg"></div>
+  <p class="kb-kicker" data-anim="fade-down">05 · The decision that changes everything</p>
+  <h1 class="kb-h1" data-anim="fade-up">Do we have <span class="rust">threatened bowel?</span></h1>
+  <div class="mvt-gate-wrap">
+    <div class="mvt-gate-copy"><p class="mvt-question">Click the clinical state.</p><div class="gate-choice-grid"><button class="gate-choice stable active" data-gate="stable"><b>No peritonitis</b><small>Pain, but no clear non-viable bowel</small></button><button class="gate-choice danger" data-gate="danger"><b>Peritonitis / perforation / organ failure</b><small>Assume a surgical abdomen until proved otherwise</small></button></div></div>
+    <div class="mvt-gate-result stable" id="gate-result"><div class="gate-status"><span class="status-dot"></span>MEDICAL-FIRST PATH</div><h2>Start anticoagulation and observe the trajectory.</h2><p>Repeated examination is the safety system. Worsening pain, sepsis or new peritonism changes the branch.</p><div class="gate-action">UFH / LMWH <span>→</span> serial assessment <span>→</span> investigate driver</div></div>
+  </div>
+  <div class="mvt-danger-rule">The clot burden alone does not decide surgery. <b>Bowel viability does.</b></div>
+  <div class="deck-footer"><span class="dim2">Clinical deterioration overrides a reassuring-looking early snapshot</span><span class="slide-number" data-current="6" data-total="11"></span></div>
+  <div class="notes">This is the vital branching point. Peritonitis, perforation, organ failure, or suspected non-viable bowel requires urgent surgical assessment.</div>
+</section>
+
+<section class="slide" data-title="Anticoagulation is the first move">
+  <div class="kb-grid-bg"></div>
+  <p class="kb-kicker" data-anim="fade-down">06 · Acute management</p>
+  <h1 class="kb-h1" data-anim="fade-up">First move: <span class="rust">stop propagation</span></h1>
+  <div class="mvt-treatment-grid">
+    <div class="mvt-treatment-core anim-perspective-zoom"><div class="mvt-core-ring"></div><span class="core-kicker">FIRST-LINE</span><h2>UFH or<br>LMWH</h2><p>Start therapeutic anticoagulation promptly unless there is a major contraindication.</p><button class="mvt-mini-button" data-reveal="heparin">Why heparin first?</button></div>
+    <div class="mvt-treatment-steps anim-stagger-list"><article><span>01</span><b>Prevent extension</b><p>Reduce propagation and recurrent thrombosis.</p></article><article><span>02</span><b>Allow recanalisation</b><p>Restore drainage where possible.</p></article><article><span>03</span><b>Protect bowel</b><p>Buy time before venous injury becomes irreversible.</p></article><article><span>04</span><b>Support physiology</b><p>Fluids, analgesia, electrolyte correction, bowel rest.</p></article></div>
+  </div>
+  <div class="mvt-reveal-panel" id="heparin-panel"><b>Why UFH may be preferred when the abdomen is unstable:</b><span>it can be rapidly adjusted and reversed if laparotomy becomes necessary. The choice remains contextual.</span></div>
+  <div class="deck-footer"><span class="dim2">ESVS 2025 · Recommendation 50 · UFH or LMWH first-line</span><span class="slide-number" data-current="7" data-total="11"></span></div>
+  <div class="notes">Supportive treatment matters but is not an alternative to anticoagulation. Antibiotics are situation-specific, not automatically required for uncomplicated MVT.</div>
+</section>
+
+<section class="slide" data-title="When anticoagulation is not enough">
+  <div class="kb-grid-bg"></div>
+  <p class="kb-kicker" data-anim="fade-down">07 · Rescue, not routine</p>
+  <h1 class="kb-h1" data-anim="fade-up">Escalate for <span class="rust">deterioration</span>, not for drama</h1>
+  <div class="mvt-escalation-flow">
+    <div class="mvt-escalation-box good"><span class="box-eye">OBSERVE</span><h3>Improving</h3><p>Continue anticoagulation, support, and causal work-up.</p></div><div class="mvt-flow-arrow">→</div>
+    <div class="mvt-escalation-box warning"><span class="box-eye">RESCUE</span><h3>Worsening on treatment</h3><p>Selected centres may consider catheter-directed thrombolysis and/or thrombectomy.</p></div><div class="mvt-flow-arrow danger">→</div>
+    <div class="mvt-escalation-box bad"><span class="box-eye">SURGERY</span><h3>Peritonitis / necrosis</h3><p>Urgent operative assessment; preserve maximum viable bowel length.</p></div>
+  </div>
+  <div class="mvt-scope-note"><span>BOUNDARY</span><p>Endovascular venous intervention is an <b>IIb, low-certainty rescue option</b> for clinical deterioration during anticoagulation. It does not displace early heparin or surgery for a surgical abdomen.</p></div>
+  <div class="deck-footer"><span class="dim2">ESVS 2025 · Recommendation 51 · rescue escalation in deteriorating patients</span><span class="slide-number" data-current="8" data-total="11"></span></div>
+  <div class="notes">Avoid overselling endovascular therapy. Evidence is mainly observational and bleeding risk needs careful weighting.</div>
+</section>
+
+<section class="slide" data-title="Duration follows the cause">
+  <div class="kb-grid-bg"></div>
+  <p class="kb-kicker" data-anim="fade-down">08 · Long-term prevention</p>
+  <h1 class="kb-h1" data-anim="fade-up">Duration follows the <span class="rust">cause</span></h1>
+  <div class="mvt-duration-track anim-fade-up"><div class="duration-start"><span>ACUTE MVT</span><b>UFH / LMWH</b></div><div class="duration-line"></div><div class="duration-window"><span>BASELINE</span><b>3–6 months</b><small>VKA / LMWH recommended;<br>DOAC may be considered</small></div><div class="duration-line"></div><div class="duration-branch"><button class="duration-option transient active" data-duration="transient"><span>TRANSIENT</span><b>Reassess at 3–6 months</b><small>Consider extension after recurrence/bleeding review.</small></button><button class="duration-option persistent" data-duration="persistent"><span>IDIOPATHIC / PERSISTENT DRIVER</span><b>Indefinite anticoagulation</b><small>Recommended for permanent risk or no clear cause.</small></button></div></div>
+  <div class="mvt-duration-explain" id="duration-explain"><b>Transient trigger</b><span>Do not treat “provoked” as automatic low risk: the guideline asks clinicians to consider extended therapy beyond six months after individual risk review.</span></div>
+  <div class="deck-footer"><span class="dim2">Recurrence risk and bleeding risk must both be made visible</span><span class="slide-number" data-current="9" data-total="11"></span></div>
+  <div class="notes">Use cause as the anchor for duration. Consider renal function, liver disease/varices, APS, absorption, thrombocytopenia and interactions when selecting an oral agent.</div>
+</section>
+
+<section class="slide" data-title="Recommendations explorer">
+  <div class="kb-grid-bg"></div>
+  <p class="kb-kicker" data-anim="fade-down">09 · ESVS 2025 at a glance</p>
+  <div class="mvt-heading-row"><h1 class="kb-h1" data-anim="fade-up">The recommendations, <span class="rust">translated</span></h1><div class="mvt-chip">Filter by domain</div></div>
+  <div class="mvt-filter-row"><button class="rec-filter active" data-filter="all">All</button><button class="rec-filter" data-filter="workup">Work-up</button><button class="rec-filter" data-filter="acute">Acute</button><button class="rec-filter" data-filter="long">Long-term</button></div>
+  <div class="mvt-rec-grid" id="rec-grid">
+    <article class="rec-card workup"><span class="rec-no">46–49</span><b>Find the cause; use biphasic contrast CT.</b><p>Class I recommendations frame the diagnostic work-up.</p></article>
+    <article class="rec-card acute"><span class="rec-no">50</span><b>UFH or LMWH is first-line.</b><p>Prompt anticoagulation unless a major contraindication exists.</p></article>
+    <article class="rec-card acute"><span class="rec-no">51</span><b>Rescue endovascular therapy may be considered.</b><p>Only for deterioration during anticoagulation.</p></article>
+    <article class="rec-card long"><span class="rec-no">52–53</span><b>Plan at least 3–6 months.</b><p>VKA/LMWH recommended; DOAC is an alternative option.</p></article>
+    <article class="rec-card long"><span class="rec-no">54–55</span><b>Consider extension after a transient trigger.</b><p>Decide with bleeding and recurrence risk in view.</p></article>
+    <article class="rec-card long"><span class="rec-no">56</span><b>Indefinite therapy for idiopathic or persistent risk.</b><p>Class I recommendation; evidence remains low certainty.</p></article>
+  </div>
+  <div class="mvt-grade-key"><b>Class I</b> recommended <span></span><b>IIa</b> should be considered <span></span><b>IIb</b> may be considered <em>Most MVT evidence is observational.</em></div>
+  <div class="deck-footer"><span class="dim2">Recommendations 46–56 · ESVS 2025</span><span class="slide-number" data-current="10" data-total="11"></span></div>
+  <div class="notes">Use this slide to explain grading. A Class I recommendation with Level C does not mean high-quality trial evidence; it reflects strong consensus in a rare condition.</div>
+</section>
+
+<section class="slide" data-title="The 30-second algorithm">
+  <div class="kb-grid-bg"></div>
+  <p class="kb-kicker" data-anim="fade-down">10 · Commit the pathway</p>
+  <h1 class="kb-h1" data-anim="fade-up">The <span class="rust">30-second</span> MVT algorithm</h1>
+  <div class="mvt-algorithm anim-stagger-list"><div class="algo-node"><span>01</span><b>Suspect it</b><p>Persistent abdominal pain; remember a normal early lactate does not exclude it.</p></div><div class="algo-arrow">→</div><div class="algo-node"><span>02</span><b>Map it</b><p>Urgent CT with arterial + portal-venous phases.</p></div><div class="algo-arrow">→</div><div class="algo-node primary"><span>03</span><b>Heparinise</b><p>UFH/LMWH plus physiological support.</p></div><div class="algo-arrow">→</div><div class="algo-node danger"><span>04</span><b>Reassess bowel</b><p>Peritonism or deterioration drives surgery/rescue escalation.</p></div><div class="algo-arrow">→</div><div class="algo-node"><span>05</span><b>Explain it</b><p>Find the driver; use it to set duration.</p></div></div>
+  <div class="mvt-takeaway"><span class="mvt-pulse"></span><b>Remember:</b> In MVT, the intervention is anticoagulation; the emergency is non-viable bowel.</div>
+  <div class="mvt-reference">Primary source: Koelemay et al. ESVS 2025 Clinical Practice Guidelines on the Management of Diseases of the Mesenteric and Renal Arteries and Veins. Chapter 7, pp. 186–190; Recommendations 46–56. Supplied guideline.</div>
+  <div class="deck-footer"><span class="dim2">Teaching artefact · clinical judgement remains patient-specific</span><span class="slide-number" data-current="11" data-total="11"></span></div>
+  <div class="notes">Close by reiterating that MVT is a vascular emergency whose initial treatment is usually medical, but serial assessment for bowel injury is non-negotiable.</div>
+</section>
+
+<script>
+(() => {
+  const by = (q, root=document) => root.querySelector(q);
+  const all = (q, root=document) => [...root.querySelectorAll(q)];
+  all('[data-goto]').forEach(b => b.addEventListener('click', () => { location.hash = '#/' + b.dataset.goto; window.dispatchEvent(new HashChangeEvent('hashchange')); }));
+  const modeCopy = {
+    venous: ['VENOUS MVT', 'Blood enters. Blood cannot leave.', 'The upstream bowel becomes congested and oedematous; rising venous pressure progressively impairs capillary inflow.', 'Congestion + oedema', 'Capillary failure → haemorrhagic infarction', 'Prompt therapeutic anticoagulation'],
+    arterial: ['ARTERIAL OCCLUSION', 'Blood cannot enter. Oxygen fails abruptly.', 'The bowel becomes ischaemic through an immediate loss of arterial inflow; revascularisation is the early priority when feasible.', 'Abrupt oxygen debt', 'Transmural infarction', 'Urgent revascularisation pathway']
+  };
+  all('.mvt-mode').forEach(b => b.addEventListener('click', () => {
+    const stage = by('.mvt-compare'); const data = modeCopy[b.dataset.mode];
+    stage.dataset.mode = b.dataset.mode; all('.mvt-mode').forEach(x => x.classList.toggle('active',x===b));
+    by('.mvt-state-label').textContent=data[0]; by('.mvt-state-head').textContent=data[1]; by('.mvt-state-copy').textContent=data[2];
+    by('.logic-one').textContent=data[3]; by('.logic-two').textContent=data[4]; by('.logic-three').textContent=data[5];
+  }));
+  const causeData = {local:['LOCAL TRIGGER','Look directly inside the abdomen.','Search CT and history for pancreatitis, IBD, infection, recent surgery/trauma, or another inflammatory process.'],systemic:['SYSTEMIC TENDENCY','Look for a persistent prothrombotic state.','This includes MPN, cancer and chronic liver disease; select thrombophilia testing only when it could change the stop/continue decision.']};
+  all('.cause-node').forEach(b => b.addEventListener('click',()=>{const d=causeData[b.dataset.cause]; const box=by('#cause-detail'); all('.cause-node').forEach(x=>x.classList.toggle('selected',x===b)); box.innerHTML=`<b>${d[0]} · ${d[1]}</b><span>${d[2]}</span>`;}));
+  const ctData={extent:['01 · CLOT EXTENT','Where is the thrombus?','Define involvement of SMV, portal vein and splenic vein; extension contributes to the vascular map, not by itself to the surgical decision.',['SMV','portal vein','splenic vein']],bowel:['02 · BOWEL RESPONSE','Is the bowel congested or threatened?','Wall thickening, mesenteric oedema, ascites and dilatation help stage congestion; pneumatosis or portal venous gas are concerning later signs.',['wall oedema','dilatation','portal gas']],driver:['03 · UNDERLYING DRIVER','What provoked the thrombosis?','CT also looks for pancreatitis, intra-abdominal inflammation, malignancy, cirrhosis/portal hypertension or another local driver.',['pancreatitis','inflammation','malignancy']]};
+  all('.ct-target').forEach(b=>b.addEventListener('click',()=>{const d=ctData[b.dataset.ct];by('#ct-note').innerHTML=`<span class="note-index">${d[0]}</span><h2>${d[1]}</h2><p>${d[2]}</p><div class="mvt-ct-tags">${d[3].map(x=>`<span>${x}</span>`).join('')}</div>`;all('.ct-target').forEach(x=>x.classList.toggle('active',x===b));}));
+  const gateData={stable:['MEDICAL-FIRST PATH','Start anticoagulation and observe the trajectory.','Repeated examination is the safety system. Worsening pain, sepsis or new peritonism changes the branch.','UFH / LMWH <span>→</span> serial assessment <span>→</span> investigate driver'],danger:['SURGICAL-URGENT PATH','Assume threatened or non-viable bowel until proved otherwise.','Peritonitis, perforation, organ failure or suspected irreversible bowel injury requires urgent surgical assessment.','urgent laparotomy <span>→</span> preserve viable bowel <span>→</span> anticoagulation strategy']};
+  all('.gate-choice').forEach(b=>b.addEventListener('click',()=>{const d=gateData[b.dataset.gate], r=by('#gate-result'); all('.gate-choice').forEach(x=>x.classList.toggle('active',x===b));r.className='mvt-gate-result '+b.dataset.gate;r.innerHTML=`<div class="gate-status"><span class="status-dot"></span>${d[0]}</div><h2>${d[1]}</h2><p>${d[2]}</p><div class="gate-action">${d[3]}</div>`;}));
+  by('[data-reveal="heparin"]').addEventListener('click',()=>by('#heparin-panel').classList.toggle('open'));
+  const duration={transient:['Transient trigger','Do not treat “provoked” as automatic low risk: the guideline asks clinicians to consider extended therapy beyond six months after individual risk review.'],persistent:['Idiopathic or persistent driver','Indefinite anticoagulation is recommended for idiopathic MVT or a permanent prothrombotic risk factor; revisit bleeding risk and treatment suitability longitudinally.']};
+  all('.duration-option').forEach(b=>b.addEventListener('click',()=>{const d=duration[b.dataset.duration]; all('.duration-option').forEach(x=>x.classList.toggle('active',x===b));by('#duration-explain').innerHTML=`<b>${d[0]}</b><span>${d[1]}</span>`;}));
+  all('.rec-filter').forEach(b=>b.addEventListener('click',()=>{const f=b.dataset.filter;all('.rec-filter').forEach(x=>x.classList.toggle('active',x===b));all('.rec-card').forEach(c=>c.classList.toggle('is-hidden',f!=='all'&&!c.classList.contains(f)));}));
+})();
+</script>
+
+</div>
+<script>
+/* html-ppt :: runtime.js
+ * Keyboard-driven deck runtime. Zero dependencies.
+ *
+ * Features:
+ *   ← → / space / PgUp PgDn / Home End  navigation
+ *   F  fullscreen
+ *   S  presenter mode (opens a NEW WINDOW with current/next slide preview + notes + timer)
+ *       The original window stays as audience view, synced via BroadcastChannel.
+ *       Slide previews use CSS transform:scale() at design resolution for pixel-perfect layout.
+ *   N  quick notes overlay (bottom drawer)
+ *   O  slide overview grid
+ *   T  cycle themes (reads data-themes on <html> or <body>)
+ *   A  cycle demo animation on current slide
+ *   URL hash #/N  deep-link to slide N (1-based)
+ *   Progress bar auto-managed
+ */
+(function () {
+  'use strict';
+
+  const ANIMS = ['fade-up','fade-down','fade-left','fade-right','rise-in','drop-in',
+    'zoom-pop','blur-in','glitch-in','typewriter','neon-glow','shimmer-sweep',
+    'gradient-flow','stagger-list','counter-up','path-draw','parallax-tilt',
+    'card-flip-3d','cube-rotate-3d','page-turn-3d','perspective-zoom',
+    'marquee-scroll','kenburns','confetti-burst','spotlight','morph-shape','ripple-reveal'];
+
+  function ready(fn){ if(document.readyState!='loading')fn(); else document.addEventListener('DOMContentLoaded',fn);}
+
+  /* ========== Parse URL for preview-only mode ==========
+   * When loaded as iframe.src = "index.html?preview=3", runtime enters a
+   * locked single-slide mode: only slide N is visible, no chrome, no keys,
+   * no hash updates. This is how the presenter window shows pixel-perfect
+   * previews — by loading the actual deck file in an iframe and telling it
+   * to display only a specific slide.
+   */
+  function getPreviewIdx() {
+    const m = /[?&]preview=(\d+)/.exec(location.search || '');
+    return m ? parseInt(m[1], 10) - 1 : -1;
+  }
+
+  ready(function () {
+    const deck = document.querySelector('.deck');
+    if (!deck) return;
+    const slides = Array.from(deck.querySelectorAll('.slide'));
+    if (!slides.length) return;
+
+    const previewOnlyIdx = getPreviewIdx();
+    const isPreviewMode = previewOnlyIdx >= 0 && previewOnlyIdx < slides.length;
+
+    /* ===== Preview-only mode: show one slide, hide everything else ===== */
+    if (isPreviewMode) {
+      function showSlide(i) {
+        slides.forEach((s, j) => {
+          const active = (j === i);
+          s.classList.toggle('is-active', active);
+          s.style.display = active ? '' : 'none';
+          if (active) {
+            s.style.opacity = '1';
+            s.style.transform = 'none';
+            s.style.pointerEvents = 'auto';
+          }
+        });
+      }
+      showSlide(previewOnlyIdx);
+      /* Hide chrome that the presenter shouldn't see in preview */
+      const hideSel = '.progress-bar, .notes-overlay, .overview, .notes, aside.notes, .speaker-notes';
+      document.querySelectorAll(hideSel).forEach(el => { el.style.display = 'none'; });
+      document.documentElement.setAttribute('data-preview', '1');
+      document.body.setAttribute('data-preview', '1');
+      /* Auto-detect theme base path for theme switching in preview mode */
+      function getPreviewThemeBase() {
+        const base = document.documentElement.getAttribute('data-theme-base');
+        if (base) return base;
+        const tl = document.getElementById('theme-link');
+        if (tl) {
+          const raw = tl.getAttribute('href') || '';
+          const ls = raw.lastIndexOf('/');
+          if (ls >= 0) return raw.substring(0, ls + 1);
+        }
+        return 'assets/themes/';
+      }
+      const previewThemeBase = getPreviewThemeBase();
+
+      /* Listen for postMessage from parent presenter window:
+       *  - preview-goto: switch visible slide WITHOUT reloading
+       *  - preview-theme: switch theme CSS link to match audience window */
+      window.addEventListener('message', function(e) {
+        if (!e.data) return;
+        if (e.data.type === 'preview-goto') {
+          const n = parseInt(e.data.idx, 10);
+          if (n >= 0 && n < slides.length) showSlide(n);
+        } else if (e.data.type === 'preview-theme' && e.data.name) {
+          let link = document.getElementById('theme-link');
+          if (!link) {
+            link = document.createElement('link');
+            link.rel = 'stylesheet';
+            link.id = 'theme-link';
+            document.head.appendChild(link);
+          }
+          link.href = previewThemeBase + e.data.name + '.css';
+          document.documentElement.setAttribute('data-theme', e.data.name);
+        }
+      });
+      /* Signal to parent that preview iframe is ready */
+      try { window.parent && window.parent.postMessage({ type: 'preview-ready' }, '*'); } catch(e) {}
+      return;
+    }
+
+    let idx = 0;
+    const total = slides.length;
+
+    /* ===== BroadcastChannel for presenter sync ===== */
+    const CHANNEL_NAME = 'html-ppt-presenter-' + location.pathname;
+    let bc;
+    try { bc = new BroadcastChannel(CHANNEL_NAME); } catch(e) { bc = null; }
+
+    // Are we running inside the presenter popup? (legacy flag, now unused)
+    const isPresenterWindow = false;
+
+    /* ===== progress bar ===== */
+    let bar = document.querySelector('.progress-bar');
+    if (!bar) {
+      bar = document.createElement('div');
+      bar.className = 'progress-bar';
+      bar.innerHTML = '<span></span>';
+      document.body.appendChild(bar);
+    }
+    const barFill = bar.querySelector('span');
+
+    /* ===== notes overlay (N key) ===== */
+    let notes = document.querySelector('.notes-overlay');
+    if (!notes) {
+      notes = document.createElement('div');
+      notes.className = 'notes-overlay';
+      document.body.appendChild(notes);
+    }
+
+    /* ===== overview grid (O key) ===== */
+    let overview = document.querySelector('.overview');
+    if (!overview) {
+      overview = document.createElement('div');
+      overview.className = 'overview';
+      slides.forEach((s, i) => {
+        const t = document.createElement('div');
+        t.className = 'thumb';
+        // Force 16:9 aspect ratio robustly
+        t.style.padding = '0 0 56.25% 0';
+        t.style.height = '0';
+        t.style.position = 'relative';
+        t.style.overflow = 'hidden';
+
+        const title = s.getAttribute('data-title') ||
+          (s.querySelector('h1,h2,h3')||{}).textContent || ('Slide '+(i+1));
+        
+        // Create a container for the mini-slide
+        const mini = document.createElement('div');
+        mini.className = 'mini-slide';
+        mini.style.position = 'absolute';
+        mini.style.top = '0';
+        mini.style.left = '0';
+        mini.style.width = '1920px';
+        mini.style.height = '1080px';
+        mini.style.transformOrigin = 'top left';
+        mini.style.pointerEvents = 'none';
+        mini.style.background = 'var(--bg)';
+        
+        // Clone the slide content
+        const clone = s.cloneNode(true);
+        clone.className = 'slide is-active'; // force active styles
+        clone.style.position = 'absolute';
+        clone.style.inset = '0';
+        clone.style.transform = 'none';
+        clone.style.opacity = '1';
+        clone.style.padding = '72px 96px'; // ensure padding is kept
+        
+        mini.appendChild(clone);
+        t.appendChild(mini);
+
+        // Add the number and title overlay
+        const overlay = document.createElement('div');
+        overlay.style.position = 'absolute';
+        overlay.style.inset = '0';
+        overlay.style.background = 'linear-gradient(to bottom, rgba(0,0,0,0.2) 0%, transparent 40%, transparent 60%, rgba(0,0,0,0.8) 100%)';
+        overlay.style.color = '#fff';
+        overlay.style.zIndex = '10';
+        overlay.style.pointerEvents = 'none';
+        
+        const n = document.createElement('div');
+        n.className = 'n';
+        n.textContent = i + 1;
+        n.style.position = 'absolute';
+        n.style.top = '12px';
+        n.style.left = '16px';
+        n.style.fontWeight = '700';
+        n.style.fontSize = '16px';
+        n.style.color = '#fff';
+        n.style.textShadow = '0 1px 4px rgba(0,0,0,0.8)';
+        
+        const text = document.createElement('div');
+        text.className = 't';
+        text.textContent = title.trim().slice(0,80);
+        text.style.position = 'absolute';
+        text.style.bottom = '12px';
+        text.style.left = '16px';
+        text.style.right = '16px';
+        text.style.fontWeight = '600';
+        text.style.fontSize = '14px';
+        text.style.color = '#fff';
+        text.style.textShadow = '0 1px 4px rgba(0,0,0,0.8)';
+        
+        overlay.appendChild(n);
+        overlay.appendChild(text);
+        t.appendChild(overlay);
+
+        t.addEventListener('click', () => { go(i); toggleOverview(false); });
+        overview.appendChild(t);
+      });
+      document.body.appendChild(overview);
+    }
+
+    /* ===== navigation ===== */
+    function go(n, fromRemote){
+      n = Math.max(0, Math.min(total-1, n));
+      slides.forEach((s,i) => {
+        s.classList.toggle('is-active', i===n);
+        s.classList.toggle('is-prev', i<n);
+      });
+      idx = n;
+      barFill.style.width = ((n+1)/total*100)+'%';
+      const numEl = document.querySelector('.slide-number');
+      if (numEl) { numEl.setAttribute('data-current', n+1); numEl.setAttribute('data-total', total); }
+
+      // notes (bottom overlay)
+      const note = slides[n].querySelector('.notes, aside.notes, .speaker-notes');
+      notes.innerHTML = note ? note.innerHTML : '';
+
+      // hash (try/catch protects against srcdoc/sandboxed iframes that
+      // forbid replaceState — e.g. Claude.ai inline artifact preview,
+      // chat embeds, anywhere the document origin is not the URL origin)
+      const hashTarget = '#/'+(n+1);
+      if (location.hash !== hashTarget && !isPresenterWindow) {
+        try { history.replaceState(null,'', hashTarget); }
+        catch(e) { /* sandboxed iframe — skip URL update, deck still works */ }
+      }
+
+      // re-trigger entry animations
+      slides[n].querySelectorAll('[data-anim]').forEach(el => {
+        const a = el.getAttribute('data-anim');
+        el.classList.remove('anim-'+a);
+        void el.offsetWidth;
+        el.classList.add('anim-'+a);
+      });
+
+      // counter-up
+      slides[n].querySelectorAll('.counter').forEach(el => {
+        const target = parseFloat(el.getAttribute('data-to')||el.textContent);
+        const dur = parseInt(el.getAttribute('data-dur')||'1200',10);
+        const start = performance.now();
+        const from = 0;
+        function tick(now){
+          const t = Math.min(1,(now-start)/dur);
+          const v = from + (target-from)*(1-Math.pow(1-t,3));
+          el.textContent = (target % 1 === 0) ? Math.round(v) : v.toFixed(1);
+          if (t<1) requestAnimationFrame(tick);
+        }
+        requestAnimationFrame(tick);
+      });
+
+      // Broadcast to other window (audience ↔ presenter)
+      if (!fromRemote && bc) {
+        bc.postMessage({ type: 'go', idx: n });
+      }
+    }
+
+    /* ===== listen for remote navigation / theme changes ===== */
+    if (bc) {
+      bc.onmessage = function(e) {
+        if (!e.data) return;
+        if (e.data.type === 'go' && typeof e.data.idx === 'number') {
+          go(e.data.idx, true);
+        } else if (e.data.type === 'theme' && e.data.name) {
+          /* Sync theme across windows */
+          const i = themes.indexOf(e.data.name);
+          if (i >= 0) themeIdx = i;
+          applyTheme(e.data.name);
+        }
+      };
+    }
+
+    function toggleNotes(force){ notes.classList.toggle('open', force!==undefined?force:!notes.classList.contains('open')); }
+    function toggleOverview(force){
+      const isOpen = force!==undefined ? force : !overview.classList.contains('open');
+      overview.classList.toggle('open', isOpen);
+      if (isOpen) {
+        requestAnimationFrame(() => {
+          const thumbs = overview.querySelectorAll('.thumb');
+          if (thumbs.length) {
+            const scale = thumbs[0].clientWidth / 1920;
+            overview.querySelectorAll('.mini-slide').forEach(m => {
+              m.style.transform = 'scale(' + scale + ')';
+            });
+          }
+        });
+      }
+    }
+
+    /* ========== PRESENTER MODE — Magnetic-card popup window ========== */
+    /* Opens a new window with 4 draggable, resizable cards:
+     *   CURRENT  — iframe(?preview=N)   pixel-perfect preview of current slide
+     *   NEXT     — iframe(?preview=N+1) pixel-perfect preview of next slide
+     *   SCRIPT   — large speaker notes (逐字稿)
+     *   TIMER    — elapsed timer + page counter + controls
+     * Cards remember position/size in localStorage.
+     * Two windows sync via BroadcastChannel.
+     */
+    let presenterWin = null;
+
+    function openPresenterWindow() {
+      if (presenterWin && !presenterWin.closed) {
+        presenterWin.focus();
+        return;
+      }
+
+      // Build absolute URL of THIS deck file (without hash/query)
+      const deckUrl = location.protocol + '//' + location.host + location.pathname;
+
+      // Collect slide titles + notes (HTML strings)
+      const slideMeta = slides.map((s, i) => {
+        const note = s.querySelector('.notes, aside.notes, .speaker-notes');
+        return {
+          title: s.getAttribute('data-title') ||
+            (s.querySelector('h1,h2,h3')||{}).textContent || ('Slide '+(i+1)),
+          notes: note ? note.innerHTML : ''
+        };
+      });
+
+      /* Capture current theme so presenter previews match the audience */
+      const currentTheme = root.getAttribute('data-theme') || (themes[themeIdx] || '');
+      const presenterHTML = buildPresenterHTML(deckUrl, slideMeta, total, idx, CHANNEL_NAME, currentTheme);
+
+      presenterWin = window.open('', 'html-ppt-presenter', 'width=1280,height=820,menubar=no,toolbar=no');
+      if (!presenterWin) {
+        alert('请允许弹出窗口以使用演讲者视图');
+        return;
+      }
+      presenterWin.document.open();
+      presenterWin.document.write(presenterHTML);
+      presenterWin.document.close();
+    }
+
+    function buildPresenterHTML(deckUrl, slideMeta, total, startIdx, channelName, currentTheme) {
+      const metaJSON = JSON.stringify(slideMeta);
+      const deckUrlJSON = JSON.stringify(deckUrl);
+      const channelJSON = JSON.stringify(channelName);
+      const themeJSON = JSON.stringify(currentTheme || '');
+      const storageKey = 'html-ppt-presenter:' + location.pathname;
+
+      // Build the document as a single template string for clarity
+      return `<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<title>Presenter View</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html, body {
+    width: 100%; height: 100%; overflow: hidden;
+    background: #1a1d24;
+    background-image:
+      radial-gradient(circle at 20% 30%, rgba(88,166,255,.04), transparent 50%),
+      radial-gradient(circle at 80% 70%, rgba(188,140,255,.04), transparent 50%);
+    color: #e6edf3;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans SC", sans-serif;
+  }
+  /* Stage: positioned area where cards live */
+  #stage { position: absolute; inset: 0; overflow: hidden; }
+
+  /* Magnetic card */
+  .pcard {
+    position: absolute;
+    background: #0d1117;
+    border: 1px solid rgba(255,255,255,.1);
+    border-radius: 12px;
+    box-shadow: 0 8px 32px rgba(0,0,0,.45), 0 0 0 1px rgba(255,255,255,.02);
+    display: flex; flex-direction: column;
+    overflow: hidden;
+    min-width: 180px; min-height: 100px;
+    transition: box-shadow .2s, border-color .2s;
+  }
+  .pcard.dragging { box-shadow: 0 16px 48px rgba(0,0,0,.6), 0 0 0 2px rgba(88,166,255,.5); border-color: #58a6ff; transition: none; z-index: 9999; }
+  .pcard.resizing { box-shadow: 0 16px 48px rgba(0,0,0,.6), 0 0 0 2px rgba(63,185,80,.5); border-color: #3fb950; transition: none; z-index: 9999; }
+  .pcard:hover { border-color: rgba(88,166,255,.3); }
+
+  /* Card header (drag handle) */
+  .pcard-head {
+    display: flex; align-items: center; gap: 10px;
+    padding: 8px 12px;
+    background: rgba(255,255,255,.04);
+    border-bottom: 1px solid rgba(255,255,255,.06);
+    cursor: move;
+    user-select: none;
+    flex-shrink: 0;
+  }
+  .pcard-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--dot-color, #58a6ff); flex-shrink: 0; }
+  .pcard-title {
+    font-size: 11px; letter-spacing: .15em; text-transform: uppercase;
+    font-weight: 700; color: #8b949e; flex: 1;
+  }
+  .pcard-meta { font-size: 11px; color: #6e7681; }
+
+  /* Card body */
+  .pcard-body { flex: 1; position: relative; overflow: hidden; min-height: 0; }
+
+  /* Preview cards (CURRENT/NEXT) — iframe-based pixel-perfect render */
+  .pcard-preview .pcard-body { background: #000; }
+  .pcard-preview iframe {
+    position: absolute; top: 0; left: 0;
+    width: 1920px; height: 1080px;
+    border: none;
+    transform-origin: top left;
+    pointer-events: none;
+    background: transparent;
+  }
+  .pcard-preview .preview-end {
+    position: absolute; inset: 0;
+    display: flex; align-items: center; justify-content: center;
+    color: #484f58; font-size: 14px; letter-spacing: .12em;
+  }
+
+  /* Notes card */
+  .pcard-notes .pcard-body {
+    padding: 14px 18px;
+    overflow-y: auto;
+    font-size: 18px; line-height: 1.75;
+    color: #d0d7de;
+    font-family: "Noto Sans SC", -apple-system, sans-serif;
+  }
+  .pcard-notes .pcard-body p { margin: 0 0 .7em 0; }
+  .pcard-notes .pcard-body strong { color: #f0883e; }
+  .pcard-notes .pcard-body em { color: #58a6ff; font-style: normal; }
+  .pcard-notes .pcard-body code {
+    font-family: "SF Mono", monospace; font-size: .9em;
+    background: rgba(255,255,255,.08); padding: 1px 6px; border-radius: 4px;
+  }
+  .pcard-notes .empty { color: #484f58; font-style: italic; }
+
+  /* Timer card */
+  .pcard-timer .pcard-body {
+    display: flex; flex-direction: column; gap: 14px;
+    padding: 18px 20px; justify-content: center;
+  }
+  .timer-display {
+    font-family: "SF Mono", "JetBrains Mono", monospace;
+    font-size: 42px; font-weight: 700;
+    color: #3fb950;
+    letter-spacing: .04em;
+    line-height: 1;
+  }
+  .timer-row {
+    display: flex; align-items: center; gap: 12px;
+    font-size: 14px; color: #8b949e;
+  }
+  .timer-row .label { font-size: 10px; letter-spacing: .15em; text-transform: uppercase; color: #6e7681; }
+  .timer-row .val { color: #e6edf3; font-weight: 600; font-family: "SF Mono", monospace; }
+  .timer-controls { display: flex; gap: 8px; flex-wrap: wrap; }
+  .timer-btn {
+    background: rgba(255,255,255,.06);
+    border: 1px solid rgba(255,255,255,.1);
+    color: #e6edf3;
+    padding: 6px 12px;
+    border-radius: 6px;
+    font-size: 12px;
+    cursor: pointer;
+    font-family: inherit;
+  }
+  .timer-btn:hover { background: rgba(88,166,255,.15); border-color: #58a6ff; }
+  .timer-btn:active { transform: translateY(1px); }
+
+  /* Resize handle */
+  .pcard-resize {
+    position: absolute; right: 0; bottom: 0;
+    width: 18px; height: 18px;
+    cursor: nwse-resize;
+    background: linear-gradient(135deg, transparent 50%, rgba(255,255,255,.25) 50%, rgba(255,255,255,.25) 60%, transparent 60%, transparent 70%, rgba(255,255,255,.25) 70%, rgba(255,255,255,.25) 80%, transparent 80%);
+    z-index: 5;
+  }
+  .pcard-resize:hover { background: linear-gradient(135deg, transparent 50%, #58a6ff 50%, #58a6ff 60%, transparent 60%, transparent 70%, #58a6ff 70%, #58a6ff 80%, transparent 80%); }
+
+  /* Bottom hint bar */
+  .hint-bar {
+    position: fixed; bottom: 0; left: 0; right: 0;
+    background: rgba(0,0,0,.6);
+    backdrop-filter: blur(10px);
+    border-top: 1px solid rgba(255,255,255,.08);
+    padding: 6px 16px;
+    font-size: 11px; color: #8b949e;
+    display: flex; gap: 18px; align-items: center;
+    z-index: 1000;
+  }
+  .hint-bar kbd {
+    background: rgba(255,255,255,.08);
+    padding: 1px 6px; border-radius: 3px;
+    font-family: "SF Mono", monospace;
+    font-size: 10px;
+    border: 1px solid rgba(255,255,255,.1);
+    color: #e6edf3;
+  }
+  .hint-bar .reset-layout {
+    margin-left: auto;
+    background: transparent; border: 1px solid rgba(255,255,255,.15);
+    color: #8b949e; padding: 3px 10px; border-radius: 4px;
+    font-size: 11px; cursor: pointer; font-family: inherit;
+  }
+  .hint-bar .reset-layout:hover { background: rgba(248,81,73,.15); border-color: #f85149; color: #f85149; }
+
+  body.is-dragging-card * { user-select: none !important; }
+  body.is-dragging-card iframe { pointer-events: none !important; }
+</style>
+</head>
+<body>
+
+<div id="stage">
+  <div class="pcard pcard-preview" id="card-cur" style="--dot-color:#58a6ff">
+    <div class="pcard-head" data-drag>
+      <span class="pcard-dot"></span>
+      <span class="pcard-title">CURRENT</span>
+      <span class="pcard-meta" id="cur-meta">—</span>
+    </div>
+    <div class="pcard-body"><iframe id="iframe-cur"></iframe></div>
+    <div class="pcard-resize" data-resize></div>
+  </div>
+
+  <div class="pcard pcard-preview" id="card-nxt" style="--dot-color:#bc8cff">
+    <div class="pcard-head" data-drag>
+      <span class="pcard-dot"></span>
+      <span class="pcard-title">NEXT</span>
+      <span class="pcard-meta" id="nxt-meta">—</span>
+    </div>
+    <div class="pcard-body"><iframe id="iframe-nxt"></iframe></div>
+    <div class="pcard-resize" data-resize></div>
+  </div>
+
+  <div class="pcard pcard-notes" id="card-notes" style="--dot-color:#f0883e">
+    <div class="pcard-head" data-drag>
+      <span class="pcard-dot"></span>
+      <span class="pcard-title">SPEAKER SCRIPT · 逐字稿</span>
+    </div>
+    <div class="pcard-body" id="notes-body"></div>
+    <div class="pcard-resize" data-resize></div>
+  </div>
+
+  <div class="pcard pcard-timer" id="card-timer" style="--dot-color:#3fb950">
+    <div class="pcard-head" data-drag>
+      <span class="pcard-dot"></span>
+      <span class="pcard-title">TIMER</span>
+    </div>
+    <div class="pcard-body">
+      <div class="timer-display" id="timer-display">00:00</div>
+      <div class="timer-row">
+        <span class="label">Slide</span>
+        <span class="val" id="timer-count">1 / ${total}</span>
+      </div>
+      <div class="timer-controls">
+        <button class="timer-btn" id="btn-prev">← Prev</button>
+        <button class="timer-btn" id="btn-next">Next →</button>
+        <button class="timer-btn" id="btn-reset">⏱ Reset</button>
+      </div>
+    </div>
+    <div class="pcard-resize" data-resize></div>
+  </div>
+</div>
+
+<div class="hint-bar">
+  <span><kbd>← →</kbd> 翻页</span>
+  <span><kbd>R</kbd> 重置计时</span>
+  <span><kbd>Esc</kbd> 关闭</span>
+  <span style="color:#6e7681">拖动卡片头部移动 · 拖动右下角调整大小</span>
+  <button class="reset-layout" id="reset-layout">重置布局</button>
+</div>
+
+<script>
+(function(){
+  var slideMeta = ${metaJSON};
+  var total = ${total};
+  var idx = ${startIdx};
+  var deckUrl = ${deckUrlJSON};
+  var STORAGE_KEY = ${JSON.stringify(storageKey)};
+  var bc;
+  try { bc = new BroadcastChannel(${channelJSON}); } catch(e) {}
+
+  var iframeCur = document.getElementById('iframe-cur');
+  var iframeNxt = document.getElementById('iframe-nxt');
+  var notesBody = document.getElementById('notes-body');
+  var curMeta = document.getElementById('cur-meta');
+  var nxtMeta = document.getElementById('nxt-meta');
+  var timerDisplay = document.getElementById('timer-display');
+  var timerCount = document.getElementById('timer-count');
+
+  /* ===== Default card layout ===== */
+  function defaultLayout() {
+    var w = window.innerWidth;
+    var h = window.innerHeight - 36; /* leave room for hint bar */
+    return {
+      'card-cur':   { x: 16,        y: 16,            w: Math.round(w*0.55) - 24, h: Math.round(h*0.62) - 16 },
+      'card-nxt':   { x: Math.round(w*0.55) + 8, y: 16, w: w - Math.round(w*0.55) - 24, h: Math.round(h*0.42) - 16 },
+      'card-notes': { x: Math.round(w*0.55) + 8, y: Math.round(h*0.42) + 8, w: w - Math.round(w*0.55) - 24, h: h - Math.round(h*0.42) - 16 },
+      'card-timer': { x: 16,        y: Math.round(h*0.62) + 8, w: Math.round(w*0.55) - 24, h: h - Math.round(h*0.62) - 16 }
+    };
+  }
+
+  /* ===== Apply / save / restore layout ===== */
+  function applyLayout(layout) {
+    Object.keys(layout).forEach(function(id){
+      var el = document.getElementById(id);
+      var l = layout[id];
+      if (el && l) {
+        el.style.left = l.x + 'px';
+        el.style.top = l.y + 'px';
+        el.style.width = l.w + 'px';
+        el.style.height = l.h + 'px';
+      }
+    });
+    rescaleAll();
+  }
+  function readLayout() {
+    try {
+      var saved = localStorage.getItem(STORAGE_KEY);
+      if (saved) return JSON.parse(saved);
+    } catch(e) {}
+    return defaultLayout();
+  }
+  function saveLayout() {
+    var layout = {};
+    ['card-cur','card-nxt','card-notes','card-timer'].forEach(function(id){
+      var el = document.getElementById(id);
+      if (el) {
+        layout[id] = {
+          x: parseInt(el.style.left,10) || 0,
+          y: parseInt(el.style.top,10) || 0,
+          w: parseInt(el.style.width,10) || 300,
+          h: parseInt(el.style.height,10) || 200
+        };
+      }
+    });
+    try { localStorage.setItem(STORAGE_KEY, JSON.stringify(layout)); } catch(e) {}
+  }
+
+  /* ===== iframe rescale to fit card body ===== */
+  function rescaleIframe(iframe) {
+    if (!iframe || iframe.style.display === 'none') return;
+    var body = iframe.parentElement;
+    var cw = body.clientWidth, ch = body.clientHeight;
+    if (!cw || !ch) return;
+    var s = Math.min(cw / 1920, ch / 1080);
+    iframe.style.transform = 'scale(' + s + ')';
+    /* Center the scaled iframe in the body */
+    var sw = 1920 * s, sh = 1080 * s;
+    iframe.style.left = Math.max(0, (cw - sw) / 2) + 'px';
+    iframe.style.top = Math.max(0, (ch - sh) / 2) + 'px';
+  }
+  function rescaleAll() {
+    rescaleIframe(iframeCur);
+    rescaleIframe(iframeNxt);
+  }
+  window.addEventListener('resize', rescaleAll);
+
+  /* ===== Drag (move card by header) ===== */
+  document.querySelectorAll('[data-drag]').forEach(function(handle){
+    handle.addEventListener('mousedown', function(e){
+      if (e.button !== 0) return;
+      var card = handle.closest('.pcard');
+      if (!card) return;
+      e.preventDefault();
+      card.classList.add('dragging');
+      document.body.classList.add('is-dragging-card');
+      var startX = e.clientX, startY = e.clientY;
+      var startL = parseInt(card.style.left,10) || 0;
+      var startT = parseInt(card.style.top,10)  || 0;
+      function onMove(ev){
+        var nx = Math.max(0, Math.min(window.innerWidth - 100, startL + ev.clientX - startX));
+        var ny = Math.max(0, Math.min(window.innerHeight - 50, startT + ev.clientY - startY));
+        card.style.left = nx + 'px';
+        card.style.top = ny + 'px';
+      }
+      function onUp(){
+        card.classList.remove('dragging');
+        document.body.classList.remove('is-dragging-card');
+        document.removeEventListener('mousemove', onMove);
+        document.removeEventListener('mouseup', onUp);
+        saveLayout();
+      }
+      document.addEventListener('mousemove', onMove);
+      document.addEventListener('mouseup', onUp);
+    });
+  });
+
+  /* ===== Resize (drag bottom-right corner) ===== */
+  document.querySelectorAll('[data-resize]').forEach(function(handle){
+    handle.addEventListener('mousedown', function(e){
+      if (e.button !== 0) return;
+      var card = handle.closest('.pcard');
+      if (!card) return;
+      e.preventDefault(); e.stopPropagation();
+      card.classList.add('resizing');
+      document.body.classList.add('is-dragging-card');
+      var startX = e.clientX, startY = e.clientY;
+      var startW = parseInt(card.style.width,10)  || card.offsetWidth;
+      var startH = parseInt(card.style.height,10) || card.offsetHeight;
+      function onMove(ev){
+        var nw = Math.max(180, startW + ev.clientX - startX);
+        var nh = Math.max(100, startH + ev.clientY - startY);
+        card.style.width = nw + 'px';
+        card.style.height = nh + 'px';
+        if (card.querySelector('iframe')) rescaleIframe(card.querySelector('iframe'));
+      }
+      function onUp(){
+        card.classList.remove('resizing');
+        document.body.classList.remove('is-dragging-card');
+        document.removeEventListener('mousemove', onMove);
+        document.removeEventListener('mouseup', onUp);
+        rescaleAll();
+        saveLayout();
+      }
+      document.addEventListener('mousemove', onMove);
+      document.addEventListener('mouseup', onUp);
+    });
+  });
+
+  /* ===== Preview iframe ready tracking =====
+   * Each iframe loads the deck ONCE with ?preview=1 on init. Subsequent
+   * slide changes are sent via postMessage('preview-goto') so the iframe
+   * just toggles visibility of a different .slide — no reload, no flicker.
+   */
+  var iframeReady = { cur: false, nxt: false };
+  var currentTheme = ${themeJSON};
+  window.addEventListener('message', function(e) {
+    if (!e.data || e.data.type !== 'preview-ready') return;
+    var iframe = null;
+    if (e.source === iframeCur.contentWindow) {
+      iframeReady.cur = true;
+      iframe = iframeCur;
+      postPreviewGoto(iframeCur, idx);
+    } else if (e.source === iframeNxt.contentWindow) {
+      iframeReady.nxt = true;
+      iframe = iframeNxt;
+      postPreviewGoto(iframeNxt, idx + 1 < total ? idx + 1 : idx);
+    }
+    /* Sync current theme to the iframe */
+    if (iframe && currentTheme) {
+      try { iframe.contentWindow.postMessage({ type: 'preview-theme', name: currentTheme }, '*'); } catch(err) {}
+    }
+    if (iframe) rescaleIframe(iframe);
+  });
+
+  function postPreviewGoto(iframe, n) {
+    try {
+      iframe.contentWindow.postMessage({ type: 'preview-goto', idx: n }, '*');
+    } catch(e) {}
+  }
+
+  /* ===== Update content =====
+   * Smooth (no-reload) navigation: send postMessage to iframes instead of
+   * resetting src. Iframes stay loaded, just switch visible .slide.
+   */
+  function update(n) {
+    n = Math.max(0, Math.min(total - 1, n));
+    idx = n;
+
+    /* Current preview — postMessage (smooth) */
+    if (iframeReady.cur) postPreviewGoto(iframeCur, n);
+    curMeta.textContent = (n + 1) + '/' + total;
+
+    /* Next preview */
+    if (n + 1 < total) {
+      iframeNxt.style.display = '';
+      var endEl = document.querySelector('#card-nxt .preview-end');
+      if (endEl) endEl.remove();
+      if (iframeReady.nxt) postPreviewGoto(iframeNxt, n + 1);
+      nxtMeta.textContent = (n + 2) + '/' + total;
+    } else {
+      iframeNxt.style.display = 'none';
+      var body = document.querySelector('#card-nxt .pcard-body');
+      if (body && !body.querySelector('.preview-end')) {
+        var end = document.createElement('div');
+        end.className = 'preview-end';
+        end.textContent = '— END OF DECK —';
+        body.appendChild(end);
+      }
+      nxtMeta.textContent = 'END';
+    }
+
+    /* Notes */
+    var note = slideMeta[n].notes;
+    notesBody.innerHTML = note || '<span class="empty">（这一页还没有逐字稿）</span>';
+
+    /* Timer count */
+    timerCount.textContent = (n + 1) + ' / ' + total;
+  }
+
+  /* ===== Timer ===== */
+  var tStart = Date.now();
+  setInterval(function(){
+    var s = Math.floor((Date.now() - tStart) / 1000);
+    var mm = String(Math.floor(s/60)).padStart(2,'0');
+    var ss = String(s%60).padStart(2,'0');
+    timerDisplay.textContent = mm + ':' + ss;
+  }, 1000);
+  function resetTimer(){ tStart = Date.now(); timerDisplay.textContent = '00:00'; }
+
+  /* ===== BroadcastChannel sync ===== */
+  if (bc) {
+    bc.onmessage = function(e){
+      if (!e.data) return;
+      if (e.data.type === 'go') update(e.data.idx);
+      else if (e.data.type === 'theme' && e.data.name) {
+        currentTheme = e.data.name;
+        /* Forward theme change to preview iframes */
+        [iframeCur, iframeNxt].forEach(function(iframe){
+          try {
+            iframe.contentWindow.postMessage({ type: 'preview-theme', name: e.data.name }, '*');
+          } catch(err) {}
+        });
+      }
+    };
+  }
+  function go(n) {
+    update(n);
+    if (bc) bc.postMessage({ type: 'go', idx: idx });
+  }
+
+  /* ===== Buttons ===== */
+  document.getElementById('btn-prev').addEventListener('click', function(){ go(idx - 1); });
+  document.getElementById('btn-next').addEventListener('click', function(){ go(idx + 1); });
+  document.getElementById('btn-reset').addEventListener('click', resetTimer);
+  document.getElementById('reset-layout').addEventListener('click', function(){
+    if (confirm('恢复默认卡片布局？')) {
+      try { localStorage.removeItem(STORAGE_KEY); } catch(e){}
+      applyLayout(defaultLayout());
+    }
+  });
+
+  /* ===== Keyboard ===== */
+  document.addEventListener('keydown', function(e){
+    if (e.metaKey || e.ctrlKey || e.altKey) return;
+    switch(e.key) {
+      case 'ArrowRight': case ' ': case 'PageDown': go(idx + 1); e.preventDefault(); break;
+      case 'ArrowLeft':  case 'PageUp':   go(idx - 1); e.preventDefault(); break;
+      case 'Home': go(0); break;
+      case 'End':  go(total - 1); break;
+      case 'r': case 'R': resetTimer(); break;
+      case 'Escape': window.close(); break;
+    }
+  });
+
+  /* ===== Iframe load → rescale (catches initial size) ===== */
+  iframeCur.addEventListener('load', function(){ rescaleIframe(iframeCur); });
+  iframeNxt.addEventListener('load', function(){ rescaleIframe(iframeNxt); });
+
+  /* ===== Init =====
+   * Load each iframe ONCE with the deck file. After they post
+   * 'preview-ready', all subsequent navigation is via postMessage
+   * (smooth, no reload, no flicker).
+   */
+  applyLayout(readLayout());
+  iframeCur.src = deckUrl + '?preview=' + (idx + 1);
+  if (idx + 1 < total) iframeNxt.src = deckUrl + '?preview=' + (idx + 2);
+  /* Initialize notes/timer/count without touching iframes */
+  notesBody.innerHTML = slideMeta[idx].notes || '<span class="empty">（这一页还没有逐字稿）</span>';
+  curMeta.textContent = (idx + 1) + '/' + total;
+  nxtMeta.textContent = (idx + 2) + '/' + total;
+  timerCount.textContent = (idx + 1) + ' / ' + total;
+})();
+</` + `script>
+</body></html>`;
+    }
+
+    function fullscreen(){ const el=document.documentElement;
+      if (!document.fullscreenElement) el.requestFullscreen&&el.requestFullscreen();
+      else document.exitFullscreen&&document.exitFullscreen();
+    }
+
+    // theme cycling
+    const root = document.documentElement;
+    const themesAttr = root.getAttribute('data-themes') || document.body.getAttribute('data-themes');
+    const themes = themesAttr ? themesAttr.split(',').map(s=>s.trim()).filter(Boolean) : [];
+    let themeIdx = 0;
+
+    // Auto-detect theme base path from existing <link id="theme-link">
+    let themeBase = root.getAttribute('data-theme-base');
+    if (!themeBase) {
+      const existingLink = document.getElementById('theme-link');
+      if (existingLink) {
+        // el.getAttribute('href') gives the raw relative path written in HTML
+        const rawHref = existingLink.getAttribute('href') || '';
+        const lastSlash = rawHref.lastIndexOf('/');
+        themeBase = lastSlash >= 0 ? rawHref.substring(0, lastSlash + 1) : 'assets/themes/';
+      } else {
+        themeBase = 'assets/themes/';
+      }
+    }
+
+    function applyTheme(name) {
+      let link = document.getElementById('theme-link');
+      if (!link) {
+        link = document.createElement('link');
+        link.rel = 'stylesheet';
+        link.id = 'theme-link';
+        document.head.appendChild(link);
+      }
+      link.href = themeBase + name + '.css';
+      root.setAttribute('data-theme', name);
+      const ind = document.querySelector('.theme-indicator');
+      if (ind) ind.textContent = name;
+    }
+    function cycleTheme(fromRemote){
+      if (!themes.length) return;
+      themeIdx = (themeIdx+1) % themes.length;
+      const name = themes[themeIdx];
+      applyTheme(name);
+      /* Broadcast to other window (audience ↔ presenter) */
+      if (!fromRemote && bc) bc.postMessage({ type: 'theme', name: name });
+    }
+
+    // animation cycling on current slide
+    let animIdx = 0;
+    function cycleAnim(){
+      animIdx = (animIdx+1) % ANIMS.length;
+      const a = ANIMS[animIdx];
+      const target = slides[idx].querySelector('[data-anim-target]') || slides[idx];
+      ANIMS.forEach(x => target.classList.remove('anim-'+x));
+      void target.offsetWidth;
+      target.classList.add('anim-'+a);
+      target.setAttribute('data-anim', a);
+      const ind = document.querySelector('.anim-indicator');
+      if (ind) ind.textContent = a;
+    }
+
+    document.addEventListener('keydown', function (e) {
+      if (e.metaKey||e.ctrlKey||e.altKey) return;
+      switch (e.key) {
+        case 'ArrowRight': case ' ': case 'PageDown': case 'Enter': go(idx+1); e.preventDefault(); break;
+        case 'ArrowLeft': case 'PageUp': case 'Backspace': go(idx-1); e.preventDefault(); break;
+        case 'Home': go(0); break;
+        case 'End': go(total-1); break;
+        case 'f': case 'F': fullscreen(); break;
+        case 's': case 'S': openPresenterWindow(); break;
+        case 'n': case 'N': toggleNotes(); break;
+        case 'o': case 'O': toggleOverview(); break;
+        case 't': case 'T': cycleTheme(); break;
+        case 'a': case 'A': cycleAnim(); break;
+        case 'Escape': toggleOverview(false); toggleNotes(false); break;
+      }
+    });
+
+    // hash deep-link
+    function fromHash(){
+      const m = /^#\/(\d+)/.exec(location.hash||'');
+      if (m) go(Math.max(0, parseInt(m[1],10)-1));
+    }
+    window.addEventListener('hashchange', fromHash);
+    fromHash();
+    go(idx);
+  });
+})();
+
+</script>
+</body>
+</html>
